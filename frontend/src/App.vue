@@ -1,12 +1,19 @@
 <template>
   <div id="app">
-    <div id="nav">
-
-    </div>
-    <router-view/>
+    <site></site>
   </div>
 </template>
 
-<style>
-
-</style>
+<script>
+  import site from './components/site.vue'
+  export default {
+    name: 'app',
+    data () {
+      return {
+      }
+    },
+    components:{
+      site,
+    }
+  }
+</script>
