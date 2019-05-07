@@ -24,8 +24,8 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('permission_id');
             $table->unsignedInteger('school_id');
             $table->unsignedInteger('subject_id');
-            $table->unsignedInteger('image');
-            $table->unsignedInteger('is_subscribed');
+            $table->string('image');
+            $table->boolean('is_subscribed');
 
         });
     }

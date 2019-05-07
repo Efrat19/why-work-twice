@@ -6,6 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateHomeworksTable extends Migration
 {
+
     /**
      * Run the migrations.
      *
@@ -16,6 +17,13 @@ class CreateHomeworksTable extends Migration
         Schema::create('homeworks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('school_id');
+            $table->unsignedInteger('subject_id');
+            $table->string('source');
+            $table->string('description')->nullable();
+            $table->unsignedInteger('views')->nullable();
+            $table->unsignedInteger('downloads')->nullable();
         });
     }
 
