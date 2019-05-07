@@ -18,6 +18,8 @@ class CreatePermissionsTable extends Migration
             $table->timestamps();
             $table->string('name');
         });
+
+       $this->insertBasic();
     }
 
     /**
@@ -28,5 +30,23 @@ class CreatePermissionsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('permissions');
+    }
+
+    private function insertBasic(){
+        DB::table('permissions')->insert(
+            array(
+                'name' => 'user',
+            )
+        );
+        DB::table('permissions')->insert(
+            array(
+                'name' => 'moderator',
+            )
+        );
+        DB::table('permissions')->insert(
+            array(
+                'name' => 'admin',
+            )
+        );
     }
 }

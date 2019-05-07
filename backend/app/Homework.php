@@ -4,6 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
+
+/**
+ * Class Homework
+ * @package App
+ *
+ * @param name string
+ */
 class Homework extends Model
 {
     //

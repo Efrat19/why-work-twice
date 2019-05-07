@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->unsignedInteger('permission_id');
+            $table->unsignedInteger('permission_id')->default(1);
             $table->unsignedInteger('school_id');
             $table->unsignedInteger('subject_id');
             $table->string('image');
