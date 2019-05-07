@@ -21,6 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedInteger('permission_id');
+            $table->unsignedInteger('school_id');
+            $table->unsignedInteger('subject_id');
+            $table->unsignedInteger('image');
+            $table->unsignedInteger('is_subscribed');
+
         });
     }
 

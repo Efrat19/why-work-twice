@@ -1,6 +1,8 @@
 <template lang="html">
-  <navbar></navbar>
-  <router-view></router-view>
+  <div class="grid-container">
+    <navbar></navbar>
+    <router-view></router-view>
+  </div>
 </template>
 
 <script lang="js">
