@@ -18,7 +18,7 @@ class CreateRatesTable extends Migration
             $table->timestamps();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('homework_id');
-            $table->unsignedInteger('value')->max(1)->min(10);
+            $table->unsignedInteger('value')->max(10)->min(1)->nullable();
         });
     }
 
