@@ -1,9 +1,16 @@
-import store from "../store";
+import store from '../store';
+import apiService from '../services/apiService';
 
 export default {
+    data() {
+        return {
+            store,
+            apiService,
+        }
+    },
     methods: {
         close(popup){
-            store.dispatch('close', popup);
+            this.store.dispatch('close', popup);
         }
     }
 }

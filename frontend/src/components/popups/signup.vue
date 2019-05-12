@@ -33,38 +33,33 @@
 
 <script lang="js">
   import popupContent from '../../mixins/popupContent';
-  import axios from 'axios';
   export default {
     name: 'signup',
     mixins: [popupContent],
     props: [],
-    mounted() {
-      console.log(process.env.VUE_APP_ROOT_API);
-      console.log(process.env);
-    },
     data() {
       return {
-        name: '',
-        email: '',
-        subject: '',
-        school: '',
-        password: '',
-        confirmPassword: '',
+        name: `efrat${Math.random().toString(36).substr(2, 5)}`,
+        email: `efrat@yad2.co.il${Math.random().toString(36).substr(2, 5)}`,
+        subject: 'sdfhgd',
+        school: 'thszdf',
+        password: '11111111',
+        confirmPassword: '11111111',
         success: false,
-      }
+      };
     },
     methods: {
-      submit(){
-        const data = {
+      async submit(){
+        const form = {
+          name: this.name,
           email: this.email,
+          subject: this.subject,
+          school: this.school,
           password: this.password,
+          password_confirmation: this.confirmPassword,
         };
-        axios.post(`http://0.0.0.0:8000/register`, {
-          data,
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        }).then(this.onSuccess);
+        const response = await this.apiService.signUp(form);
+        this.onSuccess(response);
       },
       onSuccess(){
         this.success = true;

@@ -13,6 +13,7 @@
 <script lang="js">
   import navbar from './navbar.vue';
   import popup from './popup.vue';
+  import apiService from '../services/apiService';
   import store from '../store'
   export default  {
     name: 'site',
@@ -21,14 +22,15 @@
       navbar,
         popup,
     },
-    mounted() {
-
-    },
     data() {
       return {
+          apiService,
           store,
       }
     },
+      mounted() {
+          this.apiService.getAuthStatus();
+      },
     methods: {
 
     },

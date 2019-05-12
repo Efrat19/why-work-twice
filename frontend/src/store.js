@@ -5,23 +5,48 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    popupName: false,
-    isOpen: false,
+    csrf: false,
+    auth: {
+      isSigned: false,
+      userId: false,
+    },
+    popup: {
+      name: false,
+      isOpen: false,
+    },
   },
   getters:{
     isOpen(state){
-      return state.isOpen;
+      return state.popup.isOpen;
     },
     popupName(state){
-      return state.popupName;
+      return state.popup.name;
+    },
+    getCsrf(state){
+      return state.csrf;
+    },
+    getUserId(state){
+      return state.auth.userId;
+    },
+    getIsSigned(state){
+      return state.auth.isSigned;
     },
   },
   mutations: {
     setPopupName(state, popup){
-      state.popupName = popup;
+      state.popup.name = popup;
     },
     togglePopup(state, isOpen){
-      state.isOpen = isOpen;
+      state.popup.isOpen = isOpen;
+    },
+    setCsrf(state, csrf){
+      state.csrf = csrf;
+    },
+    setUserId(state, userId){
+      state.auth.userId = userId;
+    },
+    setIsSigned(state, isSigned){
+      state.auth.isSigned = isSigned;
     },
   },
   actions: {
@@ -31,6 +56,15 @@ export default new Vuex.Store({
     },
     close({commit}){
       commit('togglePopup', false);
+    },
+    setCsrf({commit}, csrf){
+      commit('setCsrf', csrf);
+    },
+    setUserId({commit}, userId){
+      commit('setUserId', userId);
+    },
+    setIsSigned({commit}, isSigned){
+      commit('setIsSigned', isSigned);
     },
   },
 });
