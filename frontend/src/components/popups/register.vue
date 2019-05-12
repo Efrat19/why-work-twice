@@ -45,7 +45,6 @@
         school: 'thszdf',
         password: '11111111',
         confirmPassword: '11111111',
-        success: false,
       };
     },
     methods: {
@@ -58,16 +57,11 @@
           password: this.password,
           password_confirmation: this.confirmPassword,
         };
-        const response = await this.apiService.signUp(form);
+        const response = await this.apiService.register(form);
         this.onSuccess(response);
-      },
-      onSuccess(){
-        this.success = true;
-        window.setTimeout(this.close, 1);
       },
     },
     computed: {
-
     }
   }
 </script>

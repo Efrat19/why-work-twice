@@ -32,16 +32,13 @@
       }
     },
     methods: {
-      submit(){
-          const data = {
-              email: this.email,
-              password: this.password,
-          };
-        axios.post(`${process.env.VUE_APP_ROOT_API}/login`, data).then(this.onSuccess);
-      },
-        onSuccess(){
-          this.success = true;
-            window.setTimeout(this.close, 1);
+        async submit(){
+            const form = {
+                email: this.email,
+                password: this.password,
+            };
+            const response = await this.apiService.login(form);
+            this.onSuccess(response);
         },
     },
     computed: {
