@@ -75,7 +75,7 @@ class RegisterController extends Controller
             'subject_id' => $subject->id,
             'password' => Hash::make($data['password']),
         ]);
-//        dd(session()->all());
+        auth()->loginUsingId($user->id, true);
         return $user;
     }
 }
