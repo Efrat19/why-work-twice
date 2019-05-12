@@ -32,7 +32,7 @@
 </template>
 
 <script lang="js">
-  import popupContent from '../../mixins/popupContent'
+  import popupContent from '../../mixins/popupContent';
   import axios from 'axios';
   export default {
     name: 'signup',
@@ -59,7 +59,12 @@
           email: this.email,
           password: this.password,
         };
-        axios.post(`${process.env.VUE_APP_ROOT_API}/register`, data).then(this.onSuccess);
+        axios.post(`http://0.0.0.0:8000/register`, {
+          data,
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }).then(this.onSuccess);
       },
       onSuccess(){
         this.success = true;
