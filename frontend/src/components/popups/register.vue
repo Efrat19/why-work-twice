@@ -1,5 +1,5 @@
 <template lang="html">
-  <section class="signup">
+  <section class="register">
     <form>
       <div class="form-group">
         <label for="exampleInputName">Whats Your Name?</label>
@@ -34,7 +34,7 @@
 <script lang="js">
   import popupContent from '../../mixins/popupContent';
   export default {
-    name: 'signup',
+    name: 'register',
     mixins: [popupContent],
     props: [],
     data() {
@@ -73,7 +73,7 @@
 </script>
 
 <style scoped lang="scss">
-  .signup {
+  .register {
 
   }
 </style>

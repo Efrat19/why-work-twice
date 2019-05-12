@@ -1,5 +1,5 @@
 <template lang="html">
-<div class="signin">
+<div class="login">
     <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
@@ -19,7 +19,7 @@
     import popupContent from '../../mixins/popupContent'
   import axios from 'axios';
   export default {
-    name: 'signin',
+    name: 'login',
       mixins: [popupContent],
     props: [],
     mounted() {
@@ -51,7 +51,7 @@
 </script>
 
 <style scoped lang="scss">
-  .signin {
+  .login {
 
   }
 </style>

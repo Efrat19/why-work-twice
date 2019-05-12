@@ -5,10 +5,9 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    csrf: false,
     auth: {
       isSigned: false,
-      userId: false,
+      user: {},
     },
     popup: {
       name: false,
@@ -22,11 +21,8 @@ export default new Vuex.Store({
     popupName(state){
       return state.popup.name;
     },
-    getCsrf(state){
-      return state.csrf;
-    },
-    getUserId(state){
-      return state.auth.userId;
+    getUser(state){
+      return state.auth.user;
     },
     getIsSigned(state){
       return state.auth.isSigned;
@@ -39,11 +35,8 @@ export default new Vuex.Store({
     togglePopup(state, isOpen){
       state.popup.isOpen = isOpen;
     },
-    setCsrf(state, csrf){
-      state.csrf = csrf;
-    },
-    setUserId(state, userId){
-      state.auth.userId = userId;
+    setUser(state, user){
+      state.auth.user = user;
     },
     setIsSigned(state, isSigned){
       state.auth.isSigned = isSigned;
@@ -57,11 +50,8 @@ export default new Vuex.Store({
     close({commit}){
       commit('togglePopup', false);
     },
-    setCsrf({commit}, csrf){
-      commit('setCsrf', csrf);
-    },
-    setUserId({commit}, userId){
-      commit('setUserId', userId);
+    setUser({commit}, user){
+      commit('setUser', user);
     },
     setIsSigned({commit}, isSigned){
       commit('setIsSigned', isSigned);

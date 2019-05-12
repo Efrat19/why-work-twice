@@ -4,8 +4,9 @@
     <router-link class="home" to="/">Home</router-link>
     <div class="auth">
       <router-link v-if="auth" class="home" to="/user">User</router-link>
-      <button v-if="!auth" class="signup" @click="open('signup')">Sign Up</button>
-      <button v-if="!auth" class="signup" @click="open('signin')">Sign In</button>
+      <button v-if="auth" class="logout" @click="open('logout')">Logout</button>
+      <button v-if="!auth" class="register" @click="open('register')">Register</button>
+      <button v-if="!auth" class="login" @click="open('login')">Login</button>
     </div>
   </section>
 

@@ -8,8 +8,8 @@
 </template>
 
 <script lang="js">
-  import signin from './popups/signin.vue';
-  import signup from './popups/signup.vue';
+  import login from './popups/login.vue';
+  import register from './popups/register.vue';
   export default  {
     name: 'popup',
     props: {
@@ -19,8 +19,8 @@
        }
     },
     components: {
-      signin,
-      signup,
+        login,
+        register,
     },
     mounted() {
 

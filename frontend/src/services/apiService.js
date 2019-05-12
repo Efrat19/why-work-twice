@@ -9,29 +9,21 @@ class ApiService {
         this.store = store;
         this.baseUrl = 'http://localhost:8000';
     }
-    // addCsrfTo(form) {
-    //     return {
-    //         ...form,
-    //         '_token' :
-    //     };
-    // }
-    // setCsrf(){
-    //
-    // }
-    setAuthStatus({isSigned, id}){
-        this.store.dispatch('setIsSigned', isSigned);
-        this.store.dispatch('setUserId', id);
+    setUser({ user }) {
+        this.store.dispatch('setIsSigned', !!user);
+        this.store.dispatch('setUser', user);
     }
-    async getAuthStatus() {
-        const response = await axios.get(`${this.baseUrl}/auth-status`);
-        this.setAuthStatus(response.data);
-    }
-    async signUp(form) {
+    async register(form) {
         const response = await axios.post(`${this.baseUrl}/api/register`, form);
-        this.setAuthStatus(response.data);
+        this.setUser(response.data);
     }
-    async signIn(form) {
-        return axios.post(`${this.baseUrl}/login`, {data: this.addCsrfTo(form)});
+    async login(form) {
+        const response = await axios.post(`${this.baseUrl}/api/login`, form);
+        this.setUser(response.data);
+    }
+    async logout() {
+        const response = await axios.post(`${this.baseUrl}/api/logout`);
+        this.setUser(response.data);
     }
 }
 export default new ApiService();

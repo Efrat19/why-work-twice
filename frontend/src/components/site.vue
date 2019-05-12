@@ -29,7 +29,7 @@
       }
     },
       mounted() {
-          this.apiService.getAuthStatus();
+          // this.apiService.login();
       },
     methods: {
 
