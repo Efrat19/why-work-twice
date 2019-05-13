@@ -77,7 +77,7 @@ Route::get('/insertbasic',function (){
 });
 Route::resource('/comment','CommentController');
 
-Route::get('homework/{homework}/comments/{limit}', 'HomeworkController@getComments');
+Route::get('homework/{homework}/comments/{limit}', 'CommentController@index');
 
 Route::get('homework/{homework}/favorite/{love}', function (Homework $homework, $love) {
     $id = auth()->guard('api')->id();

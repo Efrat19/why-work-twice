@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Homework;
+use \App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -18,9 +19,17 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Homework $homework, $limit)
     {
-        //
+        $comments = $homework->comments()->limit($limit)->get();
+        $comments->map(function ($comment, $key) {
+            $user = User::findOrFail($comment->user_id);
+            $comment->user = [
+                'name' => $user->name
+            ];
+            return $comment;
+        });
+        return response()->json($comments,200);
     }
 
 

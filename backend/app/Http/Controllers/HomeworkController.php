@@ -91,16 +91,4 @@ class HomeworkController extends Controller
         //
     }
 
-    public function getComments(Homework $homework, $limit)
-    {
-        $comments = $homework->comments()->limit($limit)->get();
-        $comments->map(function ($comment, $key) {
-            $user = User::findOrFail($comment->user_id);
-            $comment->user = [
-                'name' => $user->name
-            ];
-            return $comment;
-        });
-        return response()->json($comments,200);
-    }
 }
