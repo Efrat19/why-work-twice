@@ -13,22 +13,52 @@ use App\Comment;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+// Route::post('/register', function () {
+//     dd('hi');
+// });
+// Route::group([
+
+//     'middleware' => 'api',
+//     // 'namespace' => 'App\Http\Controllers',
+//     // 'prefix' => 'auth'
+
+// ], function ($router) {
+
+//     Route::post('/register', 'AuthController@register');
+//     Route::post('/login', 'AuthController@login');
+//     Route::post('/logout', 'AuthController@logout');
+//     Route::post('/refresh', 'AuthController@refresh');
+//     Route::post('/me', 'AuthController@me');
+
+// });
+    Route::post('/register', 'AuthController@register');
+//     Route::post('/login', 'AuthController@login');
+// Route::group([
+//     'prefix' => 'restricted',
+//     'middleware' => 'auth:api',
+// ], function () {
+
+//     // Authentication Routes...
+//     Route::get('logout', 'AuthController@logout');
+
+//     Route::get('/test', function () {
+//         return 'authenticated';
+//     });
+// });
+Route::post('login', 'Auth\LoginController@login');
+
 Route::group([
+    'prefix' => 'restricted',
+    'middleware' => 'auth:api',
+], function () {
 
-    'middleware' => 'api',
-    'namespace' => 'App\Http\Controllers',
-    'prefix' => 'auth'
+    // Authentication Routes...
+    Route::get('logout', 'Auth\LoginController@logout');
 
-], function ($router) {
-
-    Route::post('register', 'AuthController@register');
-    Route::post('login', 'AuthController@login');
-    Route::post('logout', 'AuthController@logout');
-    Route::post('refresh', 'AuthController@refresh');
-    Route::post('me', 'AuthController@me');
-
+    Route::get('/test', function () {
+        return 'authenticated';
+    });
 });
-
 Route::resource('/homework','HomeworkController');
 Route::get('/insertbasic',function (){
 

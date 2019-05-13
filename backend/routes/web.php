@@ -15,6 +15,3 @@
 Route::get('/', function () {
     dd('hi');
 });
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

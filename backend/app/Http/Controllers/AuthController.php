@@ -132,9 +132,10 @@ class AuthController extends Controller
      */
     public function logout()
     {
-        $this->guard()->logout();
 
-        return response()->json(['message' => 'Successfully logged out'],200);
+        // $this->guard()->logout();
+
+        return response()->json(['message' => 'Successfully logged out','user' => auth('api')->user() ],200);
     }
 
     /**
@@ -159,7 +160,8 @@ class AuthController extends Controller
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
-            'expires_in' => $this->guard()->factory()->getTTL() * 60
+            'expires_in' => auth('api')->factory()->getTTL() * 60,
+            'user' => auth('api')->user()
         ]);
     }
 
@@ -170,6 +172,6 @@ class AuthController extends Controller
      */
     public function guard()
     {
-        return auth()->guard();
+        return auth()->guard('api');
     }
 }

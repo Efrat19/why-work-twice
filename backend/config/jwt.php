@@ -275,7 +275,8 @@ return [
         |
         */
 
-        'jwt' => Tymon\JWTAuth\Providers\JWT\Lcobucci::class,
+        // 'jwt' => Tymon\JWTAuth\Providers\JWT\Lcobucci::class,
+        'jwt' => 'Tymon\JWTAuth\Providers\JWT\Namshi',
 
         /*
         |--------------------------------------------------------------------------
@@ -287,6 +288,7 @@ return [
         */
 
         'auth' => Tymon\JWTAuth\Providers\Auth\Illuminate::class,
+        // 'auth' => 'Tymon\JWTAuth\Providers\Auth\Illuminate',
 
         /*
         |--------------------------------------------------------------------------
@@ -298,7 +300,9 @@ return [
         */
 
         'storage' => Tymon\JWTAuth\Providers\Storage\Illuminate::class,
+        // 'storage' => 'Tymon\JWTAuth\Providers\Storage\Illuminate'
 
     ],
 
 ];
+

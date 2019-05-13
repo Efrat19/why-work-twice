@@ -11,24 +11,30 @@ class ApiService {
     this.baseUrl = "http://localhost:8000/api";
     this.jwt = '';
   }
-  setUser({ user, token }) {
+  setUser({ user }) {
     this.store.dispatch("setIsSigned", !!user);
     this.store.dispatch("setUser", user);
-    this.store.dispatch("setToken", token);
   }
   async register(form) {
     const response = await axios.post(`${this.baseUrl}/register`, form);
     this.setUser(response.data);
+    this.jwt = response.data.access_token;
+    // this.storeToken(this.jwt);
   }
   async login(form) {
     const response = await axios.post(`${this.baseUrl}/login`, form);
     this.setUser(response.data);
+    this.jwt = response.data.token;
+    // this.storeToken(this.jwt);
   }
   async logout() {
-    const response = await axios.get(`${this.baseUrl}/logout`, {
-      token: this.store.getters.getToken
+    const response = await axios.get(`${this.baseUrl}/restricted/test?token=${this.jwt}`, {},{
+     headers: {
+      Authorization: `Bearer ${this.jwt}`
+     }
     });
     this.setUser(response.data);
+    this.jwt = '';
   }
   async getHwProfile(hwId) {
     const response = await axios.get(`${this.baseUrl}/homework/${hwId}`);
@@ -64,10 +70,18 @@ class ApiService {
     const response = await axios.delete(`${this.baseUrl}/comment/${id}`);
     return response.data;
   }
-  // async storeToken(token){
-  //     const prepare = token.split('.')[0].replace('-','+').replace('_','/');
-  //     const decoded = JSON.parse(atob(prepare));
-  //     console.log(decoded);
-  // }
+  async storeToken(token){
+      const prepare = token.split('.')[0].replace('-','+').replace('_','/');
+      const decoded = JSON.parse(atob(prepare));
+      console.log(decoded);
+      debugger;
+  }
+  async getAuth(){
+    return {
+      headers: new Headers({
+        Authorization: `Bearer: ${this.jwt}`
+      })
+    }
+  }
 }
 export default new ApiService();
