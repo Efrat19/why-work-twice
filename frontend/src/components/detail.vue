@@ -30,6 +30,7 @@
           school: 'fas fa-school',
           subject: 'fas fa-graduation-cap',
           rating: 'fas fa-star',
+          comment: 'fas fa-comments',
         },
         fallback: 'fas fa-exclamation',
       }

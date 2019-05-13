@@ -13,6 +13,7 @@ export default new Vuex.Store({
     popup: {
       name: false,
       isOpen: false,
+      payload: false,
     },
   },
   getters: {
@@ -21,6 +22,9 @@ export default new Vuex.Store({
     },
     popupName(state){
       return state.popup.name;
+    },
+    getPayload(state){
+      return state.popup.payload;
     },
     getUser(state){
       return state.auth.user;
@@ -42,6 +46,9 @@ export default new Vuex.Store({
     setUser(state, user){
       state.auth.user = user;
     },
+    setPayload(state, payload){
+      state.popup.payload = payload;
+    },
     setIsSigned(state, isSigned){
       state.auth.isSigned = isSigned;
     },
@@ -59,6 +66,9 @@ export default new Vuex.Store({
     },
     setUser({commit}, user){
       commit('setUser', user);
+    },
+    setPayload({commit}, payload){
+      commit('setPayload', payload);
     },
     setIsSigned({commit}, isSigned){
       commit('setIsSigned', isSigned);

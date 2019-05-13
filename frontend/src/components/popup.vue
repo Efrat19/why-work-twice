@@ -2,7 +2,7 @@
   <div class="popup">
     <div class="page">
       <i class="fas fa-times" @click="close()"></i>
-      <component :is="name"></component>
+      <component :is="name" :payload="store.getters.getPayload" :popupName="name"></component>
     </div>
     <div class="cover"></div>
   </div>
@@ -12,6 +12,8 @@
   import login from './popups/login.vue';
   import register from './popups/register.vue';
   import logout from './popups/logout.vue';
+  import addComment from './popups/add-comment.vue';
+  import deleteComment from './popups/delete-comment.vue';
   import store from '../store';
   export default  {
     name: 'popup',
@@ -25,6 +27,8 @@
         login,
         logout,
         register,
+      addComment,
+      deleteComment,
     },
     mounted() {
 

@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Homework;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
+    protected $rules = [
+        'header' => ['required', 'string', 'max:255'],
+        'body' => [ 'string', 'max:255'],
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -17,15 +23,6 @@ class CommentController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -35,7 +32,20 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->fails()) {
+            return response(['errors'=>$validator->errors()->all()], 422);
+        }
+        $homework = Homework::findOrFail($request->homeworkId);
+        $comment = Comment::create(
+            array(
+                'user_id' => 1,//$request->user()->id(),
+                'homework_id' => $homework->id,
+                'header' => $request->header,
+                'body' => $request->body,
+            )
+        );
+        return response()->json($comment, 200);
     }
 
     /**
@@ -46,18 +56,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Comment  $comment
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Comment $comment)
-    {
-        //
+        return response()->json($comment,200);
     }
 
     /**
@@ -69,7 +68,17 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->fails()) {
+            return response(['errors'=>$validator->errors()->all()], 422);
+        }
+        $comment->update(
+            array(
+                'header' => $request->header,
+                'body' => $request->body,
+            )
+        );
+        return response()->json($comment, 200);
     }
 
     /**
@@ -80,6 +89,7 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return response()->json($comment, 200);
     }
 }

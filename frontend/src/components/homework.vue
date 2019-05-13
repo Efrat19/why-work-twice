@@ -9,6 +9,10 @@
       <div class="hw-card">
         <hw-card :profile="profile"></hw-card>
       </div>
+      <detail class="comment-header" keyName="comment" :value="profile.commentsNum"></detail>
+      <div class="add">
+        <i class="fas fa-plus"  @click="open('add-comment',{homeworkId: id})"></i>
+      </div>
       <div class="comments">
         <comment v-for="(comment,index) in comments" :comment="comment" :key="index"></comment>
       </div>
@@ -22,11 +26,15 @@
   import hwCard from './hw-card.vue';
   import comment from './comment.vue';
   import apiService from '../services/apiService';
-  export default  {
+  import openPopup from '../mixins/openPopup';
+  import detail from './detail.vue';
+  export default {
     name: 'homework',
+    mixins: [openPopup],
     components: {
       comment,
       hwCard,
+      detail,
     },
     data() {
       return {
@@ -57,6 +65,7 @@
       async toggleLove(love){
         this.love = await this.apiService.toggleLove(this.id, love);
       }
+
     },
     computed: {
 
@@ -70,11 +79,12 @@
       width: 100%;
       display: grid;
       grid-template-columns: auto;
-      grid-template-rows:50px 300px auto 20px;
+      grid-template-rows:50px 350px auto 20px;
       grid-gap: 0;
       grid-template-areas:
               "desc desc love"
               "hw-card hw-card hw-card"
+              "comment-header add add"
               "comments comments comments"
               "more more more";
       .comments{
@@ -89,6 +99,13 @@
       }
       .love{
         grid-area: love;
+        cursor: pointer;
+      }
+      .comment-header{
+        grid-area: comment-header;
+      }
+      .add{
+        grid-area: add;
         cursor: pointer;
       }
     }

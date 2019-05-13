@@ -60,6 +60,13 @@
         const response = await this.apiService.register(form);
         this.onSuccess(response);
       },
+    async getOld(){
+        const old = await this.apiService.getOldUSer();
+       this.name = old.name;
+       this.email = old.email;
+       this.subject = old.subject;
+       this.school = old.school;
+    }
     },
     computed: {
     }

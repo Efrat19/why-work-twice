@@ -2,7 +2,8 @@ import store from '../store';
 
 export default {
     methods: {
-        open(popup){
+        async open(popup, payload = {}){
+            await store.dispatch('setPayload', payload);
             store.dispatch('open', popup);
         }
     }

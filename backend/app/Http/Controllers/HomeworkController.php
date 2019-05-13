@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Homework;
+use App\User;
 use Illuminate\Http\Request;
 use PhpParser\Node\Expr\Cast\Object_;
 
@@ -47,13 +48,12 @@ class HomeworkController extends Controller
      */
     public function show(Homework $homework)
     {
-        $profile = (object) array_merge((array) new \stdClass(), (array) $homework->getAttributes());
-//        $profile = $homework->getAttributes();
-        $profile->user = $homework->user()->get();
-        $profile->school = $homework->school()->get();
-        $profile->subject = $homework->subject()->get();
-        $profile->loved = $homework->favorites()->where('user_id',1)->count();//request()->user()->id);
-        $profile->commentsNum = $homework->comments()->count();
+        $profile = $homework->toArray();
+        $profile['user']= $homework->user()->get();
+        $profile['school'] = $homework->school()->get();
+        $profile['subject'] = $homework->subject()->get();
+        $profile['loved'] = $homework->favorites()->where('user_id',1)->count();//request()->user()->id);
+        $profile['commentsNum'] = $homework->comments()->count();
         return response()->json($profile,200);
     }
 
@@ -89,5 +89,18 @@ class HomeworkController extends Controller
     public function destroy(Homework $homework)
     {
         //
+    }
+
+    public function getComments(Homework $homework, $limit)
+    {
+        $comments = $homework->comments()->limit($limit)->get();
+        $comments->map(function ($comment, $key) {
+            $user = User::findOrFail($comment->user_id);
+            $comment->user = [
+                'name' => $user->name
+            ];
+            return $comment;
+        });
+        return response()->json($comments,200);
     }
 }

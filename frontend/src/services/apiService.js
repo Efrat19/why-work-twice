@@ -2,11 +2,13 @@
 import Vue from 'vue';
 import axios from 'axios';
 import store from '../store';
+import router from '../router';
 
 class ApiService {
     constructor(){
         this.axios = axios;
         this.store = store;
+        this.router = router;
         this.baseUrl = 'http://localhost:8000/api';
     }
     setUser({ user, token }) {
@@ -38,6 +40,28 @@ class ApiService {
     }
     async toggleLove(hwId, love) {
         const response = await axios.get(`${this.baseUrl}/homework/${hwId}/favorite/${love}` );
+        return response.data;
+    }
+    async createComment(form, homeworkId) {
+        const response = await axios.post(`${this.baseUrl}/comment/`,{
+            homeworkId,
+            ...form,
+        });
+        return response.data;
+    }
+    async updateComment(id, form, homeworkId) {
+        const response = await axios.put(`${this.baseUrl}/comment/${id}`,{
+            homeworkId,
+            ...form,
+        });
+        return response.data;
+    }
+    async getOldComment(id) {
+        const response = await axios.get(`${this.baseUrl}/comment/${id}`);
+        return response.data;
+    }
+    async deleteComment(id) {
+        const response = await axios.delete(`${this.baseUrl}/comment/${id}`);
         return response.data;
     }
     // async storeToken(token){

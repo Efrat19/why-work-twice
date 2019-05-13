@@ -1,34 +1,83 @@
 <template lang="html">
 
   <section class="comment">
-    <h1>comment Component</h1>
+    <div class="header">{{comment.header}} {{comment.id}}</div>
+    <div class="edit" v-if="isOwner">
+      <i class="fas fa-edit" @click="open('add-comment',{editMode: true, id: comment.id})"></i></div>
+    <div class="delete" v-if="isOwner">
+      <i class="fas fa-trash-alt" @click="open('delete-comment',{id: comment.id})"></i>
+    </div>
+    <div class="body">{{comment.body}}</div>
+    <div class="author">{{getAuthorDetails()}}</div>
   </section>
 
 </template>
 
 <script lang="js">
-  export default  {
+    import openPopup from '../mixins/openPopup'
+  import store from '../store';
+  export default {
     name: 'comment',
-    props: [],
+      mixins: [openPopup],
+    props: {
+      comment: {
+        type: Object,
+        required: true,
+      }
+    },
     mounted() {
 
     },
     data() {
       return {
-
+        store,
       }
     },
     methods: {
-
+      getAuthorDetails(){
+        const isUpdated = this.comment.created_at !== this.comment.updated_at;
+        return `commented by ${this.comment.user.name} on ${this.comment.created_at}${isUpdated ? `, last updated at ${this.comment.updated_at}` : ''}`;
+      }
     },
     computed: {
-
+      isOwner(){
+          return true;
+        return this.store.getters.getUser.id === this.comment.user_id
+      }
     }
 }
 </script>
 
 <style scoped lang="scss">
   .comment {
-
+    display: grid;
+    grid-template-areas:
+            "header edit delete"
+            "body body body"
+            "author author author";
+    grid-template-columns: auto 4% 4%;
+    grid-template-rows: 25px auto 15px;
+    .header{
+      grid-area: header;
+      font-size: 2rem;
+    }
+    .edit{
+      grid-area: edit;
+      font-size: 1.7rem;
+        cursor: pointer;
+    }
+    .delete{
+      grid-area: delete;
+      font-size: 1.7rem;
+        cursor: pointer;
+    }
+    .body{
+      grid-area: body;
+      font-size: 1.7rem;
+    }
+    .author{
+      grid-area: author;
+      font-size: 1.3rem;
+    }
   }
 </style>

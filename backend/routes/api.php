@@ -77,9 +77,8 @@ Route::get('/insertbasic',function (){
 });
 Route::resource('/comment','CommentController');
 
-Route::get('homework/{homework}/comments/{limit}', function (Homework $homework, $limit) {
-    return response()->json($homework->comments()->limit($limit)->get());
-});
+Route::get('homework/{homework}/comments/{limit}', 'HomeworkController@getComments');
+
 Route::get('homework/{homework}/favorite/{love}', function (Homework $homework, $love) {
     $id = auth()->guard('api')->id();
     $love ? $homework->favorites()->attach($id) : $homework->favorites()->detach($id);

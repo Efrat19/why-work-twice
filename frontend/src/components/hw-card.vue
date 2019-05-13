@@ -13,6 +13,7 @@
       <div class="user">
         <router-link :to="`/user/${profile.user_id}`">View All {{profile.user[0].name}} homeworks</router-link>
       </div>
+
     </div>
   </section>
 
@@ -96,6 +97,7 @@
       .user {
         grid-area: user;
       }
+
     }
   }
 </style>
