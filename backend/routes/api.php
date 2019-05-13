@@ -13,33 +13,21 @@ use App\Comment;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-//header('Access-Control-Allow-Origin : *');
-//header('Access-Control-Allow-Headers : Content-Type,X-Auth-Token,Authorization,Origin');
-//header('Access-Control-Allow-Methods :GET, POST, PUT, DELETE, OPTIONS');
+Route::group([
 
+    'middleware' => 'api',
+    'namespace' => 'App\Http\Controllers',
+    'prefix' => 'auth'
 
-//
-//Route::middleware('auth:api')->get('/user', function (Request $request) {
-//    return $request->user();
-//});
+], function ($router) {
 
+    Route::post('register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::post('logout', 'AuthController@logout');
+    Route::post('refresh', 'AuthController@refresh');
+    Route::post('me', 'AuthController@me');
 
-//Route::group(['middleware' => ['json.response']], function () {
-//
-//    Route::middleware('auth:api')->get('/user', function (Request $request) {
-//        return $request->user();
-//    });
-
-    // public routes
-    Route::post('/login', 'AuthController@login')->name('login.api');
-    Route::post('/register', 'AuthController@register')->name('register.api');
-
-    // private routes
-    Route::middleware('auth:api')->group(function () {
-        Route::get('/logout', 'AuthController@logout')->name('logout');
-    });
-
-//});
+});
 
 Route::resource('/homework','HomeworkController');
 Route::get('/insertbasic',function (){

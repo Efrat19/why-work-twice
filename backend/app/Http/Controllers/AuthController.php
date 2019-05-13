@@ -40,57 +40,136 @@ class AuthController extends Controller
             'subject_id' => $subject->id,
             'password' => Hash::make($request['password'])
         ]);
-        $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-        $response = [
-            'token' => $token,
-            'user' => $user,
-        ];
-        return response()->json($response, 200);
+        return $this->login($request);
+    }
+
+    // /**
+    //  * register user and create token
+    //  *
+    //  * @param  [string] email
+    //  * @param  [string] password
+    //  * @param  [boolean] remember_me
+    //  * @return [string] access_token
+    //  * @return [string] token_type
+    //  * @return [string] expires_at
+    //  */
+    // public function login(Request $request)
+    // {
+    //     $user = User::where('email', $request->email)->first();
+
+    //     if ($user) {
+
+    //         if (Hash::check($request->password, $user->password)) {
+    //             $token = $user->createToken('Laravel Password Grant Client')->accessToken;
+    //             $response = ['token' => $token];
+    //             return response()->json($response, 200);
+    //         } else {
+    //             $response = "Password missmatch";
+    //             return response()->json($response, 422);
+    //         }
+
+    //     } else {
+    //         $response = 'User does not exist';
+    //         return response()->json($response, 422);
+    //     }
+
+    // }
+
+    // /**
+    //  * Logout user (Revoke the token)
+    //  *
+    //  * @return [string] message
+    //  */
+    // public function logout(Request $request)
+    // {
+    //     $token = $request->user()->token();
+    //     $token->revoke();
+
+    //     $response = 'You have been succesfully logged out!';
+    //     return response()->json($response, 200);
+    // }
+    /**
+     * Create a new AuthController instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
     /**
-     * register user and create token
+     * Get a JWT token via given credentials.
      *
-     * @param  [string] email
-     * @param  [string] password
-     * @param  [boolean] remember_me
-     * @return [string] access_token
-     * @return [string] token_type
-     * @return [string] expires_at
+     * @param  \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Http\JsonResponse
      */
     public function login(Request $request)
     {
-        $user = User::where('email', $request->email)->first();
+        $credentials = $request->only('email', 'password');
 
-        if ($user) {
-
-            if (Hash::check($request->password, $user->password)) {
-                $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-                $response = ['token' => $token];
-                return response()->json($response, 200);
-            } else {
-                $response = "Password missmatch";
-                return response()->json($response, 422);
-            }
-
-        } else {
-            $response = 'User does not exist';
-            return response()->json($response, 422);
+        if ($token = $this->guard()->attempt($credentials)) {
+            return $this->respondWithToken($token);
         }
-
+        return response()->json(['error' => 'Unauthorized'], 401);
     }
 
     /**
-     * Logout user (Revoke the token)
+     * Get the authenticated User
      *
-     * @return [string] message
+     * @return \Illuminate\Http\JsonResponse
      */
-    public function logout(Request $request)
+    public function me()
     {
-        $token = $request->user()->token();
-        $token->revoke();
+        return response()->json($this->guard()->user());
+    }
 
-        $response = 'You have been succesfully logged out!';
-        return response()->json($response, 200);
+    /**
+     * Log the user out (Invalidate the token)
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function logout()
+    {
+        $this->guard()->logout();
+
+        return response()->json(['message' => 'Successfully logged out'],200);
+    }
+
+    /**
+     * Refresh a token.
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function refresh()
+    {
+        return $this->respondWithToken($this->guard()->refresh());
+    }
+
+    /**
+     * Get the token array structure.
+     *
+     * @param  string $token
+     *
+     * @return \Illuminate\Http\JsonResponse
+     */
+    protected function respondWithToken($token)
+    {
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => $this->guard()->factory()->getTTL() * 60
+        ]);
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\Guard
+     */
+    public function guard()
+    {
+        return auth()->guard();
     }
 }
