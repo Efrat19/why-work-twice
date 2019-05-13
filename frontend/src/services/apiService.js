@@ -28,7 +28,7 @@ class ApiService {
     // this.storeToken(this.jwt);
   }
   async logout() {
-    const response = await axios.get(`${this.baseUrl}/restricted/test?token=${this.jwt}`, {},{
+    const response = await axios.get(`${this.baseUrl}/restricted/logout?token=${this.jwt}`, {},{
      headers: {
       Authorization: `Bearer ${this.jwt}`
      }

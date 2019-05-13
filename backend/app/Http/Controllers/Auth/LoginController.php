@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Auth;
-
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -46,9 +46,9 @@ class LoginController extends Controller
         return response()->json(['error' => 'Unauthorized'], 401);
     }
 
-    protected function sendLoginResponse(Request $request, $throttles, string $token)
+    protected function sendLoginResponse(Request $request, string $token)
     {
-        $this->clearLoginAttempts($request);
+        // $this->clearLoginAttempts($request);
 
         return $this->authenticated($request, $this->guard()->user(), $token);
     }
@@ -65,5 +65,18 @@ class LoginController extends Controller
         return response()->json([
             'message' => Lang::get('auth.failed'),
         ], 401);
+    }
+
+    public function guard()
+    {
+        return auth()->guard('api');
+    }
+
+    public function logout()
+    {
+
+        $this->guard()->logout();
+
+        return response()->json(['message' => 'Successfully logged out'], 200);
     }
 }
