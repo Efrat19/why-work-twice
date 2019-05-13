@@ -24,6 +24,7 @@ class CreateHomeworksTable extends Migration
             $table->string('description')->nullable();
             $table->unsignedInteger('views')->nullable();
             $table->unsignedInteger('downloads')->nullable();
+            $table->unsignedInteger('rating')->nullable();
         });
     }
 
@@ -36,4 +37,5 @@ class CreateHomeworksTable extends Migration
     {
         Schema::dropIfExists('homeworks');
     }
+
 }

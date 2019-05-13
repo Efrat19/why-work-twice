@@ -1,21 +1,21 @@
 <template lang="html">
 
-  <section class="user">
-    <h1>user Component</h1>
+  <section class="comment">
+    <h1>comment Component</h1>
   </section>
 
 </template>
 
 <script lang="js">
   export default  {
-    name: 'user',
+    name: 'comment',
     props: [],
     mounted() {
-      this.id = this.$route.params.id;
+
     },
     data() {
       return {
-        id: false,
+
       }
     },
     methods: {
@@ -28,7 +28,7 @@
 </script>
 
 <style scoped lang="scss">
-  .user {
+  .comment {
 
   }
 </style>

@@ -7,11 +7,14 @@
 </template>
 
 <script lang="js">
+  import popupContent from '../../mixins/popupContent';
   export default  {
     name: 'logout',
     props: [],
-    mounted() {
-
+    mixins: [popupContent],
+    async mounted() {
+      const response = await this.apiService.logout();
+      this.onSuccess(response);
     },
     data() {
       return {

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Homework;
 use Illuminate\Http\Request;
+use PhpParser\Node\Expr\Cast\Object_;
 
 class HomeworkController extends Controller
 {
@@ -46,7 +47,14 @@ class HomeworkController extends Controller
      */
     public function show(Homework $homework)
     {
-        //
+        $profile = (object) array_merge((array) new \stdClass(), (array) $homework->getAttributes());
+//        $profile = $homework->getAttributes();
+        $profile->user = $homework->user()->get();
+        $profile->school = $homework->school()->get();
+        $profile->subject = $homework->subject()->get();
+        $profile->loved = $homework->favorites()->where('user_id',1)->count();//request()->user()->id);
+        $profile->commentsNum = $homework->comments()->count();
+        return response()->json($profile,200);
     }
 
     /**

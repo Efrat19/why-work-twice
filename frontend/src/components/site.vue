@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="site">
       <div class="grid">
-          <navbar class="navbar"></navbar>
+          <navbar class="navbar" :auth="store.getters.getIsSigned"></navbar>
           <div class="left-space"></div>
           <router-view class="view"></router-view>
           <div class="right-space"></div>
@@ -48,7 +48,7 @@
        width: 100%;
        margin: 0;
        display: grid;
-       grid-template-columns: 25% 50% 25%;
+       grid-template-columns: 20% auto 20%;
        grid-template-rows: 30px auto;
        grid-gap: 0;
        grid-template-areas:
@@ -58,6 +58,7 @@
            grid-area: nav;
        }
        .view{
+           margin-top: 7%;
            grid-area: view;
        }
        .right-space{

@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('api_token', 80)->after('password')->unique()->nullable()->default(null);
-            $table->rememberToken();
+//            $table->string('api_token', 80)->after('password')->unique()->nullable()->default(null);
+//            $table->rememberToken();
             $table->timestamps();
             $table->unsignedInteger('permission_id')->default(1);
             $table->unsignedInteger('school_id');
@@ -40,4 +40,5 @@ class CreateUsersTable extends Migration
     {
         Schema::dropIfExists('users');
     }
+
 }

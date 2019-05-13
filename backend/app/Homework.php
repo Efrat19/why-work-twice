@@ -14,7 +14,9 @@ use Illuminate\Database\Eloquent\Model;
 class Homework extends Model
 {
     //
-
+    protected $fillable = [
+        'description', 'user_id','school_id','subject_id','source','views','downloads','rating'
+    ];
 
     public function user()
     {

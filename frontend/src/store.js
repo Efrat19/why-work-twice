@@ -6,6 +6,7 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     auth: {
+      token: '',
       isSigned: false,
       user: {},
     },
@@ -14,7 +15,7 @@ export default new Vuex.Store({
       isOpen: false,
     },
   },
-  getters:{
+  getters: {
     isOpen(state){
       return state.popup.isOpen;
     },
@@ -26,6 +27,9 @@ export default new Vuex.Store({
     },
     getIsSigned(state){
       return state.auth.isSigned;
+    },
+    getToken(state){
+      return state.auth.token;
     },
   },
   mutations: {
@@ -41,6 +45,9 @@ export default new Vuex.Store({
     setIsSigned(state, isSigned){
       state.auth.isSigned = isSigned;
     },
+    setToken(state, token){
+      state.auth.token = token;
+    },
   },
   actions: {
     open({commit}, popup) {
@@ -55,6 +62,9 @@ export default new Vuex.Store({
     },
     setIsSigned({commit}, isSigned){
       commit('setIsSigned', isSigned);
+    },
+    setToken({commit}, token){
+      commit('setToken', token);
     },
   },
 });

@@ -15,13 +15,11 @@ export default new Router({
       component: home,
     },
     {
-      path: '/user',
-      name: 'user',
+      path: '/user/:id',
       component: user,
     },
     {
-      path: '/homework',
-      name: 'homework',
+      path: '/homework/:id',
       component: homework,
     },
   ],

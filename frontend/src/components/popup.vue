@@ -1,6 +1,7 @@
 <template lang="html">
   <div class="popup">
     <div class="page">
+      <i class="fas fa-times" @click="close()"></i>
       <component :is="name"></component>
     </div>
     <div class="cover"></div>
@@ -10,6 +11,8 @@
 <script lang="js">
   import login from './popups/login.vue';
   import register from './popups/register.vue';
+  import logout from './popups/logout.vue';
+  import store from '../store';
   export default  {
     name: 'popup',
     props: {
@@ -20,6 +23,7 @@
     },
     components: {
         login,
+        logout,
         register,
     },
     mounted() {
@@ -27,11 +31,13 @@
     },
     data() {
       return {
-
+        store,
       }
     },
     methods: {
-
+      close(){
+        this.store.dispatch('close', this.name);
+      },
     },
     computed: {
 
@@ -51,6 +57,10 @@
       opacity: 0.7;
     }
     .page{
+      .fas {
+        float: right;
+        cursor: pointer;
+      }
       z-index: 30;
       background-color: white;
       top: 30%;
