@@ -28,7 +28,7 @@
   import apiService from '../services/apiService';
   import openPopup from '../mixins/openPopup';
   import detail from './detail.vue';
-  import events from '../events'
+  import events from '../events';
   export default {
     name: 'homework',
     mixins: [openPopup],
@@ -36,7 +36,6 @@
       comment,
       hwCard,
       detail,
-      events,
     },
     data() {
       return {
@@ -45,6 +44,7 @@
         comments: [],
         comments_limit: 5,
         love: false,
+        events,
         UNLIMITED: -1,
       };
     },

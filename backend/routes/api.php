@@ -34,7 +34,7 @@ Route::group( [], function () {
 Route::group([], function () {
 
     Route::get('homework/{homework}/comments/{limit}', 'CommentController@index');
-    Route::get('comment.show','CommentController@show');
+    Route::get('/comment/{comment}','CommentController@show');
 
     Route::group(['middleware' => 'auth:api'], function() {
         Route::resource('/comment', 'CommentController',

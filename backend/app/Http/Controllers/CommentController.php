@@ -48,7 +48,7 @@ class CommentController extends Controller
         $homework = Homework::findOrFail($request->homeworkId);
         $comment = Comment::create(
             array(
-                'user_id' => 1,//$request->user()->id(),
+                'user_id' => auth('api')->id(),
                 'homework_id' => $homework->id,
                 'header' => $request->header,
                 'body' => $request->body,

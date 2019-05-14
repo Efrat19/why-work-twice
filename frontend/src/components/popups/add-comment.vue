@@ -39,8 +39,9 @@
           homeworkId: this.payload.homeworkId,
         };
         const uri = this.editMode ? `/comment/${this.payload.id}` : '/comment';
+        const method = this.editMode? 'put' : 'post';
         try {
-          const response = await this.apiService.api('post', uri, form);
+          const response = await this.apiService.api(method, uri, form);
           this.events.$emit('commentsUpdated');
           this.onSuccess(response.data);
         }
@@ -51,8 +52,8 @@
       async getOld() {
         try {
           const old = await this.apiService.api('get', `/comment/${this.payload.id}`);
-          this.header = old.header;
-          this.body = old.body;
+          this.header = old.data.header;
+          this.body = old.data.body;
         }
         catch (error) {
           this.onFailure(error);

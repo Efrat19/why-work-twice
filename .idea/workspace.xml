@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e21f3447-769a-4b81-8526-6851486f6da2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/comment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/homework.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/homework.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/popups/delete-comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/popups/delete-comment.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/mixins/popupContent.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/mixins/popupContent.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -33,26 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/homework.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-              <folding>
-                <element signature="e#903#938#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="855">
-              <caret line="57" column="4" selection-start-line="57" selection-start-column="4" selection-end-line="57" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#22#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-481">
+              <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
             </state>
           </provider>
         </entry>
@@ -60,36 +45,40 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+            <state relative-caret-position="210">
+              <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
               <folding>
                 <element signature="e#230#334#0#PHP" />
                 <element signature="e#340#441#0#PHP" />
                 <element signature="e#704#757#0#PHP" />
                 <element signature="e#860#1019#0#PHP" />
-                <element signature="e#1024#1649#0#PHP" />
                 <element signature="e#1147#1258#0#PHP" />
-                <element signature="e#1342#1594#0#PHP" />
-                <element signature="e#1371#1584#1#PHP" />
                 <element signature="e#1655#1791#0#PHP" />
-                <element signature="e#1796#1893#0#PHP" />
                 <element signature="e#1899#2095#0#PHP" />
-                <element signature="e#2100#2565#0#PHP" />
                 <element signature="e#2242#2353#0#PHP" />
-                <element signature="e#2362#2510#0#PHP" />
-                <element signature="e#2392#2500#1#PHP" />
                 <element signature="e#2571#2719#0#PHP" />
-                <element signature="e#2724#2853#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php">
+        <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="1924" lean-forward="true" selection-start-line="1924" selection-end-line="1924" />
+            <state relative-caret-position="208">
+              <caret line="35" column="82" selection-start-line="35" selection-start-column="82" selection-end-line="35" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="47" column="92" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="92" />
+              <folding>
+                <element signature="e#190#291#0#PHP" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -107,7 +96,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/events.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+              <caret line="3" selection-start-line="3" selection-end-line="3" />
             </state>
           </provider>
         </entry>
@@ -116,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="45">
-              <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+              <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
               <folding>
                 <element signature="e#0#22#0" expanded="true" />
               </folding>
@@ -128,7 +117,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/mixins/popupContent.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="283">
-              <caret line="35" column="10" lean-forward="true" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+              <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -136,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="47" />
+            <state relative-caret-position="330">
+              <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
             </state>
           </provider>
         </entry>
@@ -149,7 +138,7 @@
         <entry file="file://$PROJECT_DIR$/frontend/src/components/popups/delete-comment.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="278">
-              <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+              <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -222,7 +211,6 @@
         <option value="$PROJECT_DIR$/frontend/src/components/popups/register.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/popups/login.vue" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" />
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
         <option value="$PROJECT_DIR$/frontend/src/services/apiService.js" />
@@ -230,10 +218,11 @@
         <option value="$PROJECT_DIR$/frontend/src/events.js" />
         <option value="$PROJECT_DIR$/frontend/src/main.js" />
         <option value="$PROJECT_DIR$/frontend/src/mixins/popupContent.js" />
-        <option value="$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/popups/delete-comment.vue" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/frontend/src/components/homework.vue" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
+        <option value="$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue" />
       </list>
     </option>
   </component>
@@ -527,12 +516,12 @@
       <updated>1557220297544</updated>
       <workItem from="1557220298691" duration="6885000" />
       <workItem from="1557230074085" duration="41300000" />
-      <workItem from="1557728601274" duration="35572000" />
+      <workItem from="1557728601274" duration="36432000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="65584000" />
+    <option name="totallyTimeSpent" value="66444000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -560,7 +549,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21706264" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.38444924" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -872,30 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="54" selection-start-line="54" selection-end-line="54" />
-          <folding>
-            <element signature="e#1566#2325#1#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="30" column="10" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
-          <folding>
-            <element signature="e#190#291#0#PHP" />
-            <element signature="e#515#674#0#PHP" />
-            <element signature="e#747#885#0#PHP" />
-            <element signature="e#1606#1804#0#PHP" />
-            <element signature="e#1898#2048#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/services/apiService.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="525">
@@ -919,14 +884,14 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/events.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+          <caret line="3" selection-start-line="3" selection-end-line="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
-          <caret line="3" column="28" lean-forward="true" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
+          <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
@@ -936,56 +901,51 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/mixins/popupContent.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="283">
-          <caret line="35" column="10" lean-forward="true" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+          <caret line="35" column="10" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
           <folding>
             <element signature="e#0#29#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="43" column="10" lean-forward="true" selection-start-line="43" selection-start-column="10" selection-end-line="43" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/popups/delete-comment.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="278">
-          <caret line="30" column="40" lean-forward="true" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
+          <caret line="30" column="40" selection-start-line="30" selection-start-column="40" selection-end-line="30" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/vendor/laravel/framework/src/Illuminate/Database/Query/Builder.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="277">
-          <caret line="1924" lean-forward="true" selection-start-line="1924" selection-end-line="1924" />
+          <caret line="1924" selection-start-line="1924" selection-end-line="1924" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="47" column="92" selection-start-line="47" selection-start-column="73" selection-end-line="47" selection-end-column="92" />
+          <folding>
+            <element signature="e#190#291#0#PHP" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="22" column="5" selection-start-line="22" selection-start-column="5" selection-end-line="22" selection-end-column="5" />
+        <state relative-caret-position="210">
+          <caret line="49" column="18" selection-start-line="49" selection-start-column="18" selection-end-line="49" selection-end-column="18" />
           <folding>
             <element signature="e#230#334#0#PHP" />
             <element signature="e#340#441#0#PHP" />
             <element signature="e#704#757#0#PHP" />
             <element signature="e#860#1019#0#PHP" />
-            <element signature="e#1024#1649#0#PHP" />
             <element signature="e#1147#1258#0#PHP" />
-            <element signature="e#1342#1594#0#PHP" />
-            <element signature="e#1371#1584#1#PHP" />
             <element signature="e#1655#1791#0#PHP" />
-            <element signature="e#1796#1893#0#PHP" />
             <element signature="e#1899#2095#0#PHP" />
-            <element signature="e#2100#2565#0#PHP" />
             <element signature="e#2242#2353#0#PHP" />
-            <element signature="e#2362#2510#0#PHP" />
-            <element signature="e#2392#2500#1#PHP" />
             <element signature="e#2571#2719#0#PHP" />
-            <element signature="e#2724#2853#0#PHP" />
           </folding>
         </state>
       </provider>
@@ -999,11 +959,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/homework.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="38" column="13" lean-forward="true" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-          <folding>
-            <element signature="e#903#938#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-481">
+          <caret line="25" column="37" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="35" column="82" selection-start-line="35" selection-start-column="82" selection-end-line="35" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="43" column="59" selection-start-line="43" selection-start-column="59" selection-end-line="43" selection-end-column="59" />
         </state>
       </provider>
     </entry>
