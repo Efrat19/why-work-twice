@@ -13,41 +13,70 @@ use App\Comment;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+/**
+ * auth routes
+ */
+Route::group( [], function () {
 
-Route::post('/register', 'AuthController@register');
-Route::post('/login', 'AuthController@login');
+    Route::post('/register', 'AuthController@register');
+    Route::post('/login', 'AuthController@login');
 
-Route::group([
-    'middleware' => 'auth:api',
+    Route::group([
+        'middleware' => 'auth:api',
     ], function () {
         Route::get('/logout', 'AuthController@logout');
+    });
+});
 
+/**
+ * comment routes
+ */
+Route::group([], function () {
+
+    Route::get('homework/{homework}/comments/{limit}', 'CommentController@index');
+    Route::get('comment.show','CommentController@show');
+
+    Route::group(['middleware' => 'auth:api'], function() {
+        Route::resource('/comment', 'CommentController',
+            ['only' => ['store', 'update', 'destroy']]);
+    });
+});
+
+/**
+ * homework routes
+ */
+Route::group([], function() {
+    Route::resource('/homework','HomeworkController',
+        ['only' => ['index', 'show']]);
+
+    Route::group(['middleware' => 'auth:api'], function() {
+
+        Route::get('homework/{homework}/favorite/{love}','HomeworkController@toggleFavorite');
+
+        Route::resource('/homework','HomeworkController',
+            ['only' => ['store', 'update', 'destroy']]);
+
+    });
 });
 
 
-
-
-
-
-
-
-
-
-Route::resource('/homework','HomeworkController');
+/**
+ * dev routes
+ */
 Route::get('/insertbasic',function (){
 
     Homework::create(
-            array(
-                'user_id' => 1,
-                'school_id' => 1,
-                'source' => 'some/nginx/path',
-                'subject_id' => 1,
-                'description' => 'ivate function insertBas',
-                'views' => 400,
-                'downloads' => 40,
-                'rating' => 78,
-            )
-        );
+        array(
+            'user_id' => 1,
+            'school_id' => 1,
+            'source' => 'some/nginx/path',
+            'subject_id' => 1,
+            'description' => 'ivate function insertBas',
+            'views' => 400,
+            'downloads' => 40,
+            'rating' => 78,
+        )
+    );
 
     Comment::create(
         array(
@@ -66,16 +95,4 @@ Route::get('/insertbasic',function (){
         )
     );
     return response()->json([],200);
-});
-
-
-
-Route::resource('/comment','CommentController');
-
-Route::get('homework/{homework}/comments/{limit}', 'CommentController@index');
-
-Route::get('homework/{homework}/favorite/{love}', function (Homework $homework, $love) {
-    $id = auth()->guard('api')->id();
-    $love ? $homework->favorites()->attach($id) : $homework->favorites()->detach($id);
-    return response()->json($love);
 });

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e21f3447-769a-4b81-8526-6851486f6da2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Auth/LoginController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="249">
-              <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="e#209#630#0#PHP" />
                 <element signature="e#668#749#0#PHP" />
@@ -52,20 +52,67 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+            <state relative-caret-position="448">
+              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
               <folding>
-                <element signature="e#1762#2565#1#PHP" />
+                <element signature="e#1566#2325#1#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+              <folding>
+                <element signature="e#230#334#0#PHP" />
+                <element signature="e#340#441#0#PHP" />
+                <element signature="e#446#853#0#PHP" />
+                <element signature="e#575#798#0#PHP" />
+                <element signature="e#590#797#2#PHP" />
+                <element signature="e#704#757#0#PHP" />
+                <element signature="e#860#1019#0#PHP" />
+                <element signature="e#1024#1649#0#PHP" />
+                <element signature="e#1147#1258#0#PHP" />
+                <element signature="e#1342#1594#0#PHP" />
+                <element signature="e#1371#1584#1#PHP" />
+                <element signature="e#1655#1791#0#PHP" />
+                <element signature="e#1796#1893#0#PHP" />
+                <element signature="e#1899#2095#0#PHP" />
+                <element signature="e#2100#2565#0#PHP" />
+                <element signature="e#2242#2353#0#PHP" />
+                <element signature="e#2362#2510#0#PHP" />
+                <element signature="e#2392#2500#1#PHP" />
+                <element signature="e#2571#2719#0#PHP" />
+                <element signature="e#2724#2853#0#PHP" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="420">
+              <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+              <folding>
+                <element signature="e#190#291#0#PHP" />
+                <element signature="e#515#674#0#PHP" />
+                <element signature="e#747#885#0#PHP" />
+                <element signature="e#1606#1804#0#PHP" />
+                <element signature="e#1898#2048#0#PHP" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+            <state relative-caret-position="478">
+              <caret line="117" column="22" lean-forward="true" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="41" />
               <folding>
                 <element signature="e#261#468#0#PHP" />
                 <element signature="e#474#681#0#PHP" />
@@ -75,10 +122,7 @@
                 <element signature="e#1102#1336#1#PHP" />
                 <element signature="e#1388#1471#0#PHP" />
                 <element signature="e#1598#1764#0#PHP" />
-                <element signature="e#1769#2072#0#PHP" />
-                <element signature="e#1884#1999#0#PHP" />
                 <element signature="e#2078#2175#0#PHP" />
-                <element signature="e#2180#2269#0#PHP" />
                 <element signature="e#2275#2385#0#PHP" />
                 <element signature="e#2581#2668#0#PHP" />
                 <element signature="e#2783#2920#0#PHP" />
@@ -156,7 +200,6 @@
         <option value="$PROJECT_DIR$/frontend/src/store.js" />
         <option value="$PROJECT_DIR$/frontend/src/mixins/openPopup.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/popup.vue" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php" />
         <option value="$PROJECT_DIR$/frontend/src/mixins/popupContent.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/popups/logout.vue" />
@@ -167,8 +210,9 @@
         <option value="$PROJECT_DIR$/frontend/src/services/apiService.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/homework.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/comment.vue" />
-        <option value="$PROJECT_DIR$/backend/routes/api.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" />
+        <option value="$PROJECT_DIR$/backend/routes/api.php" />
+        <option value="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" />
       </list>
     </option>
   </component>
@@ -373,6 +417,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="$PROJECT_DIR$/frontend/node_modules/eslint" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="copyright" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -398,12 +443,12 @@
       <updated>1557220297544</updated>
       <workItem from="1557220298691" duration="6885000" />
       <workItem from="1557230074085" duration="41300000" />
-      <workItem from="1557728601274" duration="32240000" />
+      <workItem from="1557728601274" duration="34629000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62252000" />
+    <option name="totallyTimeSpent" value="64641000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -431,7 +476,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.30237582" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.21706264" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -702,26 +747,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="474">
-          <caret line="92" selection-start-line="92" selection-end-line="92" />
-          <folding>
-            <element signature="e#40#57#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="50" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
-          <folding>
-            <element signature="e#40#56#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/Dockerfile">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -808,7 +833,7 @@
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
-          <caret line="47" lean-forward="true" selection-start-line="47" selection-end-line="47" />
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
           <folding>
             <element signature="e#209#630#0#PHP" />
             <element signature="e#668#749#0#PHP" />
@@ -822,20 +847,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+        <state relative-caret-position="300">
+          <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
           <folding>
-            <element signature="e#1762#2565#1#PHP" />
+            <element signature="e#230#334#0#PHP" />
+            <element signature="e#340#441#0#PHP" />
+            <element signature="e#446#853#0#PHP" />
+            <element signature="e#575#798#0#PHP" />
+            <element signature="e#590#797#2#PHP" />
+            <element signature="e#704#757#0#PHP" />
+            <element signature="e#860#1019#0#PHP" />
+            <element signature="e#1024#1649#0#PHP" />
+            <element signature="e#1147#1258#0#PHP" />
+            <element signature="e#1342#1594#0#PHP" />
+            <element signature="e#1371#1584#1#PHP" />
+            <element signature="e#1655#1791#0#PHP" />
+            <element signature="e#1796#1893#0#PHP" />
+            <element signature="e#1899#2095#0#PHP" />
+            <element signature="e#2100#2565#0#PHP" />
+            <element signature="e#2242#2353#0#PHP" />
+            <element signature="e#2362#2510#0#PHP" />
+            <element signature="e#2392#2500#1#PHP" />
+            <element signature="e#2571#2719#0#PHP" />
+            <element signature="e#2724#2853#0#PHP" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="70" lean-forward="true" selection-start-line="70" selection-end-line="70" />
+        <state relative-caret-position="478">
+          <caret line="117" column="22" lean-forward="true" selection-start-line="117" selection-start-column="22" selection-end-line="117" selection-end-column="41" />
           <folding>
             <element signature="e#261#468#0#PHP" />
             <element signature="e#474#681#0#PHP" />
@@ -845,15 +889,36 @@
             <element signature="e#1102#1336#1#PHP" />
             <element signature="e#1388#1471#0#PHP" />
             <element signature="e#1598#1764#0#PHP" />
-            <element signature="e#1769#2072#0#PHP" />
-            <element signature="e#1884#1999#0#PHP" />
             <element signature="e#2078#2175#0#PHP" />
-            <element signature="e#2180#2269#0#PHP" />
             <element signature="e#2275#2385#0#PHP" />
             <element signature="e#2581#2668#0#PHP" />
             <element signature="e#2783#2920#0#PHP" />
             <element signature="e#3210#3331#0#PHP" />
             <element signature="e#3336#3408#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="448">
+          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+          <folding>
+            <element signature="e#1566#2325#1#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+          <folding>
+            <element signature="e#190#291#0#PHP" />
+            <element signature="e#515#674#0#PHP" />
+            <element signature="e#747#885#0#PHP" />
+            <element signature="e#1606#1804#0#PHP" />
+            <element signature="e#1898#2048#0#PHP" />
           </folding>
         </state>
       </provider>

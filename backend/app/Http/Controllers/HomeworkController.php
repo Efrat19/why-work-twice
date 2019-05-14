@@ -19,15 +19,6 @@ class HomeworkController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -52,20 +43,12 @@ class HomeworkController extends Controller
         $profile['user']= $homework->user()->get();
         $profile['school'] = $homework->school()->get();
         $profile['subject'] = $homework->subject()->get();
-        $profile['loved'] = $homework->favorites()->where('user_id',1)->count();//request()->user()->id);
+        $profile['loved'] = false;
+        if(auth('api')->check()){
+            $profile['loved'] = $homework->favorites()->where('user_id', auth('api')->user())->count();
+        }
         $profile['commentsNum'] = $homework->comments()->count();
         return response()->json($profile,200);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Homework  $homework
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Homework $homework)
-    {
-        //
     }
 
     /**
@@ -89,6 +72,13 @@ class HomeworkController extends Controller
     public function destroy(Homework $homework)
     {
         //
+    }
+
+    public function toggleFavorite(Homework $homework, $love)
+    {
+        $id = auth('api')->user();
+        (bool)$love ? $homework->favorites()->attach($id) : $homework->favorites()->detach($id);
+        return response()->json((bool)$love);
     }
 
 }
