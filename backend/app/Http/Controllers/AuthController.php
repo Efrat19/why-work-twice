@@ -42,52 +42,6 @@ class AuthController extends Controller
         ]);
         return $this->login($request);
     }
-
-    // /**
-    //  * register user and create token
-    //  *
-    //  * @param  [string] email
-    //  * @param  [string] password
-    //  * @param  [boolean] remember_me
-    //  * @return [string] access_token
-    //  * @return [string] token_type
-    //  * @return [string] expires_at
-    //  */
-    // public function login(Request $request)
-    // {
-    //     $user = User::where('email', $request->email)->first();
-
-    //     if ($user) {
-
-    //         if (Hash::check($request->password, $user->password)) {
-    //             $token = $user->createToken('Laravel Password Grant Client')->accessToken;
-    //             $response = ['token' => $token];
-    //             return response()->json($response, 200);
-    //         } else {
-    //             $response = "Password missmatch";
-    //             return response()->json($response, 422);
-    //         }
-
-    //     } else {
-    //         $response = 'User does not exist';
-    //         return response()->json($response, 422);
-    //     }
-
-    // }
-
-    // /**
-    //  * Logout user (Revoke the token)
-    //  *
-    //  * @return [string] message
-    //  */
-    // public function logout(Request $request)
-    // {
-    //     $token = $request->user()->token();
-    //     $token->revoke();
-
-    //     $response = 'You have been succesfully logged out!';
-    //     return response()->json($response, 200);
-    // }
     /**
      * Create a new AuthController instance.
      *
@@ -95,7 +49,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:api', ['except' => ['login','register']]);
+//        $this->middleware('auth:api', ['except' => ['login','register']]);
     }
 
     /**
@@ -133,9 +87,9 @@ class AuthController extends Controller
     public function logout()
     {
 
-        // $this->guard()->logout();
+         $this->guard()->logout();
 
-        return response()->json(['message' => 'Successfully logged out','user' => auth('api')->user() ],200);
+        return response()->json(['message' => 'Successfully logged out'],200);
     }
 
     /**
