@@ -4,6 +4,7 @@
     <div class="grid" v-if="profile">
       <div class="desc"><h3>{{profile.description}}</h3></div>
       <div class="love" @click="toggleLove(!profile.loved)">
+        profile.loved {{profile.loved}}
         <i :class="profile.loved ? 'fas fa-heart': 'far fa-heart'"></i>
       </div>
       <div class="hw-card">
@@ -43,7 +44,6 @@
         profile: null,
         comments: [],
         comments_limit: 5,
-        love: false,
         events,
         UNLIMITED: -1,
       };
@@ -64,7 +64,6 @@
       async getProfile() {
         const response = await this.apiService.api('get', `/homework/${this.id}`);
         this.profile = response.data;
-        this.love = this.profile.loved;
       },
       async getComments(limit) {
         const response = await this.apiService.api('get', `/homework/${this.id}/comments/${limit}`);
@@ -72,7 +71,7 @@
       },
       async toggleLove(love) {
         const response = await this.apiService.api('get', `/homework/${this.id}/favorite/${love}`);
-        this.love = response.data;
+        this.profile.loved = response.data;
       }
     },
     computed: {

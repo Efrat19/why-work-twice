@@ -64,6 +64,7 @@ class HomeworkController extends Controller
         $profile['user']= $homework->user()->get();
         $profile['school'] = $homework->school()->get();
         $profile['subject'] = $homework->subject()->get();
+        $profile['rating'] = $homework->rating()->avg('value') ?: 0;
         $profile['loved'] = false;
         if(auth('api')->check()){
             $profile['loved'] = $homework->favorites()->where('user_id', auth('api')->user())->count();
@@ -110,9 +111,10 @@ class HomeworkController extends Controller
 
     public function toggleFavorite(Homework $homework, $love)
     {
+        $isFavorite = (bool)$love;
         $id = auth('api')->user();
-        (bool)$love ? $homework->favorites()->attach($id) : $homework->favorites()->detach($id);
-        return response()->json((bool)$love);
+        $isFavorite ? $homework->favorites()->attach($id) : $homework->favorites()->detach($id);
+        return response()->json($isFavorite);
     }
 
     private function incrementViews(Homework $homework){

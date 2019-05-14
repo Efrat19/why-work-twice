@@ -32,9 +32,9 @@ export default new Vuex.Store({
     getIsSigned(state){
       return state.auth.isSigned;
     },
-    getToken(state){
-      return state.auth.token;
-    },
+    // getToken(state){
+    //   return state.auth.token;
+    // },
   },
   mutations: {
     setPopupName(state, popup){
@@ -52,9 +52,9 @@ export default new Vuex.Store({
     setIsSigned(state, isSigned){
       state.auth.isSigned = isSigned;
     },
-    setToken(state, token){
-      state.auth.token = token;
-    },
+    // setToken(state, token){
+    //   state.auth.token = token;
+    // },
   },
   actions: {
     open({commit}, popup) {
@@ -73,8 +73,8 @@ export default new Vuex.Store({
     setIsSigned({commit}, isSigned){
       commit('setIsSigned', isSigned);
     },
-    setToken({commit}, token){
-      commit('setToken', token);
-    },
+    // setToken({commit}, token){
+    //   commit('setToken', token);
+    // },
   },
 });

@@ -25,13 +25,14 @@ class CommentController extends Controller
         $comments->map(function ($comment, $key) {
             $user = User::findOrFail($comment->user_id);
             $comment->user = [
-                'name' => $user->name
+                'name' => $user->name,
             ];
+            $comment->canEdit = auth('api')->check() && auth('api')->user()->can('update', $comment);
+            $comment->canDelete = auth('api')->check() && auth('api')->user()->can('delete', $comment);
             return $comment;
         });
         return response()->json($comments,200);
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -65,7 +66,12 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        return response()->json($comment,200);
+        if(auth('api')->user()->can('view', $comment)){
+            return response()->json($comment,200);
+        }
+        else {
+            return response()->json(['error'=>'unauthorized'],403);
+        }
     }
 
     /**
@@ -77,17 +83,23 @@ class CommentController extends Controller
      */
     public function update(Request $request, Comment $comment)
     {
-        $validator = Validator::make($request->all(), $this->rules);
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
+        if(auth('api')->user()->can('update', $comment)){
+            $validator = Validator::make($request->all(), $this->rules);
+            if ($validator->fails()) {
+                return response()->json(['errors'=>$validator->errors()->all()], 422);
+            }
+            $comment->update(
+                array(
+                    'header' => $request->header,
+                    'body' => $request->body,
+                )
+            );
+            return response()->json($comment, 200);
         }
-        $comment->update(
-            array(
-                'header' => $request->header,
-                'body' => $request->body,
-            )
-        );
-        return response()->json($comment, 200);
+        else {
+            return response()->json(['error'=>'unauthorized'],403);
+        }
+
     }
 
     /**
@@ -98,7 +110,12 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment)
     {
-        $comment->delete();
-        return response()->json($comment, 200);
+        if(auth('api')->user()->can('delete', $comment)){
+            $comment->delete();
+            return response()->json($comment, 200);
+        }
+        else {
+            return response()->json(['error'=>'unauthorized'],403);
+        }
     }
 }

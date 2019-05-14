@@ -42,4 +42,9 @@ class Homework extends Model
     {
         return $this->belongsToMany(User::class);
     }
+
+    public function rating()
+    {
+        return $this->hasMany(Rate::class);
+    }
 }

@@ -42,15 +42,6 @@ class AuthController extends Controller
         ]);
         return $this->login($request);
     }
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-//        $this->middleware('auth:api', ['except' => ['login','register']]);
-    }
 
     /**
      * Get a JWT token via given credentials.
@@ -67,16 +58,6 @@ class AuthController extends Controller
             return $this->respondWithToken($token);
         }
         return response()->json(['error' => 'Unauthorized'], 401);
-    }
-
-    /**
-     * Get the authenticated User
-     *
-     * @return \Illuminate\Http\JsonResponse
-     */
-    public function me()
-    {
-        return response()->json($this->guard()->user());
     }
 
     /**
@@ -124,7 +105,7 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Contracts\Auth\Guard
      */
-    public function guard()
+    protected function guard()
     {
         return auth()->guard('api');
     }

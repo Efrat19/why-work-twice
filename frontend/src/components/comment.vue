@@ -2,9 +2,9 @@
 
   <section class="comment">
     <div class="header">{{comment.header}} {{comment.id}}</div>
-    <div class="edit" v-if="isOwner">
+    <div class="edit" v-if="comment.canEdit">
       <i class="fas fa-edit" @click="open('add-comment',{editMode: true, id: comment.id})"></i></div>
-    <div class="delete" v-if="isOwner">
+    <div class="delete" v-if="comment.canDelete">
       <i class="fas fa-trash-alt" @click="open('delete-comment',{id: comment.id})"></i>
     </div>
     <div class="body">{{comment.body}}</div>
@@ -40,10 +40,6 @@
       }
     },
     computed: {
-      isOwner(){
-        return this.store.getters.getIsSigned &&
-          this.store.getters.getUser.id === this.comment.user_id
-      }
     }
 }
 </script>

@@ -74,7 +74,6 @@ Route::get('/insertbasic',function (){
             'description' => 'ivate function insertBas',
             'views' => 400,
             'downloads' => 40,
-            'rating' => 78,
         )
     );
 

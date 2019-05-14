@@ -2,6 +2,7 @@
   <div class="site">
       <div class="grid">
           <navbar class="navbar" :auth="store.getters.getIsSigned"></navbar>
+          {{store.getters.getIsSigned}}: store.getters.getIsSigned
           <div class="left-space"></div>
           <router-view class="view"></router-view>
           <div class="right-space"></div>
