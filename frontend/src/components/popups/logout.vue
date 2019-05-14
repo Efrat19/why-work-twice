@@ -1,7 +1,8 @@
 <template lang="html">
 
   <section class="logout">
-    <h1>logout Component</h1>
+    <div v-if="!response">logging you out...</div>
+    < <div v-if="response" class="msg">{{response}}</div>
   </section>
 
 </template>

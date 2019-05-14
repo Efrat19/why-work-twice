@@ -1,87 +1,52 @@
-import Vue from "vue";
-import axios from "axios";
-import store from "../store";
-import router from "../router";
+import Vue from 'vue';
+import axios from 'axios';
+import store from '../store';
+import router from '../router';
 
 class ApiService {
   constructor() {
     this.axios = axios;
     this.store = store;
     this.router = router;
-    this.baseUrl = "http://localhost:8000/api";
-    this.jwt = '';
+    this.baseUrl = 'http://localhost:8000/api';
   }
-  setUser({ user }) {
-    this.store.dispatch("setIsSigned", !!user);
-    this.store.dispatch("setUser", user);
+
+  getAuthSuffix() {
+    return `?token=${this.store.getters.getToken}`;
   }
+
+  setAuth(data) {
+    this.store.dispatch('setIsSigned', !!data.user);
+    this.store.dispatch('setUser', data.user);
+    this.store.dispatch('setToken', data.access_token);
+  }
+
   async register(form) {
-    const response = await axios.post(`${this.baseUrl}/register`, form);
-    this.setUser(response.data);
-    this.jwt = response.data.access_token;
-    // this.storeToken(this.jwt);
+    const response = await this.axios.post(`${this.baseUrl}/register`, form);
+    this.setAuth(response.data);
   }
+
   async login(form) {
-    const response = await axios.post(`${this.baseUrl}/login`, form);
-    this.setUser(response.data);
-    this.jwt = response.data.token;
-    // this.storeToken(this.jwt);
+    const response = await this.axios.post(`${this.baseUrl}/login`, form);
+    this.setAuth(response.data);
   }
+
   async logout() {
-    const response = await axios.get(`${this.baseUrl}/restricted/logout?token=${this.jwt}`, {},{
-     headers: {
-      Authorization: `Bearer ${this.jwt}`
-     }
-    });
-    this.setUser(response.data);
-    this.jwt = '';
+    const response = await this.axios.get(`${this.baseUrl}/logout${this.getAuthSuffix()}`);
+    this.setAuth(response.data);
   }
-  async getHwProfile(hwId) {
-    const response = await axios.get(`${this.baseUrl}/homework/${hwId}`);
-    return response.data;
-  }
-  async getComments(hwId, commentsLimit) {
-    const response = await axios.get(`${this.baseUrl}/homework/${hwId}/comments/${commentsLimit}`);
-    return response.data;
-  }
-  async toggleLove(hwId, love) {
-    const response = await axios.get(`${this.baseUrl}/homework/${hwId}/favorite/${love}`);
-    return response.data;
-  }
-  async createComment(form, homeworkId) {
-    const response = await axios.post(`${this.baseUrl}/comment/`, {
-      homeworkId,
-      ...form
-    });
-    return response.data;
-  }
-  async updateComment(id, form, homeworkId) {
-    const response = await axios.put(`${this.baseUrl}/comment/${id}`, {
-      homeworkId,
-      ...form
-    });
-    return response.data;
-  }
-  async getOldComment(id) {
-    const response = await axios.get(`${this.baseUrl}/comment/${id}`);
-    return response.data;
-  }
-  async deleteComment(id) {
-    const response = await axios.delete(`${this.baseUrl}/comment/${id}`);
-    return response.data;
-  }
-  async storeToken(token){
-      const prepare = token.split('.')[0].replace('-','+').replace('_','/');
-      const decoded = JSON.parse(atob(prepare));
-      console.log(decoded);
-      debugger;
-  }
-  async getAuth(){
-    return {
-      headers: new Headers({
-        Authorization: `Bearer: ${this.jwt}`
-      })
+
+  async api(method, uri, data, onSuccess, onFailure){
+    const url = this.baseUrl + uri + this.getAuthSuffix();
+    try {
+      const response = this.axios[method](url,data);
+      onSuccess && onSuccess(response.data);
+    }
+    catch (error) {
+      onFailure && onFailure(error)
     }
   }
+
 }
+
 export default new ApiService();

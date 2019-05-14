@@ -1,6 +1,7 @@
 <template lang="html">
 <div class="login">
-    <form>
+  <div v-if="response" class="msg">{{response}}</div>
+    <form v-if="!response">
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="your@email.com" v-model="email">
@@ -16,8 +17,8 @@
 </template>
 
 <script lang="js">
-    import popupContent from '../../mixins/popupContent'
-  import axios from 'axios';
+    import popupContent from '../../mixins/popupContent';
+  import authService from '../../services/authService';
   export default {
     name: 'login',
       mixins: [popupContent],
@@ -26,6 +27,7 @@
     },
     data() {
       return {
+        authService,
           email: '',
           password: '',
           success: false,
@@ -37,8 +39,13 @@
                 email: this.email,
                 password: this.password,
             };
-            const response = await this.apiService.login(form);
-            this.onSuccess(response);
+            try {
+              const response = await this.authService.login(form);
+              this.onSuccess(response);
+            }
+            catch (e) {
+              this.onFailure(e);
+            }
         },
     },
     computed: {

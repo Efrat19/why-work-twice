@@ -1,7 +1,8 @@
 <template lang="html">
 
   <section class="add-comment">
-    <form>
+     <div v-if="response" class="msg">{{response}}</div>
+     <form v-if="!response">
       <h4>{{editMode ? 'Edit ': 'Add '}} Comment</h4>
       <div class="form-group">
         <label for="header1">Header</label>
@@ -19,6 +20,7 @@
 
 <script lang="js">
   import popupContent from '../../mixins/popupContent';
+  import commentService from '../../services/commentService';
   export default  {
     name: 'add-comment',
     mixins: [popupContent],
@@ -27,6 +29,7 @@
     },
     data() {
       return {
+        commentService,
         header: '',
         body: '',
       };
@@ -37,12 +40,12 @@
           body: this.body,
           header: this.header,
         };
-        const response = this.editMode ? await this.apiService.updateComment(this.payload.id, form, this.payload.homeworkId) :
-                await this.apiService.createComment(form, this.payload.homeworkId);
+        const response = this.editMode ? await this.commentService.updateComment(this.payload.id, form, this.payload.homeworkId) :
+                await this.commentService.createComment(form, this.payload.homeworkId);
         this.onSuccess(response);
       },
       async getOld(){
-          const old = await this.apiService.getOldComment(this.payload.id);
+          const old = await this.commentService.getOldComment(this.payload.id);
           this.header = old.header;
           this.body = old.body;
       }

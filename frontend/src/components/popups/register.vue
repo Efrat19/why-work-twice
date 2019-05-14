@@ -1,6 +1,7 @@
 <template lang="html">
   <section class="register">
-    <form>
+     <div v-if="response" class="msg">{{response}}</div>
+     <form v-if="!response">
       <div class="form-group">
         <label for="exampleInputName">Whats Your Name?</label>
         <input type="text" class="form-control" id="exampleInputName" placeholder="Efrat" v-model="name">

@@ -1,5 +1,5 @@
 import store from '../store';
-import apiService from '../services/apiService';
+import apiService from '../services/apiService'
 
 export default {
     props: {
@@ -14,9 +14,10 @@ export default {
     },
     data() {
         return {
+          apiService,
             store,
-            apiService,
             editMode: false,
+            response: '',
         }
     },
     mounted() {
@@ -29,9 +30,13 @@ export default {
         close(){
             this.store.dispatch('close', this.popupName);
         },
-        onSuccess(){
-            this.success = true;
-            window.setTimeout(this.close, 1);
+        onSuccess(data){
+            this.response = data;
+            window.setTimeout(this.close, 3);
+        },
+        onFailure(data){
+            this.response = data;
+            window.setTimeout(() => this.response = '', 3);
         },
         getOld(){
 
