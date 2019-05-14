@@ -9,34 +9,10 @@ class ApiService {
     this.store = store;
     this.router = router;
     this.baseUrl = 'http://localhost:8000/api';
+    this.user = null;
+    this.isSigned = false;
+    this.token = '';
     this.attemptAuthFromLocalStorage();
-  }
-
-  async getAuthSuffix() {
-    const token = await localStorage.getItem('token');
-    return `?token=${token}`;
-  }
-
-  async updateStore(data) {
-    await this.store.dispatch('setUser', data.user);
-    return this.store.dispatch('setIsSigned', true);
-  }
-
-  async updateLocalStorage(data) {
-    await localStorage.setItem('token', data.token);
-    return localStorage.setItem('user', JSON.stringify(data.user));
-  }
-
-  async setAuth(data){
-    await this.updateLocalStorage(data);
-    return this.updateStore(data);
-  }
-
-  async clearAuth() {
-    await this.store.dispatch('setIsSigned', false);
-    await this.store.dispatch('setUser', null);
-    await localStorage.removeItem('user');
-    return localStorage.removeItem('token');
   }
 
   async api(method, uri, data) {
@@ -45,12 +21,38 @@ class ApiService {
     return this.axios[method](url, data);
   }
 
-  async attemptAuthFromLocalStorage(){
-    const auth = {
-      user: JSON.parse(localStorage.getItem('user')),
-      token: localStorage.getItem('token'),
-    }
-    return auth.user && auth.token && this.updateStore(auth);
+  getAuthSuffix() {
+    return `?token=${this.token}`;
+  }
+
+  async setToken(token) {
+    this.token = token;
+    return localStorage.setItem('token', token);
+  }
+
+  async setUser(user) {
+    this.user = user;
+    this.isSigned = true;
+    return localStorage.setItem('user', JSON.stringify(user));
+  }
+
+  async setAuth(data) {
+    await this.setToken(data);
+    return this.setUser(data);
+  }
+
+  async clearAuth() {
+    this.isSigned = false;
+    this.user = null;
+    this.token = '';
+    await localStorage.removeItem('user');
+    return localStorage.removeItem('token');
+  }
+
+  async attemptAuthFromLocalStorage() {
+    this.user = await JSON.parse(localStorage.getItem('user'));
+    this.isSigned = !!this.user;
+    this.token = await localStorage.getItem('token');
   }
 
 }
