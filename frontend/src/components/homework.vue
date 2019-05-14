@@ -3,6 +3,13 @@
   <section class="homework">
     <div class="grid" v-if="profile">
       <div class="desc"><h3>{{profile.description}}</h3></div>
+      <div class="options">
+        <div class="edit" v-if="profile.canEdit">
+          <i class="fas fa-edit" @click="open('add-homework',{editMode: true, id: profile.id})"></i></div>
+        <div class="delete" v-if="profile.canDelete">
+          <i class="fas fa-trash-alt" @click="open('delete-homework',{id: profile.id})"></i>
+        </div>
+      </div>
       <div class="love" @click="toggleLove(!profile.loved)">
         profile.loved {{profile.loved}}
         <i :class="profile.loved ? 'fas fa-heart': 'far fa-heart'"></i>
@@ -49,10 +56,11 @@
       };
     },
     beforeMount() {
-      this.events.$on('commentsUpdated', () => this.getComments(this.UNLIMITED));
+      this.events.$on('commentUpdated', () => this.getComments(this.UNLIMITED));
+      this.events.$on('homeworkUpdated', id => id === this.id && this.getProfile());
     },
     mounted() {
-      this.id = this.$route.params.id;
+      this.id = parseInt(this.$route.params.id, 10);
       this.getProfile();
       this.getComments(this.comments_limit);
     },
@@ -62,8 +70,13 @@
         this.getComments(this.comments_limit);
       },
       async getProfile() {
-        const response = await this.apiService.api('get', `/homework/${this.id}`);
-        this.profile = response.data;
+        try{
+          const response = await this.apiService.api('get', `/homework/${this.id}`);
+          this.profile = response.data;
+        }
+        catch (e) {
+          this.onFailure(e);
+        }
       },
       async getComments(limit) {
         const response = await this.apiService.api('get', `/homework/${this.id}/comments/${limit}`);
@@ -72,6 +85,9 @@
       async toggleLove(love) {
         const response = await this.apiService.api('get', `/homework/${this.id}/favorite/${love}`);
         this.profile.loved = response.data;
+      },
+      onFailure(error){
+
       }
     },
     computed: {
@@ -89,7 +105,7 @@
       grid-template-rows:50px 350px auto 20px;
       grid-gap: 0;
       grid-template-areas:
-              "desc desc love"
+              "desc options love"
               "hw-card hw-card hw-card"
               "comment-header add add"
               "comments comments comments"
@@ -106,6 +122,10 @@
       }
       .love{
         grid-area: love;
+        cursor: pointer;
+      }
+      .options{
+        grid-area: options;
         cursor: pointer;
       }
       .comment-header{

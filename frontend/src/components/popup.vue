@@ -13,7 +13,9 @@
   import register from './popups/register.vue';
   import logout from './popups/logout.vue';
   import addComment from './popups/add-comment.vue';
+  import addHomework from './popups/add-homework.vue';
   import deleteComment from './popups/delete-comment.vue';
+  import deleteHomework from './popups/delete-homework.vue';
   import store from '../store';
   export default  {
     name: 'popup',
@@ -28,7 +30,9 @@
         logout,
         register,
       addComment,
+      addHomework,
       deleteComment,
+      deleteHomework,
     },
     mounted() {
 

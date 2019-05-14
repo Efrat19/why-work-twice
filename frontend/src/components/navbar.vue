@@ -2,6 +2,7 @@
 
   <section class="navbar">
     <router-link class="home" to="/">Home</router-link>
+    <div class="upload"><button @click="open('add-homework')">Add Your Homework</button></div>
     <div class="auth">
       <router-link v-if="auth" class="home" to="/user">User</router-link>
       <button v-if="auth" class="logout" @click="open('logout')">Logout</button>
@@ -43,16 +44,19 @@
 <style scoped lang="scss">
   .navbar {
     display: grid;
-    grid-template-columns: 25% 50% 25%;
+    grid-template-columns: 15% 15% auto 25%;
     grid-template-rows: auto;
     grid-gap: 0;
     grid-template-areas:
-            "home space auth";
+            "home upload space auth";
     .home{
       grid-area: home;
     }
     .auth{
       grid-area: auth;
+    }
+    .upload{
+      grid-area: upload;
     }
     .space{
       grid-area: space;

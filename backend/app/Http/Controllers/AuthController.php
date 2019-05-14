@@ -3,19 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
-use App\User;
-use App\School;
-use App\Subject;
+
 
 class AuthController extends Controller
 {
-    protected $rules = [
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-    ];
+//    public function __construct(UserController $userController)
+//    {
+//        $this->userController
+//    }
+
     /**
      * Create user
      *
@@ -27,19 +23,7 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
-        }
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'school_id' => $school->id,
-            'subject_id' => $subject->id,
-            'password' => Hash::make($request['password'])
-        ]);
+
         return $this->login($request);
     }
 

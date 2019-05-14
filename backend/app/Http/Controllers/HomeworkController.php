@@ -13,7 +13,7 @@ class HomeworkController extends Controller
 {
     public $rules = [
         'description' => ['required', 'string', 'max:255'],
-        'source' => ['required', 'string', 'max:255', 'unique:homeworks'],
+        'source' => ['required', 'string', 'max:255', 'unique:homeworks,id'],
     ];
 
     /**
@@ -62,13 +62,15 @@ class HomeworkController extends Controller
         $this->incrementViews($homework);
         $profile = $homework->toArray();
         $profile['user']= $homework->user()->get();
-        $profile['school'] = $homework->school()->get();
-        $profile['subject'] = $homework->subject()->get();
+        $profile['school'] = $homework->school()->first()->name;
+        $profile['subject'] = $homework->subject()->first()->name;
         $profile['rating'] = $homework->rating()->avg('value') ?: 0;
         $profile['loved'] = false;
         if(auth('api')->check()){
             $profile['loved'] = $homework->favorites()->where('user_id', auth('api')->user())->count();
         }
+        $profile['canEdit'] =  auth('api')->check() && auth('api')->user()->can('update',$homework);
+        $profile['canDelete'] =  auth('api')->check() && auth('api')->user()->can('delete',$homework);
         $profile['commentsNum'] = $homework->comments()->count();
         return response()->json($profile,200);
     }

@@ -23,9 +23,8 @@ class CommentController extends Controller
     {
         $comments = $homework->comments()->limit($limit)->get();
         $comments->map(function ($comment, $key) {
-            $user = User::findOrFail($comment->user_id);
             $comment->user = [
-                'name' => $user->name,
+                'name' => $comment->user()->first()->name,
             ];
             $comment->canEdit = auth('api')->check() && auth('api')->user()->can('update', $comment);
             $comment->canDelete = auth('api')->check() && auth('api')->user()->can('delete', $comment);

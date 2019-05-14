@@ -13,9 +13,9 @@
     import popupContent from '../../mixins/popupContent';
 
     export default {
+      mixins: [popupContent],
         name: 'delete-comment',
         props: [],
-        mixins: [popupContent],
         mounted() {
 
         },
@@ -26,7 +26,7 @@
             async submit() {
                 try {
                     const response = await this.apiService.api('delete', `/comment/${this.payload.id}`);
-                    this.events.$emit('commentsUpdated');
+                    this.events.$emit('commentUpdated');
                     this.onSuccess(response.data);
                 } catch (error) {
                     this.onFailure(error);

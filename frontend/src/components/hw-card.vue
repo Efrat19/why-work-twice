@@ -8,8 +8,8 @@
       <detail class="rating" keyName="rating" :value="profile.rating"></detail>
       <detail class="views" keyName="views" :value="profile.views"></detail>
       <detail class="downloads" keyName="downloads" :value="profile.downloads"></detail>
-      <detail class="school" keyName="school" :value="profile.school[0].name"></detail>
-      <detail class="subject" keyName="subject" :value="profile.subject[0].name"></detail>
+      <detail class="school" keyName="school" :value="profile.school"></detail>
+      <detail class="subject" keyName="subject" :value="profile.subject"></detail>
       <div class="user">
         <router-link :to="`/user/${profile.user_id}`">View All {{profile.user[0].name}} homeworks</router-link>
       </div>

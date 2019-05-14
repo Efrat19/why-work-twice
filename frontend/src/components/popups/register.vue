@@ -67,13 +67,6 @@
           this.onFailure(error);
         }
       },
-    async getOld(){
-        const old = await this.apiService.getOldUSer();
-       this.name = old.name;
-       this.email = old.email;
-       this.subject = old.subject;
-       this.school = old.school;
-    }
     },
     computed: {
     }

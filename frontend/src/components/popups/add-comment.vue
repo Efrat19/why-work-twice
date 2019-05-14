@@ -42,7 +42,7 @@
         const method = this.editMode? 'put' : 'post';
         try {
           const response = await this.apiService.api(method, uri, form);
-          this.events.$emit('commentsUpdated');
+          this.events.$emit('commentUpdated');
           this.onSuccess(response.data);
         }
         catch (error) {
