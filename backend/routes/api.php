@@ -48,12 +48,12 @@ use App\Comment;
 Route::post('login', 'Auth\LoginController@login');
 
 Route::group([
-    'prefix' => 'restricted',
+//    'prefix' => 'restricted',
     'middleware' => 'auth:api',
 ], function () {
 
     // Authentication Routes...
-    Route::get('logout', 'Auth\LoginController@logout');
+    Route::get('/logout', 'Auth\LoginController@logout');
 
     Route::get('/test', function () {
         return 'authenticated';

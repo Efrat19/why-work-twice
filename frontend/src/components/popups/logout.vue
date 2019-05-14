@@ -13,8 +13,14 @@
     props: [],
     mixins: [popupContent],
     async mounted() {
-      const response = await this.apiService.logout();
-      this.onSuccess(response);
+      try {
+        const response = await this.apiService.api('get', '/logout');
+        await this.apiService.clearAuth();
+        this.onSuccess(response.data);
+      }
+      catch (error) {
+        this.onFailure(error);
+      }
     },
     data() {
       return {

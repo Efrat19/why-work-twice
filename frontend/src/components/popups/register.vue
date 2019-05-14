@@ -57,8 +57,15 @@
           password: this.password,
           password_confirmation: this.confirmPassword,
         };
-        const response = await this.apiService.register(form);
-        this.onSuccess(response);
+        try {
+          await this.apiService.clearAuth();
+          const response = await this.apiService.api('post', '/register', form);
+          await this.apiService.setAuth(response.data);
+          this.onSuccess(response.data);
+        }
+        catch (error) {
+          this.onFailure(error);
+        }
       },
     async getOld(){
         const old = await this.apiService.getOldUSer();

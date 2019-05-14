@@ -17,6 +17,9 @@ export default {
             store,
             apiService,
             editMode: false,
+            success: false,
+            failure: false,
+            response: '',
         }
     },
     mounted() {
@@ -29,9 +32,19 @@ export default {
         close(){
             this.store.dispatch('close', this.popupName);
         },
-        onSuccess(){
+        onSuccess(msg){
             this.success = true;
-            window.setTimeout(this.close, 1);
+            this.response = msg;
+            window.setTimeout(this.close, 3);
+        },
+        onFailure(error){
+            this.faiure = true;
+            this.response = error;
+        },
+        reset(){
+            this.success = false;
+            this.faiure = false;
+            this.response = '';
         },
         getOld(){
 

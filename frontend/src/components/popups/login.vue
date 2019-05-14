@@ -28,7 +28,6 @@
       return {
           email: '',
           password: '',
-          success: false,
       }
     },
     methods: {
@@ -37,8 +36,15 @@
                 email: this.email,
                 password: this.password,
             };
-            const response = await this.apiService.login(form);
-            this.onSuccess(response);
+            try {
+                await this.apiService.clearAuth();
+                const response = await this.apiService.api('post', '/login', form);
+                await this.apiService.setAuth(response.data);
+                this.onSuccess(response.data);
+            }
+            catch (error) {
+                this.onFailure(error);
+            }
         },
     },
     computed: {
@@ -46,7 +52,6 @@
     }
 }
 </script>
-
 <style scoped lang="scss">
   .login {
 
