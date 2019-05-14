@@ -16,9 +16,9 @@ class ApiService {
   }
 
   async setAuth(data) {
-    await this.store.dispatch('setIsSigned', true);
     await this.store.dispatch('setUser', data.user);
-    return this.store.dispatch('setToken', data.token);
+    await this.store.dispatch('setToken', data.token);
+    return this.store.dispatch('setIsSigned', true);
   }
 
   async clearAuth() {

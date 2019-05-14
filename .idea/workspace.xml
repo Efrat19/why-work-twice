@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e21f3447-769a-4b81-8526-6851486f6da2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/comment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/services/apiService.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/services/apiService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -49,6 +50,30 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/frontend/src/services/apiService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#22#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/routes/api.php">
           <provider selected="true" editor-type-id="text-editor">
@@ -65,7 +90,7 @@
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
-              <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
+              <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
               <folding>
                 <element signature="e#230#334#0#PHP" />
                 <element signature="e#340#441#0#PHP" />
@@ -92,11 +117,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/comment.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="253">
+              <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+            <state relative-caret-position="270">
+              <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
               <folding>
                 <element signature="e#190#291#0#PHP" />
                 <element signature="e#515#674#0#PHP" />
@@ -197,7 +231,6 @@
         <option value="$PROJECT_DIR$/frontend/src/components/user.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/detail.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/hw-card.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/store.js" />
         <option value="$PROJECT_DIR$/frontend/src/mixins/openPopup.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/popup.vue" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php" />
@@ -207,12 +240,13 @@
         <option value="$PROJECT_DIR$/frontend/src/components/popups/login.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/popups/delete-comment.vue" />
         <option value="$PROJECT_DIR$/frontend/src/components/popups/add-comment.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/services/apiService.js" />
         <option value="$PROJECT_DIR$/frontend/src/components/homework.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/comment.vue" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" />
         <option value="$PROJECT_DIR$/backend/routes/api.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php" />
+        <option value="$PROJECT_DIR$/frontend/src/components/comment.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/store.js" />
+        <option value="$PROJECT_DIR$/frontend/src/services/apiService.js" />
       </list>
     </option>
   </component>
@@ -443,12 +477,12 @@
       <updated>1557220297544</updated>
       <workItem from="1557220298691" duration="6885000" />
       <workItem from="1557230074085" duration="41300000" />
-      <workItem from="1557728601274" duration="34629000" />
+      <workItem from="1557728601274" duration="34902000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="64641000" />
+    <option name="totallyTimeSpent" value="64914000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -657,16 +691,6 @@
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/RateController.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-418">
-          <caret line="16" column="6" lean-forward="true" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/public/js/app.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="219">
@@ -813,23 +837,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/comment.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="31" column="14" lean-forward="true" selection-start-line="31" selection-start-column="14" selection-end-line="31" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/services/apiService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/Auth/LoginController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="249">
@@ -843,35 +850,6 @@
             <element signature="e#1106#1232#0#PHP" />
             <element signature="e#1873#1945#0#PHP" />
             <element signature="e#1951#2103#0#PHP" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="98" column="23" selection-start-line="98" selection-start-column="23" selection-end-line="98" selection-end-column="23" />
-          <folding>
-            <element signature="e#230#334#0#PHP" />
-            <element signature="e#340#441#0#PHP" />
-            <element signature="e#446#853#0#PHP" />
-            <element signature="e#575#798#0#PHP" />
-            <element signature="e#590#797#2#PHP" />
-            <element signature="e#704#757#0#PHP" />
-            <element signature="e#860#1019#0#PHP" />
-            <element signature="e#1024#1649#0#PHP" />
-            <element signature="e#1147#1258#0#PHP" />
-            <element signature="e#1342#1594#0#PHP" />
-            <element signature="e#1371#1584#1#PHP" />
-            <element signature="e#1655#1791#0#PHP" />
-            <element signature="e#1796#1893#0#PHP" />
-            <element signature="e#1899#2095#0#PHP" />
-            <element signature="e#2100#2565#0#PHP" />
-            <element signature="e#2242#2353#0#PHP" />
-            <element signature="e#2362#2510#0#PHP" />
-            <element signature="e#2392#2500#1#PHP" />
-            <element signature="e#2571#2719#0#PHP" />
-            <element signature="e#2724#2853#0#PHP" />
           </folding>
         </state>
       </provider>
@@ -911,14 +889,70 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/HomeworkController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="48" column="9" lean-forward="true" selection-start-line="48" selection-start-column="9" selection-end-line="48" selection-end-column="9" />
+        <state relative-caret-position="270">
+          <caret line="30" column="10" lean-forward="true" selection-start-line="30" selection-start-column="10" selection-end-line="30" selection-end-column="10" />
           <folding>
             <element signature="e#190#291#0#PHP" />
             <element signature="e#515#674#0#PHP" />
             <element signature="e#747#885#0#PHP" />
             <element signature="e#1606#1804#0#PHP" />
             <element signature="e#1898#2048#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/backend/app/Http/Controllers/CommentController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="77" column="33" selection-start-line="77" selection-start-column="33" selection-end-line="77" selection-end-column="33" />
+          <folding>
+            <element signature="e#230#334#0#PHP" />
+            <element signature="e#340#441#0#PHP" />
+            <element signature="e#446#853#0#PHP" />
+            <element signature="e#575#798#0#PHP" />
+            <element signature="e#590#797#2#PHP" />
+            <element signature="e#704#757#0#PHP" />
+            <element signature="e#860#1019#0#PHP" />
+            <element signature="e#1024#1649#0#PHP" />
+            <element signature="e#1147#1258#0#PHP" />
+            <element signature="e#1342#1594#0#PHP" />
+            <element signature="e#1371#1584#1#PHP" />
+            <element signature="e#1655#1791#0#PHP" />
+            <element signature="e#1796#1893#0#PHP" />
+            <element signature="e#1899#2095#0#PHP" />
+            <element signature="e#2100#2565#0#PHP" />
+            <element signature="e#2242#2353#0#PHP" />
+            <element signature="e#2362#2510#0#PHP" />
+            <element signature="e#2392#2500#1#PHP" />
+            <element signature="e#2571#2719#0#PHP" />
+            <element signature="e#2724#2853#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/comment.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="43" column="17" selection-start-line="43" selection-start-column="17" selection-end-line="43" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/services/apiService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -8,7 +8,7 @@ export default new Vuex.Store({
     auth: {
       token: '',
       isSigned: false,
-      user: {},
+      user: null,
     },
     popup: {
       name: false,
