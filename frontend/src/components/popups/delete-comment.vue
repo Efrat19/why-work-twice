@@ -27,6 +27,7 @@
       async submit() {
         try {
           const response = await this.apiService.api('delete', `/comment/${this.payload.id}`);
+          this.events.$emit('commentsUpdated');
           this.onSuccess(response.data);
         }
         catch (error) {

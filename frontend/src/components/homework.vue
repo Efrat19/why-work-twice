@@ -28,6 +28,7 @@
   import apiService from '../services/apiService';
   import openPopup from '../mixins/openPopup';
   import detail from './detail.vue';
+  import events from '../events'
   export default {
     name: 'homework',
     mixins: [openPopup],
@@ -35,6 +36,7 @@
       comment,
       hwCard,
       detail,
+      events,
     },
     data() {
       return {
@@ -43,25 +45,29 @@
         comments: [],
         comments_limit: 5,
         love: false,
+        UNLIMITED: -1,
       };
+    },
+    beforeMount() {
+      this.events.$on('commentsUpdated', () => this.getComments(this.UNLIMITED));
     },
     mounted() {
       this.id = this.$route.params.id;
-      this.getHWProfile();
-      this.getComments();
+      this.getProfile();
+      this.getComments(this.comments_limit);
     },
     methods: {
       showMore() {
         this.comments_limit += this.comments_limit;
-        this.getComments();
+        this.getComments(this.comments_limit);
       },
-      async getHWProfile() {
+      async getProfile() {
         const response = await this.apiService.api('get', `/homework/${this.id}`);
         this.profile = response.data;
         this.love = this.profile.loved;
       },
-      async getComments() {
-        const response = await this.apiService.api('get', `/homework/${this.id}/comments/${this.comments_limit}`);
+      async getComments(limit) {
+        const response = await this.apiService.api('get', `/homework/${this.id}/comments/${limit}`);
         this.comments = response.data;
       },
       async toggleLove(love) {

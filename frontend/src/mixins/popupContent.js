@@ -1,4 +1,5 @@
 import store from '../store';
+import events from '../events';
 import apiService from '../services/apiService';
 
 export default {
@@ -10,11 +11,12 @@ export default {
         popupName: {
             type: String,
             required: true,
-        }
+        },
     },
     data() {
         return {
             store,
+            events,
             apiService,
             editMode: false,
             success: false,

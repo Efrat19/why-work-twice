@@ -41,7 +41,6 @@
     },
     computed: {
       isOwner(){
-        debugger;
         return this.store.getters.getIsSigned &&
           this.store.getters.getUser.id === this.comment.user_id
       }
