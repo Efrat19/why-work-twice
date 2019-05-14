@@ -36,15 +36,49 @@
         const form = {
           body: this.body,
           header: this.header,
+          homeworkId: this.payload.homeworkId,
         };
-        const response = this.editMode ? await this.apiService.updateComment(this.payload.id, form, this.payload.homeworkId) :
-                await this.apiService.createComment(form, this.payload.homeworkId);
-        this.onSuccess(response);
+        const uri = this.editMode ? `/comment/${this.payload.id}` : '/comment';
+        try {
+          const response = await this.apiService.api('post', uri, form);
+          this.onSuccess(response.data);
+        }
+        catch (error) {
+          this.onFailure(error);
+        }
+      //   const response = this.editMode ? await this.apiService.updateComment(this.payload.id, form, this.payload.homeworkId) :
+      //           await this.apiService.createComment(form, this.payload.homeworkId);
+      //   this.onSuccess(response);
+
+        // async createComment(form, homeworkId) {
+        //   const response = await axios.post(`${this.baseUrl}/comment/`, {
+        //     homeworkId,
+        //     ...form
+        //   });
+        //   return response.data;
+        // }
+        // async updateComment(id, form, homeworkId) {
+        //   const response = await axios.put(`${this.baseUrl}/comment/${id}`, {
+        //     homeworkId,
+        //     ...form
+        //   });
+        //   return response.data;
+        // }
+        // async getOldComment(id) {
+        //   const response = await axios.get(`${this.baseUrl}/comment/${id}`);
+        //   return response.data;
+        // }
       },
-      async getOld(){
-          const old = await this.apiService.getOldComment(this.payload.id);
+      async getOld() {
+        try {
+          const old = await this.apiService.api('get', `/comment/${this.payload.id}`);
           this.header = old.header;
           this.body = old.body;
+        }
+        catch (error) {
+          this.onFailure(error);
+        }
+
       }
     },
     computed: {

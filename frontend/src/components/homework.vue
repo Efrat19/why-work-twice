@@ -51,21 +51,23 @@
       this.getComments();
     },
     methods: {
-      showMore(){
+      showMore() {
         this.comments_limit += this.comments_limit;
         this.getComments();
       },
-      async getHWProfile(){
-        this.profile = await this.apiService.getHwProfile(this.id);
+      async getHWProfile() {
+        const response = await this.apiService.api('get', `/homework/${this.id}`);
+        this.profile = response.data;
         this.love = this.profile.loved;
       },
-      async getComments(){
-        this.comments = await this.apiService.getComments(this.id, this.comments_limit);
+      async getComments() {
+        const response = await this.apiService.api('get', `/homework/${this.id}/comments/${this.comments_limit}`);
+        this.comments = response.data;
       },
-      async toggleLove(love){
-        this.love = await this.apiService.toggleLove(this.id, love);
+      async toggleLove(love) {
+        const response = await this.apiService.api('get', `/homework/${this.id}/favorite/${love}`);
+        this.love = response.data;
       }
-
     },
     computed: {
 

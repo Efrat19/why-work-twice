@@ -25,8 +25,13 @@
     },
     methods: {
       async submit() {
-        await this.apiService.deleteComment(this.payload.id);
-        this.onSuccess();
+        try {
+          const response = await this.apiService.api('delete', `/comment/${this.payload.id}`);
+          this.onSuccess(response.data);
+        }
+        catch (error) {
+          this.onFailure(error);
+        }
       }
     },
     computed: {

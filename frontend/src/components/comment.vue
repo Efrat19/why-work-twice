@@ -41,8 +41,8 @@
     },
     computed: {
       isOwner(){
-          return true;
-        return this.store.getters.getUser.id === this.comment.user_id
+        return this.store.getters.getIsSigned &&
+          this.store.getters.getUser.id === this.comment.user_id
       }
     }
 }
