@@ -29,7 +29,7 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), $this->rules);
         if ($validator->fails()) {
-            return response(['errors'=>$validator->errors()->all()], 422);
+            return response()->json(['errors'=>$validator->errors()->all()], 422);
         }
         $school = School::firstOrCreate(['name' => $request['school']]);
         $subject = Subject::firstOrCreate(['name' => $request['subject']]);

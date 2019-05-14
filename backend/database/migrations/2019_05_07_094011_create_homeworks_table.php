@@ -21,10 +21,9 @@ class CreateHomeworksTable extends Migration
             $table->unsignedInteger('school_id');
             $table->unsignedInteger('subject_id');
             $table->string('source');
-            $table->string('description')->nullable();
-            $table->unsignedInteger('views')->nullable();
-            $table->unsignedInteger('downloads')->nullable();
-            $table->unsignedInteger('rating')->nullable();
+            $table->string('description');
+            $table->unsignedInteger('views')->default(0);
+            $table->unsignedInteger('downloads')->default(0);
         });
     }
 

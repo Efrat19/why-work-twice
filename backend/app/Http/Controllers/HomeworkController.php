@@ -4,11 +4,18 @@ namespace App\Http\Controllers;
 
 use App\Homework;
 use App\User;
+use App\School;
+use App\Subject;
 use Illuminate\Http\Request;
-use PhpParser\Node\Expr\Cast\Object_;
+use Illuminate\Support\Facades\Validator;
 
 class HomeworkController extends Controller
 {
+    public $rules = [
+        'description' => ['required', 'string', 'max:255'],
+        'source' => ['required', 'string', 'max:255', 'unique:homeworks'],
+    ];
+
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +23,7 @@ class HomeworkController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json(Homework::all(),200);
     }
 
 
@@ -28,7 +35,20 @@ class HomeworkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()->all()], 422);
+        }
+        $school = School::firstOrCreate(['name' => $request['school']]);
+        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+        $homework = Homework::create([
+            'description' => $request['description'],
+            'source' => $request['source'],
+            'school_id' => $school->id,
+            'subject_id' => $subject->id,
+            'user_id' => auth('api')->id()
+        ]);
+        return response()->json($homework,200);
     }
 
     /**
@@ -39,6 +59,7 @@ class HomeworkController extends Controller
      */
     public function show(Homework $homework)
     {
+        $this->incrementViews($homework);
         $profile = $homework->toArray();
         $profile['user']= $homework->user()->get();
         $profile['school'] = $homework->school()->get();
@@ -60,7 +81,19 @@ class HomeworkController extends Controller
      */
     public function update(Request $request, Homework $homework)
     {
-        //
+        $validator = Validator::make($request->all(), $this->rules);
+        if ($validator->fails()) {
+            return response()->json(['errors'=>$validator->errors()->all()], 422);
+        }
+        $school = School::firstOrCreate(['name' => $request['school']]);
+        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+        $homework->update([
+            'description' => $request['description'],
+            'source' => $request['source'],
+            'school_id' => $school->id,
+            'subject_id' => $subject->id,
+        ]);
+        return response()->json($homework,200);
     }
 
     /**
@@ -71,7 +104,8 @@ class HomeworkController extends Controller
      */
     public function destroy(Homework $homework)
     {
-        //
+        $homework->delete();
+        return response()->json($homework, 200);
     }
 
     public function toggleFavorite(Homework $homework, $love)
@@ -81,4 +115,15 @@ class HomeworkController extends Controller
         return response()->json((bool)$love);
     }
 
+    private function incrementViews(Homework $homework){
+        $homework->update([
+            'views' => $homework->views++
+        ]);
+    }
+
+    private function incrementDownloads(Homework $homework){
+        $homework->update([
+            'downloads' => $homework->downloads++
+        ]);
+    }
 }

@@ -43,7 +43,7 @@ class CommentController extends Controller
     {
         $validator = Validator::make($request->all(), $this->rules);
         if ($validator->fails()) {
-            return response(['errors'=>$validator->errors()->all()], 422);
+            return response()->json(['errors'=>$validator->errors()->all()], 422);
         }
         $homework = Homework::findOrFail($request->homeworkId);
         $comment = Comment::create(
@@ -79,7 +79,7 @@ class CommentController extends Controller
     {
         $validator = Validator::make($request->all(), $this->rules);
         if ($validator->fails()) {
-            return response(['errors'=>$validator->errors()->all()], 422);
+            return response()->json(['errors'=>$validator->errors()->all()], 422);
         }
         $comment->update(
             array(
