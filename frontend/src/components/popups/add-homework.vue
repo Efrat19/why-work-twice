@@ -19,7 +19,7 @@
         <label for="source">Source</label>
         <input type="file" class="form-control" id="source" name="myFile" @change="setSource($event)">
       </div>
-      <button type="submit" class="btn btn-primary" @click.prevent="submit">Add Homework</button>
+      <button type="submit"  class="wwt-btn"  @click.prevent="submit">Add Homework</button>
     </form>
   </section>
 

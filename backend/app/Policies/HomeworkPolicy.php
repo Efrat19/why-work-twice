@@ -57,27 +57,5 @@ class HomeworkPolicy
         return $user->permission_id > 2 || $user->id === $homework->user_id;
     }
 
-    /**
-     * Determine whether the user can restore the homework.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Homework  $homework
-     * @return mixed
-     */
-    public function restore(User $user, Homework $homework)
-    {
-        //
-    }
 
-    /**
-     * Determine whether the user can permanently delete the homework.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Homework  $homework
-     * @return mixed
-     */
-    public function forceDelete(User $user, Homework $homework)
-    {
-        //
-    }
 }

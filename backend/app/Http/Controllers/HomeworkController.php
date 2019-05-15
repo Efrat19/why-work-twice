@@ -14,6 +14,8 @@ class HomeworkController extends Controller
     public $rules = [
         'description' => ['required', 'string', 'max:255'],
         'source' => ['required', 'string', 'max:255', 'unique:homeworks,id'],
+        'subject' => ['required'],
+        'school' => ['required'],
     ];
 
     /**
@@ -84,19 +86,23 @@ class HomeworkController extends Controller
      */
     public function update(Request $request, Homework $homework)
     {
-        $validator = Validator::make($request->all(), $this->rules);
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
+        if (auth('api')->user()->can('update',$homework)) {
+            $validator = Validator::make($request->all(), $this->rules);
+            if ($validator->fails()) {
+                return response()->json(['errors'=>$validator->errors()->all()], 422);
+            }
+            $school = School::firstOrCreate(['name' => $request['school']]);
+            $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+            $homework->update([
+                'description' => $request['description'],
+                'source' => $request['source'],
+                'school_id' => $school->id,
+                'subject_id' => $subject->id,
+            ]);
+            return response()->json($homework,200);
         }
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        $homework->update([
-            'description' => $request['description'],
-            'source' => $request['source'],
-            'school_id' => $school->id,
-            'subject_id' => $subject->id,
-        ]);
-        return response()->json($homework,200);
+        return response()->json(['errors'=>['unauthorized']],403);
+
     }
 
     /**
@@ -107,8 +113,11 @@ class HomeworkController extends Controller
      */
     public function destroy(Homework $homework)
     {
-        $homework->delete();
-        return response()->json($homework, 200);
+        if (auth('api')->user()->can('update',$homework)) {
+            $homework->delete();
+            return response()->json($homework, 200);
+        }
+        return response()->json(['errors'=>['unauthorized']],403);
     }
 
     public function toggleFavorite(Homework $homework, $love)

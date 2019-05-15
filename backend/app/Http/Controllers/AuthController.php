@@ -7,10 +7,12 @@ use Illuminate\Http\Request;
 
 class AuthController extends Controller
 {
-//    public function __construct(UserController $userController)
-//    {
-//        $this->userController
-//    }
+    protected $userController;
+
+    public function __construct(UserController $userController)
+    {
+        $this->userController = $userController;
+    }
 
     /**
      * Create user
@@ -23,8 +25,9 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-
-        return $this->login($request);
+        $response = $this->userController->store($request);
+        return $response->getStatusCode() === 200 ?
+            $this->login($request) : $response;
     }
 
     /**
@@ -41,7 +44,7 @@ class AuthController extends Controller
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->respondWithToken($token);
         }
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(['errors' => ['Unauthorized']], 401);
     }
 
     /**

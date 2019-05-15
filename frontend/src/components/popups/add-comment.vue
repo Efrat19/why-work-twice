@@ -11,7 +11,7 @@
         <label for="body1">Body</label>
         <textarea class="form-control" id="body1" v-model="body" placeholder="drop it all here..."></textarea>
       </div>
-      <button type="submit" class="btn btn-primary" @click.prevent="submit">Comment</button>
+      <button type="submit"  class="wwt-btn"  @click.prevent="submit">Comment</button>
     </form>
   </section>
 

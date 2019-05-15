@@ -59,6 +59,26 @@ Route::group([], function() {
     });
 });
 
+/**
+ * user routes
+ */
+
+Route::group([], function () {
+    Route::resource('/user','UserController',[
+        'only' => ['index', 'show','store', 'update']
+    ]);
+});
+
+
+
+
+
+
+
+
+
+
+
 
 /**
  * dev routes

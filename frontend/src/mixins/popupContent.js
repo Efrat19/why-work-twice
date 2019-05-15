@@ -40,10 +40,12 @@ export default {
             window.setTimeout(this.close, 3);
         },
         onFailure(error){
+            this.$emit('setErrors', error.response.data.errors || ['something went wrong :(']);
             this.faiure = true;
             this.response = error;
         },
         reset(){
+            this.$emit('setErrors', []);
             this.success = false;
             this.faiure = false;
             this.response = '';

@@ -1,6 +1,6 @@
 <template lang="html">
   <section class="register">
-    <form v-if="!response">
+    <form>
       <div class="form-group">
         <label for="exampleInputName">Whats Your Name?</label>
         <input type="text" class="form-control" id="exampleInputName" placeholder="Efrat" v-model="name">
@@ -26,7 +26,7 @@
         <label for="exampleInputPassword2">Again Please....</label>
         <input type="password" class="form-control" id="exampleInputPassword2" v-model="confirmPassword">
       </div>
-      <button type="submit" class="btn btn-primary" @click.prevent="submit">Sign In</button>
+      <button type="submit" class="wwt-btn" @click.prevent="submit">Sign In</button>
     </form>
    
   </section>

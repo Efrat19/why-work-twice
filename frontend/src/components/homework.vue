@@ -26,6 +26,9 @@
       </div>
       <div class="more" v-if="profile.commentsNum > comments_limit" @click="showMore()">Show More</div>
     </div>
+    <div class="wwt-status" v-if="error">
+      {{error}}
+    </div>
   </section>
 
 </template>
@@ -53,6 +56,7 @@
         comments_limit: 5,
         events,
         UNLIMITED: -1,
+        error: '',
       };
     },
     beforeMount() {
@@ -73,6 +77,7 @@
         try{
           const response = await this.apiService.api('get', `/homework/${this.id}`);
           this.profile = response.data;
+          this.error = '';
         }
         catch (e) {
           this.onFailure(e);
@@ -87,7 +92,7 @@
         this.profile.loved = response.data;
       },
       onFailure(error){
-
+        this.error = error.response.status;
       }
     },
     computed: {

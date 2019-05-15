@@ -37,8 +37,8 @@ class ApiService {
   }
 
   async setAuth(data) {
-    await this.setToken(data);
-    return this.setUser(data);
+    await this.setToken(data.token);
+    return this.setUser(data.user);
   }
 
   async clearAuth() {

@@ -68,9 +68,8 @@ class CommentController extends Controller
         if(auth('api')->user()->can('view', $comment)){
             return response()->json($comment,200);
         }
-        else {
-            return response()->json(['error'=>'unauthorized'],403);
-        }
+        return response()->json(['errors'=>['unauthorized']],403);
+
     }
 
     /**
@@ -96,7 +95,7 @@ class CommentController extends Controller
             return response()->json($comment, 200);
         }
         else {
-            return response()->json(['error'=>'unauthorized'],403);
+            return response()->json(['errors'=>['unauthorized']],403);
         }
 
     }
@@ -114,7 +113,7 @@ class CommentController extends Controller
             return response()->json($comment, 200);
         }
         else {
-            return response()->json(['error'=>'unauthorized'],403);
+            return response()->json(['errors'=>['unauthorized']],403);
         }
     }
 }

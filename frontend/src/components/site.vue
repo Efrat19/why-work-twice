@@ -1,8 +1,7 @@
 <template lang="html">
   <div class="site">
       <div class="grid">
-          <navbar class="navbar" :auth="store.getters.getIsSigned"></navbar>
-          {{store.getters.getIsSigned}}: store.getters.getIsSigned
+          <navbar class="navbar"></navbar>
           <div class="left-space"></div>
           <router-view class="view"></router-view>
           <div class="right-space"></div>
@@ -44,6 +43,7 @@
 <style scoped lang="scss">
   .site {
       position: relative;
+      background-color: #cecece;
    .grid{
        height: 1000px;
        width: 100%;

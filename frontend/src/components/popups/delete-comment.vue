@@ -3,8 +3,8 @@
     <section class="delete-comment">
         <h3>delete comment {{payload.id}}</h3>
         <h2>sure about that?</h2>
-        <button class="btn btn-primary no" @click.prevent="close()">No, Cancel</button>
-        <button class="btn btn-primary yes" @click.prevent="submit()">Yeah</button>
+        <button class="wwt-btn no" @click.prevent="close()">No, Cancel</button>
+        <button class="wwt-btn yes" @click.prevent="submit()">Yeah</button>
     </section>
 
 </template>

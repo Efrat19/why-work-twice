@@ -1,48 +1,49 @@
 <template lang="html">
 
   <section class="navbar">
-    <router-link class="home" to="/">Home</router-link>
-    <div class="upload"><button @click="open('add-homework')">Add Your Homework</button></div>
+    <router-link class="home wwt-link" to="/">Home</router-link>
+    <div class="upload"><button  class="wwt-btn" @click="open('add-homework')">Add Your Homework</button></div>
     <div class="auth">
-      <router-link v-if="auth" class="home" to="/user">User</router-link>
-      <button v-if="auth" class="logout" @click="open('logout')">Logout</button>
-      <button v-if="!auth" class="register" @click="open('register')">Register</button>
-      <button v-if="!auth" class="login" @click="open('login')">Login</button>
+      <router-link v-if="auth" class="home wwt-link" to="/user">User</router-link>
+      <button v-if="auth" class="logout wwt-btn" @click="open('logout')">Logout</button>
+      <button v-if="!auth" class="register wwt-btn" @click="open('register')">Register</button>
+      <button v-if="!auth" class="login wwt-btn" @click="open('login')">Login</button>
     </div>
   </section>
 
 </template>
 
 <script lang="js">
-  import openPopup from '../mixins/openPopup'
+  import openPopup from '../mixins/openPopup';
+  import apiService from '../services/apiService'
   export default  {
     name: 'navbar',
     mixins:[openPopup],
     props: {
-      auth: {
-        type: Boolean,
-        default: false,
-      }
     },
     mounted() {
 
     },
     data() {
       return {
-
+        apiService,
       }
     },
     methods: {
 
     },
     computed: {
-
+      auth(){
+        return this.apiService.isSigned;
+      }
     }
 }
 </script>
 
 <style scoped lang="scss">
   .navbar {
+    background-color: white;
+    /*border: 1px solid black;*/
     display: grid;
     grid-template-columns: 15% 15% auto 25%;
     grid-template-rows: auto;

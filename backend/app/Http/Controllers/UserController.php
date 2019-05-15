@@ -8,10 +8,23 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\School;
 use App\Subject;
+use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
 
+    /**
+     * validation-rules
+     *
+     * @var array
+     */
+    protected $rules = [
+        'name' => ['required', 'string', 'max:255'],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+        'subject' => ['required'],
+        'school' => ['required'],
+    ];
     /**
      * Display a listing of the resource.
      *
@@ -38,21 +51,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(),  User::$rules);
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
-        }
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        $user = User::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'school_id' => $school->id,
-            'subject_id' => $subject->id,
-            'password' => Hash::make($request['password'])
-        ]);
+       if ($this->authorize('create', User::class)) {
+           $validator = Validator::make($request->all(),  $this->rules);
+           if ($validator->fails()) {
+               return response()->json(['errors'=>$validator->errors()->all()], 422);
+           }
+           $school = School::firstOrCreate(['name' => $request['school']]);
+           $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+           $user = User::create([
+               'name' => $request['name'],
+               'email' => $request['email'],
+               'school_id' => $school->id,
+               'subject_id' => $subject->id,
+               'password' => Hash::make($request['password'])
+           ]);
 
-        return response()->json($user,200);
+           return response()->json($user,200);
+       }
+        return response()->json(['errors'=>['unauthorized']],403);
     }
 
     public function show(User $user)
@@ -69,18 +85,35 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $validator = Validator::make($request->all(), User::$rules);
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
+        if (auth('api')->user()->can('update',$user)) {
+            $validator = Validator::make($request->all(), $this->getRulesFor(['name', 'school', 'subject']));
+            if ($validator->fails()) {
+                return response()->json(['errors' => $validator->errors()->all()], 422);
+            }
+            $school = School::firstOrCreate(['name' => $request['school']]);
+            $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+            $user->update([
+                'name' => $request['name'],
+                'school_id' => $school->id,
+                'subject_id' => $subject->id,
+            ]);
+            return response()->json($user, 200);
         }
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        $user->update([
-            'name' => $request['name'],
-            'school_id' => $school->id,
-            'subject_id' => $subject->id,
-        ]);
-        return response()->json($user,200);
+        return response()->json(['errors'=>['unauthorized']],403);
+    }
+
+    protected function getRulesFor($fields){
+
+        $filteredRules = [];
+
+        foreach (is_array($fields) ? $fields : func_get_args() as $field) {
+
+                $value = $this->rules[$field];
+
+                Arr::set($filteredRules, $field, $value);
+            }
+
+        return $filteredRules;
     }
 
 }

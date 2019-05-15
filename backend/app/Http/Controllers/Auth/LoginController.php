@@ -43,7 +43,7 @@ class LoginController extends Controller
         if ($token = $this->guard()->attempt($credentials)) {
             return $this->sendLoginResponse($request, $token);
         }
-        return response()->json(['error' => 'Unauthorized'], 401);
+        return response()->json(['errors' => ['Unauthorized']], 401);
     }
 
     protected function sendLoginResponse(Request $request, string $token)

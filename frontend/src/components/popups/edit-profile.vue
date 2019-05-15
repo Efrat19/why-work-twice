@@ -12,7 +12,7 @@
       <label for="exampleInputSubject">What Exactly Are You Studying now?</label>
       <input type="text" class="form-control" id="exampleInputSubject"  v-model="school">
     </div>
-    <button type="submit" class="btn btn-primary" @click.prevent="submit">Save Changes</button>
+    <button type="submit"  class="wwt-btn"  @click.prevent="submit">Save Changes</button>
   </section>
 
 </template>
@@ -52,7 +52,7 @@ export default {
         }
       },
       async getOld(){
-        const old = await this.apiService.api('get', `user/${this.payload.id}`);
+        const old = await this.apiService.api('get', `/user/${this.payload.id}`);
         this.name = old.data.name;
         this.subject = old.data.subject;
         this.school = old.data.school;

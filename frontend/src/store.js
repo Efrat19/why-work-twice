@@ -5,11 +5,11 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    auth: {
-      token: '',
-      isSigned: false,
-      user: null,
-    },
+    // auth: {
+    //   token: '',
+    //   isSigned: false,
+    //   user: null,
+    // },
     popup: {
       name: false,
       isOpen: false,
@@ -26,12 +26,12 @@ export default new Vuex.Store({
     getPayload(state){
       return state.popup.payload;
     },
-    getUser(state){
-      return state.auth.user;
-    },
-    getIsSigned(state){
-      return state.auth.isSigned;
-    },
+    // getUser(state){
+    //   return state.auth.user;
+    // },
+    // getIsSigned(state){
+    //   return state.auth.isSigned;
+    // },
     // getToken(state){
     //   return state.auth.token;
     // },
@@ -43,15 +43,15 @@ export default new Vuex.Store({
     togglePopup(state, isOpen){
       state.popup.isOpen = isOpen;
     },
-    setUser(state, user){
-      state.auth.user = user;
-    },
+    // setUser(state, user){
+    //   state.auth.user = user;
+    // },
     setPayload(state, payload){
       state.popup.payload = payload;
     },
-    setIsSigned(state, isSigned){
-      state.auth.isSigned = isSigned;
-    },
+    // setIsSigned(state, isSigned){
+    //   state.auth.isSigned = isSigned;
+    // },
     // setToken(state, token){
     //   state.auth.token = token;
     // },
@@ -64,15 +64,15 @@ export default new Vuex.Store({
     close({commit}){
       commit('togglePopup', false);
     },
-    setUser({commit}, user){
-      commit('setUser', user);
-    },
+    // setUser({commit}, user){
+    //   commit('setUser', user);
+    // },
     setPayload({commit}, payload){
       commit('setPayload', payload);
     },
-    setIsSigned({commit}, isSigned){
-      commit('setIsSigned', isSigned);
-    },
+    // setIsSigned({commit}, isSigned){
+    //   commit('setIsSigned', isSigned);
+    // },
     // setToken({commit}, token){
     //   commit('setToken', token);
     // },

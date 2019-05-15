@@ -11,7 +11,7 @@
       <detail class="school" keyName="school" :value="profile.school"></detail>
       <detail class="subject" keyName="subject" :value="profile.subject"></detail>
       <div class="user">
-        <router-link :to="`/user/${profile.user_id}`">View All {{profile.user[0].name}} homeworks</router-link>
+        <router-link class="wwt-link" :to="`/user/${profile.user_id}`">View All {{profile.user[0].name}} homeworks</router-link>
       </div>
 
     </div>
@@ -55,6 +55,9 @@
   .hw-card {
     .grid {
       display: grid;
+      background-color: white;
+      border-radius: 6px;
+      border: 1px solid black;
       margin: 5%;
       grid-template-columns: 100px auto;
       grid-template-rows: auto;

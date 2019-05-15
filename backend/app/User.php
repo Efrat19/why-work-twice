@@ -12,16 +12,6 @@ class User extends Authenticatable implements JWTSubject
     use Notifiable;
 
 
-    /**
-     * validation-rules
-     *
-     * @var array
-     */
-    static $rules = [
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-    ];
 
     /**
      * The attributes that are mass assignable.

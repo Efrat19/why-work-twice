@@ -10,7 +10,7 @@
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" v-model="password">
         </div>
-        <button type="submit" class="btn btn-primary" @click.prevent="submit">Sign In</button>
+        <button type="submit" class="wwt-btn" @click.prevent="submit">Sign In</button>
     </form>
 </div>
 </template>
