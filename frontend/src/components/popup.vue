@@ -3,7 +3,16 @@
     <div class="page">
       <i class="fas fa-times" @click="close()"></i>
       <component :is="name" :payload="store.getters.getPayload" :popupName="name"></component>
-    </div>
+       <div v-if="response">
+          <div v-if="success">
+            {{response}}
+          </div>
+           <div v-if="failure">
+            {{response}}
+            
+          </div>
+        </div>
+      </div>
     <div class="cover"></div>
   </div>
 </template>
