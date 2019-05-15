@@ -22,5 +22,9 @@ export default new Router({
       path: '/homework/:id',
       component: homework,
     },
+    {
+      path: '/admin',
+      component: homework,
+    },
   ],
 });

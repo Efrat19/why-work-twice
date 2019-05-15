@@ -33,7 +33,7 @@ Route::group( [], function () {
  */
 Route::group([], function () {
 
-    Route::get('homework/{homework}/comments/{limit}', 'CommentController@index');
+    Route::get('homework/{homework}/comments/{limit}', 'CommentController@forHomework');
     Route::get('/comment/{comment}','CommentController@show');
 
     Route::group(['middleware' => 'auth:api'], function() {
@@ -64,13 +64,35 @@ Route::group([], function() {
  */
 
 Route::group([], function () {
+    Route::get('/users/search','UserController@search');
     Route::resource('/user','UserController',[
-        'only' => ['index', 'show','store', 'update']
+        'only' => ['show']
     ]);
+    Route::group(['middleware' => 'auth:api'], function () {
+        Route::resource('/user','UserController',[
+            'only' => ['store', 'update']
+        ]);
+    });
+
 });
 
+/**
+ * admin routes
+ */
 
-
+Route::group([
+        'prefix' => '/admin',
+        'middleware' => 'isAdmin'
+    ], function () {
+        Route::group([
+            'prefix' => '/search',
+            'middleware' => 'isAdmin'
+        ], function () {
+            Route::get('/users','UserController@search');
+            Route::get('/homeworks','HomeworkController@search');
+            Route::get('/comments','CommentController@search');
+        });
+});
 
 
 

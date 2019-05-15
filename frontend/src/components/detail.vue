@@ -1,7 +1,7 @@
 <template lang="html">
 
   <section class="detail">
-    <b><i :class="icons[keyName] || fallback"></i></b><span>{{' '}}</span>{{value}}
+    <b><i class="icon" :class="icons[keyName] || fallback"></i></b><span>{{' '}}</span>{{value}}
   </section>
 
 </template>
@@ -31,6 +31,7 @@
           subject: 'fas fa-graduation-cap',
           rating: 'fas fa-star',
           comment: 'fas fa-comments',
+          user: 'fas fa-user',
         },
         fallback: 'fas fa-exclamation',
       }
@@ -47,5 +48,8 @@
 <style scoped lang="scss">
   .detail {
     font-size: 2rem;
+    .icon {
+      font-size: 4rem;
+    }
   }
 </style>

@@ -19,8 +19,24 @@ class CommentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Homework $homework, $limit)
+    public function index()
     {
+        return response()->json(Comment::all(),200);
+    }
+
+
+
+    /***
+     * @param Homework $homework
+     * @param $limit
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function forHomework(Homework $homework, $limit)
+    {
+
+//     Return a commments array by a specific homework
+//     array length is limited by limit parameter
+//     to get all comments, set limit to -1
         $comments = $homework->comments()->limit($limit)->get();
         $comments->map(function ($comment, $key) {
             $comment->user = [

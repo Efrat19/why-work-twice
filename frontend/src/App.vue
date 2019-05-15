@@ -44,7 +44,6 @@
       text-decoration: none;
       &:hover{
         text-shadow: black;
-        font-size: 1.8rem;
       }
     }
     .wwt-status{

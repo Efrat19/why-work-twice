@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function create(?User $user)
     {
-        return ! $user || $user->permission_id > 2;
+        return ! $user || $user->isSuperadmin();
     }
 
     /**
@@ -30,7 +30,7 @@ class UserPolicy
      */
     public function update(User $user, User $model)
     {
-        return $user->permission_id > 2 || $user->id === $model->id;
+        return $user->isAdmin() || $user->id === $model->id;
     }
 
 }

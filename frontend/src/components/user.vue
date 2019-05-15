@@ -43,7 +43,6 @@
         }
       },
       onFailure(error){
-        debugger;
         this.error = error.response.status;
       }
     },

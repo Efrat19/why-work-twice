@@ -14,9 +14,7 @@
         profile.loved {{profile.loved}}
         <i :class="profile.loved ? 'fas fa-heart': 'far fa-heart'"></i>
       </div>
-      <div class="hw-card">
-        <hw-card :profile="profile"></hw-card>
-      </div>
+        <hw-card class="hw-card" :profile="profile"></hw-card>
       <detail class="comment-header" keyName="comment" :value="profile.commentsNum"></detail>
       <div class="add">
         <i class="fas fa-plus"  @click="open('add-comment',{homeworkId: id})"></i>

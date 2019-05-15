@@ -42,7 +42,7 @@ class CommentPolicy
      */
     public function update(User $user, Comment $comment)
     {
-        return $user->permission_id > 1 || $user->id === $comment->user_id;
+        return $user->isAdmin() || $user->id === $comment->user_id;
     }
 
     /**
@@ -54,30 +54,7 @@ class CommentPolicy
      */
     public function delete(User $user, Comment $comment)
     {
-        return $user->permission_id > 1;
+        return $user->isAdmin();
     }
 
-    /**
-     * Determine whether the user can restore the comment.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Comment  $comment
-     * @return mixed
-     */
-    public function restore(User $user, Comment $comment)
-    {
-        //
-    }
-
-    /**
-     * Determine whether the user can permanently delete the comment.
-     *
-     * @param  \App\User  $user
-     * @param  \App\Comment  $comment
-     * @return mixed
-     */
-    public function forceDelete(User $user, Comment $comment)
-    {
-        //
-    }
 }

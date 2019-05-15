@@ -42,7 +42,7 @@ class HomeworkPolicy
      */
     public function update(User $user, Homework $homework)
     {
-        return $user->permission_id > 1 || $user->id === $homework->user_id;
+        return $user->isAdmin() || $user->id === $homework->user_id;
     }
 
     /**
@@ -54,7 +54,7 @@ class HomeworkPolicy
      */
     public function delete(User $user, Homework $homework)
     {
-        return $user->permission_id > 2 || $user->id === $homework->user_id;
+        return $user->isSuperadmin() || $user->id === $homework->user_id;
     }
 
 

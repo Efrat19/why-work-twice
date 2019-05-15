@@ -4,12 +4,13 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schemaupport\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\School;
 use App\Subject;
-use Illuminate\Support\Arr;
-
+use Illuminate\Support\Arr;;
 class UserController extends Controller
 {
 
@@ -100,6 +101,27 @@ class UserController extends Controller
             return response()->json($user, 200);
         }
         return response()->json(['errors'=>['unauthorized']],403);
+    }
+
+    public function search(Request $request)
+    {
+//        dd(DB::getSchemaBuilder()->getColumnListing('users'));
+//
+//        dd(Schema::getColumnListing('users'));
+        $where = [];
+        foreach (DB::getSchemaBuilder()->getColumnListing('users') as $col){
+            $where[] = [$col, 'LIKE', '%2%' ];
+        }
+        return DB::table('users')->where($where,null,null,'or');
+//        $users = User::where([
+//            ['name', 'LIKE' ]
+//        ]);
+//        $q = Input::get ( 'q' );
+//        $user = User::where ( 'name', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
+//        if (count ( $user ) > 0)
+//            return view ( 'welcome' )->withDetails ( $user )->withQuery ( $q );
+//        else
+//            return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
     }
 
     protected function getRulesFor($fields){

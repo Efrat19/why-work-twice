@@ -71,6 +71,16 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Homework::class);
     }
 
+    public function isAdmin()
+    {
+        return $this->permission_id > 1;
+    }
+
+    public function isSuperadmin()
+    {
+        return $this->permission_id > 2;
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();  // Eloquent model method
