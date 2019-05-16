@@ -5,6 +5,7 @@
       <summary>
         users
       </summary>
+      <search url="/users/search" result-type="user"></search>
     </details>
     <details>
       <summary>
@@ -24,11 +25,15 @@
 </template>
 
 <script lang="js">
+  import search from './search'
   export default  {
     name: 'admin',
     props: [],
+    components: {
+      search,
+    },
     mounted() {
-      this.authorize();
+      // this.authorize();
     },
     data() {
       return {

@@ -3,26 +3,15 @@
   <section class="homework">
     <div class="grid" v-if="profile">
       <div class="desc"><h3>{{profile.description}}</h3></div>
-      <div class="options">
-        <div class="edit" v-if="profile.canEdit">
-          <i class="fas fa-edit" @click="open('add-homework',{editMode: true, id: profile.id})"></i></div>
-        <div class="delete" v-if="profile.canDelete">
-          <i class="fas fa-trash-alt" @click="open('delete-homework',{id: profile.id})"></i>
-        </div>
-      </div>
-      <div class="love" @click="toggleLove(!profile.loved)">
-        profile.loved {{profile.loved}}
-        <i :class="profile.loved ? 'fas fa-heart': 'far fa-heart'"></i>
-      </div>
         <hw-card class="hw-card" :profile="profile"></hw-card>
-      <detail class="comment-header" keyName="comment" :value="profile.commentsNum"></detail>
-      <div class="add">
-        <i class="fas fa-plus"  @click="open('add-comment',{homeworkId: id})"></i>
+      <div  class="comment-header" >
+        <detail keyName="comment" :value="profile.commentsNum"></detail>
+        <i class="add fas fa-plus"  @click="open('add-comment',{homeworkId: id})"></i>
+        <div class="comments">
       </div>
-      <div class="comments">
         <comment v-for="(comment,index) in comments" :comment="comment" :key="index"></comment>
       </div>
-      <div class="more" v-if="profile.commentsNum > comments_limit" @click="showMore()">Show More</div>
+      <div class="more wwt-btn" v-if="profile.commentsNum > comments_limit" @click="showMore()">Show More</div>
     </div>
     <div class="wwt-status" v-if="error">
       {{error}}
@@ -104,39 +93,36 @@
     .grid{
       width: 100%;
       display: grid;
-      grid-template-columns: auto;
       grid-template-rows:50px 350px auto 20px;
-      grid-gap: 0;
+      grid-gap: 30px;
       grid-template-areas:
-              "desc options love"
-              "hw-card hw-card hw-card"
-              "comment-header add add"
-              "comments comments comments"
-              "more more more";
+              "desc"
+              "hw-card"
+              "comment-header"
+              "comments"
+              "more";
       .comments{
         grid-area: comments;
       }
       .hw-card{
         grid-area: hw-card;
       }
-      .more{
+      .more {
         grid-area: more;
         cursor: pointer;
-      }
-      .love{
-        grid-area: love;
-        cursor: pointer;
-      }
-      .options{
-        grid-area: options;
-        cursor: pointer;
+        margin-bottom: 100px;
+        width: 30%;
+        margin-right: auto;
+        margin-left: auto;
       }
       .comment-header{
         grid-area: comment-header;
-      }
-      .add{
-        grid-area: add;
-        cursor: pointer;
+        .add{
+          grid-area: add;
+          cursor: pointer;
+          margin-right: auto;
+          font-size: 2rem;
+        }
       }
     }
   }

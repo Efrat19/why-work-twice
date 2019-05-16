@@ -3,19 +3,27 @@
     <div class="bar">
       <input type="text" class="wwt-input" placeholder="" v-model="bar"  @input="fetchResults()">
     </div>
+    <div class="results">
+      <component :is="getResultType" v-for="(result,index) in results" :key="index" :result="result"></component>
+    </div>
   </section>
 
 </template>
 
 <script lang="js">
+  import apiService from '../services/apiService';
+  import userSearchResult from './user-search-result';
   export default  {
     name: 'search',
+    components: {
+      userSearchResult,
+    },
     props: {
       url: {
         type: String,
         required: true,
       },
-      url: {
+      resultType: {
         type: String,
         required: true,
       }
@@ -25,23 +33,27 @@
     },
     data() {
       return {
-        bar:'',
+        apiService,
+        bar: '',
+        results: [],
       }
     },
     methods: {
       async fetchResults(){
-        this.results = await this.apiService.api('get', '/admin/users');
-      }
+        const response = await this.apiService.api('get', `${this.url}?q=${this.bar}`);
+        this.results = response.data;
+      },
     },
     computed: {
-
+      getResultType(){
+        return `${this.resultType}SearchResult`;
+      },
     }
 }
 </script>
 
 <style scoped lang="scss">
   .search {
-    height: 800px;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 15% auto;

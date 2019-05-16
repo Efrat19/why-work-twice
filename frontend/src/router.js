@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import home from './components/home.vue'
-import user from './components/user.vue'
-import homework from './components/homework.vue'
+import home from './components/home.vue';
+import user from './components/user.vue';
+import homework from './components/homework.vue';
+import admin from './components/admin.vue';
+
 Vue.use(Router);
 
 export default new Router({
@@ -24,7 +26,7 @@ export default new Router({
     },
     {
       path: '/admin',
-      component: homework,
+      component: admin,
     },
   ],
 });

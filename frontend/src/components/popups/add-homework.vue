@@ -17,7 +17,10 @@
       </div>
       <div class="form-group">
         <label for="source">Source</label>
-        <input type="file" class="form-control" id="source" name="myFile" @change="setSource($event)">
+        <div class="wwt-btn">
+          <detail :key-name="source? 'uploaded' : 'upload'" value="upload homework"></detail>
+          <input type="file" class="inner-upload" id="source" name="myFile" @change="setSource($event)">
+        </div>
       </div>
       <button type="submit"  class="wwt-btn"  @click.prevent="submit">Add Homework</button>
     </form>
@@ -27,11 +30,15 @@
 
 <script lang="js">
   import popupContent from '../../mixins/popupContent';
+  import detail from '../detail'
   export default {
     name: 'add-homework',
     mixins: [popupContent],
     props: [],
     mounted() {
+    },
+    components: {
+      detail,
     },
     data() {
       return {
@@ -80,6 +87,19 @@
 
 <style scoped lang="scss">
   .add-homework {
-
+    .wwt-btn {
+      /*&#file-upload {*/
+        /*padding: 0;*/
+      /*}*/
+      position: relative;
+      .inner-upload {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+      }
+    }
   }
 </style>

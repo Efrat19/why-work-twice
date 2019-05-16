@@ -45,11 +45,10 @@
       position: relative;
       background-color: #cecece;
    .grid{
-       height: 1000px;
        width: 100%;
        margin: 0;
        display: grid;
-       grid-template-columns: 20% auto 20%;
+       grid-template-columns: 27% auto 27%;
        grid-template-rows: 30px auto;
        grid-gap: 0;
        grid-template-areas:
@@ -73,7 +72,6 @@
       position: absolute;
       margin: 0;
       top: 0;
-      height: 1000px;
       width: 100%;
       z-index: 10;
   }

@@ -53,6 +53,11 @@
             "author author author";
     grid-template-columns: auto 4% 4%;
     grid-template-rows: 25px auto 15px;
+    background-color: white;
+    border-radius: 6px;
+    border: 1px solid black;
+    padding: 10px;
+    margin: 10px auto;
     .header{
       grid-area: header;
       font-size: 2rem;

@@ -66,11 +66,10 @@
   .popup {
     position: relative;
     .cover{
-      position: absolute;
+      height:100vh;
       z-index: 20;
       background-color: black;
       width: 100%;
-      height: 1000px;
       opacity: 0.7;
       cursor: pointer;
     }
@@ -90,11 +89,13 @@
         }
       z-index: 30;
       background-color: white;
-      top: 30%;
-      left: 30%;
-      border-radius: 6px;
       position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 6px;
       padding: 25px;
+
     }
   }
 </style>

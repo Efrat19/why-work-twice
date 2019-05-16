@@ -73,6 +73,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
+        
         return response()->json($user,200);
     }
 
@@ -104,27 +105,13 @@ class UserController extends Controller
 
     public function search(Request $request)
     {
-//        dd(DB::getSchemaBuilder()->getColumnListing('users'));
-//
-//        dd(Schema::getColumnListing('users'));
-        $where = [];
-//        $columns = DB::getSchemaBuilder()->getColumnListing('users');
-        $columns = ['name', 'email', 'password'];
-        foreach ($columns as $col){
-            $where[] = [$col, 'LIKE', '%efrat%' ];
+        $query = $request->get('q');
+        $results = [];
+        if ($query) {
+            $results = User::where('name','LIKE', '%'.$query.'%')
+                ->orWhere('email','LIKE', '%'.$query.'%')->get();
         }
-//        dd($where);
-        return User::where('name','LIKE', '%'.$request['q'].'%')
-            ->orWhere('email','LIKE', '%'.$request['q'].'%')->get();
-//        $users = User::where([
-//            ['name', 'LIKE' ]
-//        ]);
-//        $q = Input::get ( 'q' );
-//        $user = User::where ( 'name', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->get ();
-//        if (count ( $user ) > 0)
-//            return view ( 'welcome' )->withDetails ( $user )->withQuery ( $q );
-//        else
-//            return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
+        return response()->json($results,200);
     }
 
     protected function getRulesFor($fields){

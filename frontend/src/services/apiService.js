@@ -1,31 +1,31 @@
-import Vue from 'vue';
 import axios from 'axios';
 import store from '../store';
 import router from '../router';
 
 class ApiService {
   constructor() {
-    this.axios = axios;
     this.store = store;
+    this.axios = axios;
     this.router = router;
     this.baseUrl = 'http://localhost:8000/api';
     this.user = null;
     this.isSigned = false;
     this.token = '';
-    this.attemptAuthFromLocalStorage();
+    this.firstRequest = true;
   }
 
   async api(method, uri, data) {
-    const suffix = await this.getAuthSuffix();
-    const url = this.baseUrl + uri + suffix;
-    return this.axios[method](url, data);
+    if (this.firstRequest) {
+      await this.attemptAuthFromLocalStorage();
+      this.firstRequest = false;
+    }
+    return this.axios.create({
+      baseURL: this.baseUrl,
+      headers: { Authorization: `Bearer ${this.token}` },
+    })[method](uri, data);
   }
 
-  getAuthSuffix() {
-    return `?token=${this.token}`;
-  }
-
-  async setToken(token,expires) {
+  async setToken(token, expires) {
     this.token = token;
     await localStorage.setItem('token', token);
     return localStorage.setItem('expires', expires);

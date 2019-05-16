@@ -13,6 +13,14 @@
       <detail class="downloads" keyName="downloads" :value="profile.downloads"></detail>
       <detail class="school" keyName="school" :value="profile.school"></detail>
       <detail class="subject" keyName="subject" :value="profile.subject"></detail>
+      <detail v-if="profile.canEdit" class="edit" keyName="edit" value="edit"
+              @click.native="open('add-homework',{editMode: true, id: profile.id})"></detail>
+      <detail v-if="profile.canDelete" class="delete" keyName="delete" value="delete"
+              @click.native="open('delete-homework',{id: profile.id})"></detail>
+      <div class="love" @click="toggleLove(!profile.loved)">
+        profile.loved {{profile.loved}}
+        <i :class="profile.loved ? 'fas fa-heart': 'far fa-heart'"></i>
+      </div>
       <div class="user-link">
 
       </div>
@@ -62,13 +70,13 @@
       background-color: white;
       border-radius: 6px;
       border: 1px solid black;
-      grid-template-columns: 25% auto;
+      grid-template-columns: 25% 25% 25% 25%;
       grid-template-rows: 33% 33% 33%;
       /*grid-gap: 7%;*/
       grid-template-areas:
-              "image rating user"
-              "image views school"
-              "image downloads subject";
+              "image rating user love"
+              "image views school edit"
+              "image downloads subject delete";
       .image {
         grid-area: image;
         margin: 20%;
@@ -88,6 +96,19 @@
       .love {
         grid-area: love;
         cursor: pointer;
+        margin: auto auto;
+      }
+
+      .edit {
+        grid-area: edit;
+        cursor: pointer;
+        margin: auto auto;
+      }
+
+      .delete {
+        grid-area: delete;
+        cursor: pointer;
+        margin: auto auto;
       }
 
       .views {

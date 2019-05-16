@@ -32,6 +32,10 @@
           rating: 'fas fa-star',
           comment: 'fas fa-comments',
           user: 'fas fa-user',
+          edit: 'fas fa-edit',
+          delete: 'fas fa-trash-alt',
+          upload: 'fas fa-upload',
+          uploaded: 'fas fa-check',
         },
         fallback: 'fas fa-exclamation',
       }
