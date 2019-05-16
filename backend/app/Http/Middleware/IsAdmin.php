@@ -15,9 +15,9 @@ class IsAdmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth('api')->user()->isSuperadmin()){
+        if (auth('api')->user()->isAdmin()){
             return $next($request);
         }
-        return abort(402);
+        return abort(401);
     }
 }

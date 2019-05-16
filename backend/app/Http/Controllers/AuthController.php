@@ -2,16 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 class AuthController extends Controller
 {
-    protected $userController;
+    protected $userRepository;
 
-    public function __construct(UserController $userController)
+    public function __construct(UserRepositoryInterface $userRepository)
     {
-        $this->userController = $userController;
+        $this->userRepository = $userRepository;
     }
 
     /**
@@ -25,9 +27,15 @@ class AuthController extends Controller
      */
     public function register(Request $request)
     {
-        $response = $this->userController->store($request);
-        return $response->getStatusCode() === 200 ?
-            $this->login($request) : $response;
+//        if ($this->authorize('create', User::class)) {
+            $validator = Validator::make($request->all(),  $this->userRepository->getCreateRules());
+            if ($validator->fails()) {
+                return response()->json(['errors'=>$validator->errors()->all()], 422);
+            }
+            $this->userRepository->create($request);
+            return $this->login($request);
+//        }
+//        return response()->json(['errors'=>['unauthorized']],401);
     }
 
     /**

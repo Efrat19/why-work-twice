@@ -1,22 +1,9 @@
 <template lang="html">
 
   <section class="admin">
-    <details>
-      <summary>
-        users
-      </summary>
-      <search url="/users/search" result-type="user"></search>
-    </details>
-    <details>
-      <summary>
-        homeworks
-      </summary>
-    </details>
-    <details>
-      <summary>
-        comment
-      </summary>
-    </details>
+    <!--<details>-->
+
+    <div class="page" v-if="page" v-html="page"></div>
     <div class="wwt-status" v-if="error">
       {{error}}
     </div>
@@ -25,6 +12,7 @@
 </template>
 
 <script lang="js">
+  import apiService from '../services/apiService';
   import search from './search'
   export default  {
     name: 'admin',
@@ -33,19 +21,20 @@
       search,
     },
     mounted() {
-      // this.authorize();
+      this.getAdminPage();
     },
     data() {
       return {
-        authorated: false,
+        apiService,
+        page: false,
         error: 0,
       }
     },
     methods: {
-      async authorize() {
+      async getAdminPage() {
         try{
-          const response = await this.apiService.api('get', '/authorize');
-          this.authorated = response.data;
+          const response = await this.apiService.api('get', '/admin/');
+          this.page = response.data;
           this.error = '';
         }
         catch (e) {
@@ -67,13 +56,4 @@
 
   }
 </style>
-admin ep:
-
-
-search users
-search homeworks
-search comments
-create a user
-
-
 

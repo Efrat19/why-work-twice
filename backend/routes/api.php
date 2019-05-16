@@ -82,11 +82,11 @@ Route::group([], function () {
 
 Route::group([
         'prefix' => '/admin',
-        'middleware' => 'isAdmin'
+        'middleware' => ['auth:api','isAdmin']
     ], function () {
+    Route::get('/','AdminController@index');
         Route::group([
-            'prefix' => '/search',
-            'middleware' => 'isAdmin'
+            'prefix' => '/search'
         ], function () {
             Route::get('/users','UserController@search');
             Route::get('/homeworks','HomeworkController@search');
