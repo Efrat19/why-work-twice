@@ -1,8 +1,7 @@
 <template lang="html">
   <section class="search">
-    <div class="bar">
-      <input type="text" class="wwt-input" placeholder="" v-model="bar"  @input="fetchResults()">
-    </div>
+      <input type="text" class="wwt-input bar form-control" v-model="bar"
+             @input="fetchResults()" :placeholder="`search ${resultType}s...`">
     <div class="results">
       <component :is="getResultType" v-for="(result,index) in results" :key="index" :result="result"></component>
     </div>
@@ -56,17 +55,17 @@
   .search {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 15% auto;
+    grid-template-rows: 100px auto;
     grid-gap: 0;
     grid-template-areas:
             "bar"
             "results ";
     .bar{
       grid-area: bar;
-      margin: 15% auto;
+      margin: 5% auto;
     }
     .results{
-      margin: 15% auto;
+      margin: 0 auto;
       grid-area: results;
     }
   }

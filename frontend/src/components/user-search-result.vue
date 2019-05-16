@@ -10,7 +10,7 @@
 </template>
 
 <script lang="js">
-  import searchResult from '../mixins/searchResult'
+  import searchResult from '../mixins/searchResult';
   export default  {
     name: 'user-search-result',
     mixins: [searchResult],
