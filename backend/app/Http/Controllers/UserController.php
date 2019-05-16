@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\School;
@@ -107,10 +108,14 @@ class UserController extends Controller
 //
 //        dd(Schema::getColumnListing('users'));
         $where = [];
-        foreach (DB::getSchemaBuilder()->getColumnListing('users') as $col){
-            $where[] = [$col, 'LIKE', '%2%' ];
+//        $columns = DB::getSchemaBuilder()->getColumnListing('users');
+        $columns = ['name', 'email', 'password'];
+        foreach ($columns as $col){
+            $where[] = [$col, 'LIKE', '%efrat%' ];
         }
-        return DB::table('users')->where($where,null,null,'or');
+//        dd($where);
+        return User::where('name','LIKE', '%'.$request['q'].'%')
+            ->orWhere('email','LIKE', '%'.$request['q'].'%')->get();
 //        $users = User::where([
 //            ['name', 'LIKE' ]
 //        ]);
