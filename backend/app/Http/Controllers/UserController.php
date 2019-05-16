@@ -4,13 +4,11 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Schemaupport\Facades\Validator;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use App\School;
 use App\Subject;
-use Illuminate\Support\Arr;;
+use Illuminate\Support\Arr;
 class UserController extends Controller
 {
 
