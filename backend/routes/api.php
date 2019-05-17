@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Homework;
 use App\Comment;
 /*
@@ -106,6 +107,17 @@ Route::group([
  * dev routes
  */
 Route::get('/insertbasic',function (){
+    Artisan::call('migrate', ["--force"=> true ]);
+    User::create(
+        array(
+            'id' => 1,
+            'school_id' => 1,
+            'name' => 'efl',
+            'subject_id' => 1,
+            'email' => 'e@y.c',
+            'password' => Hash::make('11111111'),
+        )
+    );
 
     Homework::create(
         array(
@@ -118,7 +130,6 @@ Route::get('/insertbasic',function (){
             'downloads' => 40,
         )
     );
-
     Comment::create(
         array(
             'user_id' => 1,
