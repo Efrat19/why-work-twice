@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\Homework\StoreHomeworkDto;
 use App\Homework;
+use App\Http\Requests\Homework\StoreHomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
 use App\User;
 use App\School;
@@ -38,16 +40,21 @@ class HomeworkController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param StoreHomeworkRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreHomeworkRequest $request)
     {
-        $validator = Validator::make($request->all(), $this->homeworkRepository->getCreateRules());
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
-        }
-        $homework = $this->homeworkRepository->create($request);
+        $school = School::firstOrCreate(['name' => $request['school']]);
+        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+
+        $homework = $this->homeworkRepository->create(new StoreHomeworkDto(
+            $request->input('description'),
+            $request->input('source'),
+            $school,
+            $subject,
+            auth('api')->user()
+        ));
 
         return response()->json($homework,200);
     }

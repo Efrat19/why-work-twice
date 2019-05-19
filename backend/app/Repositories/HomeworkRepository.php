@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 
+use App\DTO\Homework\StoreHomeworkDto;
 use App\School;
 use App\Subject;
 use App\Homework;
@@ -44,17 +45,9 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
      * @param Request $request
      * @return mixed
      */
-    public function create(Request $request)
+    public function create(StoreHomeworkDto $dto)
     {
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        $homework = Homework::create([
-            'description' => $request['description'],
-            'source' => $request['source'],
-            'school_id' => $school->id,
-            'subject_id' => $subject->id,
-            'user_id' => auth('api')->id()
-        ]);
+        $homework = Homework::create($dto->toArray());
         return $this->getProfile($homework);
     }
 

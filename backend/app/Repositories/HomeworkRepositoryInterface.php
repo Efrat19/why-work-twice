@@ -5,6 +5,7 @@ namespace App\Repositories;
 
 use App\Homework;
 use Illuminate\Http\Request;
+use App\DTO\Homework\StoreHomeworkDto;
 
 /**
  * Interface HomeworkRepositoryInterface
@@ -16,7 +17,7 @@ interface HomeworkRepositoryInterface //extends ModelRepositoryInterface
      * @param Request $request
      * @return mixed
      */
-    public function create(Request $request);
+    public function create(StoreHomeworkDto $request);
 
     /**
      * @param Request $request
