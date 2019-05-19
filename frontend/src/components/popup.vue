@@ -66,6 +66,7 @@
   .popup {
     position: relative;
     .cover{
+      position: fixed;
       height:100vh;
       z-index: 20;
       background-color: black;

@@ -41,6 +41,8 @@
 </script>
 
 <style scoped lang="scss">
+
+
   .site {
       position: relative;
       background-color: #cecece;

@@ -63,13 +63,14 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss_mixins";
   .hw-card {
     .grid {
       height: 100%;
       display: grid;
       background-color: white;
       border-radius: 6px;
-      border: 1px solid black;
+      @include shadow();
       grid-template-columns: 25% 25% 25% 25%;
       grid-template-rows: 33% 33% 33%;
       /*grid-gap: 7%;*/
