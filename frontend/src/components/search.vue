@@ -12,10 +12,14 @@
 <script lang="js">
   import apiService from '../services/apiService';
   import userSearchResult from './user-search-result';
+  import commentSearchResult from './comment-search-result';
+  import homeworkSearchResult from './homework-search-result';
   export default  {
     name: 'search',
     components: {
       userSearchResult,
+      commentSearchResult,
+      homeworkSearchResult,
     },
     props: {
       url: {

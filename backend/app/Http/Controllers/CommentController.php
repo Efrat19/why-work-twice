@@ -4,16 +4,21 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Homework;
+use App\Repositories\CommentRepositoryInterface;
 use \App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class CommentController extends Controller
 {
-    protected $rules = [
-        'header' => ['required', 'string', 'max:255'],
-        'body' => [ 'string', 'max:255'],
-    ];
+
+    protected $commentRepository;
+
+    public function __construct(CommentRepositoryInterface $commentRepository)
+    {
+        $this->commentRepository = $commentRepository;
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -21,7 +26,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        return response()->json(Comment::all(),200);
+        return response()->json(Homework::all()->map(function ($comment) {
+            return $this->commentRepository->getProfile($comment);
+        }),200);
     }
 
 
@@ -33,19 +40,7 @@ class CommentController extends Controller
      */
     public function forHomework(Homework $homework, $limit)
     {
-
-//     Return a commments array by a specific homework
-//     array length is limited by limit parameter
-//     to get all comments, set limit to -1
-        $comments = $homework->comments()->limit($limit)->get();
-        $comments->map(function ($comment, $key) {
-            $comment->user = [
-                'name' => $comment->user()->first()->name,
-            ];
-            $comment->canEdit = auth('api')->check() && auth('api')->user()->can('update', $comment);
-            $comment->canDelete = auth('api')->check() && auth('api')->user()->can('delete', $comment);
-            return $comment;
-        });
+        $comments = $this->commentRepository->forHomework($homework,$limit);
         return response()->json($comments,200);
     }
 
@@ -57,19 +52,11 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
+        $validator = Validator::make($request->all(), $this->commentRepository->getCreateRules());
         if ($validator->fails()) {
             return response()->json(['errors'=>$validator->errors()->all()], 422);
         }
-        $homework = Homework::findOrFail($request->homeworkId);
-        $comment = Comment::create(
-            array(
-                'user_id' => auth('api')->id(),
-                'homework_id' => $homework->id,
-                'header' => $request->header,
-                'body' => $request->body,
-            )
-        );
+        $comment = $this->commentRepository->create($request);
         return response()->json($comment, 200);
     }
 
@@ -82,7 +69,7 @@ class CommentController extends Controller
     public function show(Comment $comment)
     {
         if(auth('api')->user()->can('view', $comment)){
-            return response()->json($comment,200);
+            return response()->json($this->commentRepository->getProfile($comment),200);
         }
         return response()->json(['errors'=>['unauthorized']],403);
 
@@ -98,16 +85,11 @@ class CommentController extends Controller
     public function update(Request $request, Comment $comment)
     {
         if(auth('api')->user()->can('update', $comment)){
-            $validator = Validator::make($request->all(), $this->rules);
+            $validator = Validator::make($request->all(), $this->commentRepository->getUpdateRules());
             if ($validator->fails()) {
                 return response()->json(['errors'=>$validator->errors()->all()], 422);
             }
-            $comment->update(
-                array(
-                    'header' => $request->header,
-                    'body' => $request->body,
-                )
-            );
+            $comment = $this->commentRepository->update($request, $comment);
             return response()->json($comment, 200);
         }
         else {
@@ -131,5 +113,14 @@ class CommentController extends Controller
         else {
             return response()->json(['errors'=>['unauthorized']],403);
         }
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('q');
+
+        $results = $this->commentRepository->search($query);
+
+        return response()->json($results,200);
     }
 }

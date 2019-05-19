@@ -4,21 +4,21 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class CommentRepositoryServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
     public function register()
     {
-
-        $this->app->register(TelescopeServiceProvider::class);
+        $this->app->bind(  'App\Repositories\CommentRepositoryInterface',
+            'App\Repositories\CommentRepository');
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */

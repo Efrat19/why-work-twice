@@ -4,21 +4,21 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class AppServiceProvider extends ServiceProvider
+class HomeworkRepositoryServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
     public function register()
     {
-
-        $this->app->register(TelescopeServiceProvider::class);
+        $this->app->bind(  'App\Repositories\HomeworkRepositoryInterface',
+            'App\Repositories\HomeworkRepository');
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */

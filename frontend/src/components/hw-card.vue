@@ -7,12 +7,12 @@
       </div>
       <detail class="rating" keyName="rating" :value="profile.rating"></detail>
       <router-link class="user wwt-link" :to="`/user/${profile.user_id}`">
-        <detail keyName="user" :value="profile.user[0].name"></detail>
+        <detail keyName="user" :value="profile.user.name"></detail>
       </router-link>
       <detail class="views" keyName="views" :value="profile.views"></detail>
       <detail class="downloads" keyName="downloads" :value="profile.downloads"></detail>
-      <detail class="school" keyName="school" :value="profile.school"></detail>
-      <detail class="subject" keyName="subject" :value="profile.subject"></detail>
+      <detail class="school" keyName="school" :value="profile.school.name"></detail>
+      <detail class="subject" keyName="subject" :value="profile.subject.name"></detail>
       <detail v-if="profile.canEdit" class="edit" keyName="edit" value="edit"
               @click.native="open('add-homework',{editMode: true, id: profile.id})"></detail>
       <detail v-if="profile.canDelete" class="delete" keyName="delete" value="delete"

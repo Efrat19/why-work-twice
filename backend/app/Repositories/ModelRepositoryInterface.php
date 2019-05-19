@@ -3,14 +3,14 @@
 namespace App\Repositories;
 
 
-use App\User;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 
 /**
- * Interface UserRepositoryInterface
+ * Interface ModelRepositoryInterface
  * @package App\Repositories
  */
-interface UserRepositoryInterface //extends ModelRepositoryInterface
+interface ModelRepositoryInterface
 {
     /**
      * @param Request $request
@@ -20,10 +20,10 @@ interface UserRepositoryInterface //extends ModelRepositoryInterface
 
     /**
      * @param Request $request
-     * @param User $user
+     * @param Model $model
      * @return mixed
      */
-    public function update(Request $request, User $user);
+    public function update(Request $request, Model $model);
 
     /**
      * @return mixed

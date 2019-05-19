@@ -3,14 +3,14 @@
 namespace App\Repositories;
 
 
-use App\User;
+use App\Homework;
 use Illuminate\Http\Request;
 
 /**
- * Interface UserRepositoryInterface
+ * Interface HomeworkRepositoryInterface
  * @package App\Repositories
  */
-interface UserRepositoryInterface //extends ModelRepositoryInterface
+interface HomeworkRepositoryInterface //extends ModelRepositoryInterface
 {
     /**
      * @param Request $request
@@ -20,10 +20,10 @@ interface UserRepositoryInterface //extends ModelRepositoryInterface
 
     /**
      * @param Request $request
-     * @param User $user
+     * @param Homework $homework
      * @return mixed
      */
-    public function update(Request $request, User $user);
+    public function update(Request $request, Homework $homework);
 
     /**
      * @return mixed
@@ -46,4 +46,6 @@ interface UserRepositoryInterface //extends ModelRepositoryInterface
      * @return mixed
      */
     public function search($query);
+
+    public function getProfile(Homework $homework);
 }

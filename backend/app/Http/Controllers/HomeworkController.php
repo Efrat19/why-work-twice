@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Homework;
+use App\Repositories\HomeworkRepositoryInterface;
 use App\User;
 use App\School;
 use App\Subject;
@@ -11,12 +12,15 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeworkController extends Controller
 {
-    public $rules = [
-        'description' => ['required', 'string', 'max:255'],
-        'source' => ['required', 'string', 'max:255', 'unique:homeworks,id'],
-        'subject' => ['required'],
-        'school' => ['required'],
-    ];
+
+    protected $homeworkRepository;
+
+
+    public function __construct(HomeworkRepositoryInterface $homeworkRepository)
+    {
+        $this->homeworkRepository = $homeworkRepository;
+
+    }
 
     /**
      * Display a listing of the resource.
@@ -25,7 +29,9 @@ class HomeworkController extends Controller
      */
     public function index()
     {
-        return response()->json(Homework::all(),200);
+        return response()->json(Homework::all()->map(function ($homework) {
+            return $this->homeworkRepository->getProfile($homework);
+        }),200);
     }
 
 
@@ -37,19 +43,12 @@ class HomeworkController extends Controller
      */
     public function store(Request $request)
     {
-        $validator = Validator::make($request->all(), $this->rules);
+        $validator = Validator::make($request->all(), $this->homeworkRepository->getCreateRules());
         if ($validator->fails()) {
             return response()->json(['errors'=>$validator->errors()->all()], 422);
         }
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        $homework = Homework::create([
-            'description' => $request['description'],
-            'source' => $request['source'],
-            'school_id' => $school->id,
-            'subject_id' => $subject->id,
-            'user_id' => auth('api')->id()
-        ]);
+        $homework = $this->homeworkRepository->create($request);
+
         return response()->json($homework,200);
     }
 
@@ -62,18 +61,9 @@ class HomeworkController extends Controller
     public function show(Homework $homework)
     {
         $this->incrementViews($homework);
-        $profile = $homework->toArray();
-        $profile['user']= $homework->user()->get();
-        $profile['school'] = $homework->school()->first()->name;
-        $profile['subject'] = $homework->subject()->first()->name;
-        $profile['rating'] = $homework->rating()->avg('value') ?: 0;
-        $profile['loved'] = false;
-        if(auth('api')->check()){
-            $profile['loved'] = $homework->favorites()->where('user_id', auth('api')->user())->count();
-        }
-        $profile['canEdit'] =  auth('api')->check() && auth('api')->user()->can('update',$homework);
-        $profile['canDelete'] =  auth('api')->check() && auth('api')->user()->can('delete',$homework);
-        $profile['commentsNum'] = $homework->comments()->count();
+
+        $profile = $this->homeworkRepository->getProfile($homework);
+
         return response()->json($profile,200);
     }
 
@@ -87,19 +77,12 @@ class HomeworkController extends Controller
     public function update(Request $request, Homework $homework)
     {
         if (auth('api')->user()->can('update',$homework)) {
-            $validator = Validator::make($request->all(), $this->rules);
+            $validator = Validator::make($request->all(), $this->homeworkRepository->getUpdateRules());
             if ($validator->fails()) {
                 return response()->json(['errors'=>$validator->errors()->all()], 422);
             }
-            $school = School::firstOrCreate(['name' => $request['school']]);
-            $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-            $homework->update([
-                'description' => $request['description'],
-                'source' => $request['source'],
-                'school_id' => $school->id,
-                'subject_id' => $subject->id,
-            ]);
-            return response()->json($homework,200);
+            $updatedHomework = $this->homeworkRepository->update($request, $homework);
+            return response()->json($updatedHomework,200);
         }
         return response()->json(['errors'=>['unauthorized']],403);
 
@@ -138,5 +121,14 @@ class HomeworkController extends Controller
         $homework->update([
             'downloads' => $homework->downloads++
         ]);
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('q');
+
+        $results = $this->homeworkRepository->search($query);
+
+        return response()->json($results,200);
     }
 }

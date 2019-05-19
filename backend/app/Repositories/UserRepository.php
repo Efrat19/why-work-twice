@@ -8,6 +8,7 @@ use App\Subject;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 
@@ -81,7 +82,7 @@ class UserRepository implements UserRepositoryInterface {
      */
     public function search($query)
     {
-        $results = [];
+        $results = new Collection();
         if ($query) {
             $results = User::where('name','LIKE', '%'.$query.'%')
                 ->orWhere('email','LIKE', '%'.$query.'%')->get();

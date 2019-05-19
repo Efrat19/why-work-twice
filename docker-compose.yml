@@ -29,4 +29,6 @@ services:
       - MYSQL_USER=homestead
       - MYSQL_PASSWORD=secret
     volumes:
-    - /var/lib/mysql
+    - db:/var/lib/mysql
+volumes:
+  db:

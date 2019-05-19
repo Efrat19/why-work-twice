@@ -3,14 +3,15 @@
 namespace App\Repositories;
 
 
-use App\User;
+use App\Comment;
+use App\Homework;
 use Illuminate\Http\Request;
 
 /**
- * Interface UserRepositoryInterface
+ * Interface CommentRepositoryInterface
  * @package App\Repositories
  */
-interface UserRepositoryInterface //extends ModelRepositoryInterface
+interface CommentRepositoryInterface //extends ModelRepositoryInterface
 {
     /**
      * @param Request $request
@@ -20,10 +21,10 @@ interface UserRepositoryInterface //extends ModelRepositoryInterface
 
     /**
      * @param Request $request
-     * @param User $user
+     * @param Comment $comment
      * @return mixed
      */
-    public function update(Request $request, User $user);
+    public function update(Request $request, Comment $comment);
 
     /**
      * @return mixed
@@ -46,4 +47,8 @@ interface UserRepositoryInterface //extends ModelRepositoryInterface
      * @return mixed
      */
     public function search($query);
+
+    public function forHomework(Homework $homework, $limit);
+
+    public function getProfile(Comment $comment);
 }

@@ -174,8 +174,11 @@ return [
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
+//        App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Providers\UserRepositoryServiceProvider::class
+        App\Providers\UserRepositoryServiceProvider::class,
+        App\Providers\HomeworkRepositoryServiceProvider::class,
+        App\Providers\CommentRepositoryServiceProvider::class
 
     ],
 
