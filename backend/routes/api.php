@@ -81,11 +81,11 @@ Route::group([], function () {
  * admin routes
  */
 
+Route::get('/admin','AdminController@index');
 Route::group([
         'prefix' => '/admin',
         'middleware' => ['auth:api','isAdmin']
     ], function () {
-    Route::get('/','AdminController@index');
         Route::group([
             'prefix' => '/search'
         ], function () {
@@ -110,11 +110,11 @@ Route::get('/insertbasic',function (){
     Artisan::call('migrate', ["--force"=> true ]);
     User::create(
         array(
-            'id' => 1,
             'school_id' => 1,
             'name' => 'efl',
             'subject_id' => 1,
-            'email' => 'e@y.c',
+            'permission_id' => 3,
+            'email' => 'e@y.c2',
             'password' => Hash::make('11111111'),
         )
     );

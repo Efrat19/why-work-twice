@@ -2,8 +2,7 @@
 
   <section class="admin">
     <!--<details>-->
-
-    <div class="page" v-if="page" v-html="page"></div>
+          <div class="page" v-if="page" v-html="page"></div>
     <div class="wwt-status" v-if="error">
       {{error}}
     </div>
@@ -43,11 +42,10 @@
       },
       onFailure(error){
         this.error = error.response.status;
-      }
+      },
     },
     computed: {
-
-    }
+    },
 }
 </script>
 

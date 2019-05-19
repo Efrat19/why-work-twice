@@ -64,8 +64,8 @@ class HomeworkController extends Controller
         $this->incrementViews($homework);
         $profile = $homework->toArray();
         $profile['user']= $homework->user()->get();
-        $profile['school'] = $homework->school()->first()->name;
-        $profile['subject'] = $homework->subject()->first()->name;
+        $profile['school'] = $homework->school()->first()['name'];
+        $profile['subject'] = $homework->subject()->first()['name'];
         $profile['rating'] = $homework->rating()->avg('value') ?: 0;
         $profile['loved'] = false;
         if(auth('api')->check()){
