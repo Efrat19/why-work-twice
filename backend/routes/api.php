@@ -13,6 +13,7 @@ use App\Comment;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::get('/test','AdminController@index');
 /**
  * auth routes
  */
