@@ -6,36 +6,9 @@ namespace App\Repositories;
 use App\Homework;
 use App\Comment;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
-//0523061361
+
 class CommentRepository implements CommentRepositoryInterface {
-
-    /**
-     * all validation Rules
-     *
-     * @var array
-     */
-    protected $allRules = [
-        'header' => ['required', 'string', 'max:255'],
-        'body' => [ 'string', 'max:255'],
-    ];
-
-    /**
-     * @return array|mixed
-     */
-    public function getCreateRules()
-    {
-        return $this->allRules;
-    }
-
-    /**
-     * @return array|mixed
-     */
-    public function getUpdateRules()
-    {
-        return $this->allRules;
-    }
 
     /**
      * @param Request $request
@@ -85,24 +58,6 @@ class CommentRepository implements CommentRepositoryInterface {
         return $results->map(function ($result) {
             return $this->getProfile($result);
         });
-    }
-
-    /**
-     * @param $fields
-     * @return array|mixed
-     */
-    public function getRulesFor($fields){
-
-        $filteredRules = [];
-
-        foreach (is_array($fields) ? $fields : func_get_args() as $field) {
-
-            $value = $this->allRules[$field];
-
-            Arr::set($filteredRules, $field, $value);
-        }
-
-        return $filteredRules;
     }
 
     public function forHomework(Homework $homework, $limit)

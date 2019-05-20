@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Homework;
+use App\Http\Requests\Comment\DeleteCommentRequest;
+use App\Http\Requests\Comment\StoreCommentRequest;
+use App\Http\Requests\Comment\UpdateCommentRequest;
 use App\Repositories\CommentRepositoryInterface;
 use \App\User;
 use Illuminate\Http\Request;
@@ -50,13 +53,10 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreCommentRequest $request)
     {
-        $validator = Validator::make($request->all(), $this->commentRepository->getCreateRules());
-        if ($validator->fails()) {
-            return response()->json(['errors'=>$validator->errors()->all()], 422);
-        }
         $comment = $this->commentRepository->create($request);
+
         return response()->json($comment, 200);
     }
 
@@ -72,47 +72,33 @@ class CommentController extends Controller
             return response()->json($this->commentRepository->getProfile($comment),200);
         }
         return response()->json(['errors'=>['unauthorized']],403);
-
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  UpdateCommentRequest $request
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Comment $comment)
+    public function update(UpdateCommentRequest $request, Comment $comment)
     {
-        if(auth('api')->user()->can('update', $comment)){
-            $validator = Validator::make($request->all(), $this->commentRepository->getUpdateRules());
-            if ($validator->fails()) {
-                return response()->json(['errors'=>$validator->errors()->all()], 422);
-            }
-            $comment = $this->commentRepository->update($request, $comment);
-            return response()->json($comment, 200);
-        }
-        else {
-            return response()->json(['errors'=>['unauthorized']],403);
-        }
+        $comment = $this->commentRepository->update($request, $comment);
 
+        return response()->json($comment, 200);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Comment  $comment
+     * @param  DeleteCommentRequest  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Comment $comment)
+    public function destroy(DeleteCommentRequest $comment)
     {
-        if(auth('api')->user()->can('delete', $comment)){
-            $comment->delete();
-            return response()->json($comment, 200);
-        }
-        else {
-            return response()->json(['errors'=>['unauthorized']],403);
-        }
+        $comment->delete();
+
+        return response()->json($comment, 200);
     }
 
     public function search(Request $request)

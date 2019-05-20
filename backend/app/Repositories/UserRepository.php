@@ -15,35 +15,6 @@ use Illuminate\Validation\Validator;
 class UserRepository implements UserRepositoryInterface {
 
     /**
-     * all validation Rules
-     *
-     * @var array
-     */
-    protected $allRules = [
-        'name' => ['required', 'string', 'max:255'],
-        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        'password' => ['required', 'string', 'min:8', 'confirmed'],
-        'subject' => ['required'],
-        'school' => ['required'],
-    ];
-
-    /**
-     * @return array|mixed
-     */
-    public function getCreateRules()
-    {
-        return $this->allRules;
-    }
-
-    /**
-     * @return array|mixed
-     */
-    public function getUpdateRules()
-    {
-        return $this->getRulesFor(['name', 'school', 'subject']);
-    }
-
-    /**
      * @param Request $request
      * @return mixed
      */
@@ -88,24 +59,6 @@ class UserRepository implements UserRepositoryInterface {
                 ->orWhere('email','LIKE', '%'.$query.'%')->get();
         }
         return $results;
-    }
-
-    /**
-     * @param $fields
-     * @return array|mixed
-     */
-    public function getRulesFor($fields){
-
-        $filteredRules = [];
-
-        foreach (is_array($fields) ? $fields : func_get_args() as $field) {
-
-            $value = $this->allRules[$field];
-
-            Arr::set($filteredRules, $field, $value);
-        }
-
-        return $filteredRules;
     }
 
 }

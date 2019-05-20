@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\User\StoreUserRequest;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
@@ -25,17 +26,11 @@ class AuthController extends Controller
      * @param  [string] password_confirmation
      * @return [string] message
      */
-    public function register(Request $request)
+    public function register(StoreUserRequest $request)
     {
-//        if ($this->authorize('create', User::class)) {
-            $validator = Validator::make($request->all(),  $this->userRepository->getCreateRules());
-            if ($validator->fails()) {
-                return response()->json(['errors'=>$validator->errors()->all()], 422);
-            }
-            $this->userRepository->create($request);
-            return $this->login($request);
-//        }
-//        return response()->json(['errors'=>['unauthorized']],401);
+        $this->userRepository->create($request);
+
+        return $this->login($request);
     }
 
     /**

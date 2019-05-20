@@ -84,12 +84,9 @@ class HomeworkController extends Controller
      */
     public function update(UpdateHomeworkRequest $request, Homework $homework)
     {
-            $validator = Validator::make($request->all(), $this->homeworkRepository->getUpdateRules());
-            if ($validator->fails()) {
-                return response()->json(['errors'=>$validator->errors()->all()], 422);
-            }
-            $updatedHomework = $this->homeworkRepository->update($request, $homework);
-            return response()->json($updatedHomework,200);
+        $updatedHomework = $this->homeworkRepository->update($request, $homework);
+
+        return response()->json($updatedHomework,200);
     }
 
     /**
@@ -100,11 +97,8 @@ class HomeworkController extends Controller
      */
     public function destroy(Homework $homework)
     {
-        if (auth('api')->user()->can('update',$homework)) {
-            $homework->delete();
-            return response()->json($homework, 200);
-        }
-        return response()->json(['errors'=>['unauthorized']],403);
+        $homework->delete();
+        return response()->json($homework, 200);
     }
 
     public function toggleFavorite(Homework $homework, $love)

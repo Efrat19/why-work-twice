@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Homework\UpdateHomeworkRequest;
+use App\Http\Requests\User\StoreUserRequest;
 use App\Repositories\UserRepositoryInterface;
 use App\User;
 use Illuminate\Http\Request;
@@ -44,18 +46,11 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreUserRequest $request)
     {
-       if ($this->authorize('create', User::class)) {
-           $validator = Validator::make($request->all(),  $this->userRepository->getCreateRules());
-           if ($validator->fails()) {
-               return response()->json(['errors'=>$validator->errors()->all()], 422);
-           }
            $user = $this->userRepository->create($request);
 
            return response()->json($user,200);
-       }
-       return response()->json(['errors'=>['unauthorized']],401);
     }
 
     public function show(User $user)
@@ -71,18 +66,11 @@ class UserController extends Controller
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(UpdateHomeworkRequest $request, User $user)
     {
-        if (auth('api')->user()->can('update',$user)) {
-
-            $validator = Validator::make($request->all(), $this->userRepository->getUpdateRules());
-            if ($validator->fails()) {
-                return response()->json(['errors' => $validator->errors()->all()], 422);
-            }
             $updatedUser = $this->userRepository->update($request, $user);
+
             return response()->json($updatedUser, 200);
-        }
-        return response()->json(['errors'=>['unauthorized']],401);
     }
 
     public function search(Request $request)
