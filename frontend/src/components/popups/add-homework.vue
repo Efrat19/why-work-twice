@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="add-homework">
     <form>
@@ -28,61 +28,61 @@
 
 </template>
 
-<script lang="js">
-  import popupContent from '../../mixins/popupContent';
-  import detail from '../detail'
-  export default {
-    name: 'add-homework',
-    mixins: [popupContent],
-    props: [],
-    mounted() {
-    },
-    components: {
-      detail,
-    },
-    data() {
-      return {
-        source: '',
-        description: '',
-        school: '',
-        subject: '',
-      };
-    },
-    methods: {
-      async submit() {
-        const form = {
-          source: this.source,
-          description: this.description,
-          school: this.school,
-          subject: this.subject,
-        };
-        const uri = this.editMode ? `/homework/${this.payload.id}` : '/homework';
-        const method = this.editMode ? 'put' : 'post';
-        try {
-          const response = await this.apiService.api(method, uri, form);
-          this.events.$emit('homeworkUpdated', response.data.id);
-          this.onSuccess(response.data);
-        } catch (error) {
-          this.onFailure(error);
-        }
-      },
-      async getOld() {
-        try {
-          const old = await this.apiService.api('get', `/homework/${this.payload.id}`);
-          this.source = old.data.source;
-          this.description = old.data.description;
-          this.school = old.data.school;
-          this.subject = old.data.subject;
-        } catch (error) {
-          this.onFailure(error);
-        }
+<script >
+import popupContent from '../../mixins/popupContent';
+import detail from '../detail';
 
-      },
-      setSource($event){
-        this.source = $event.target.value;
+export default {
+  name: 'add-homework',
+  mixins: [popupContent],
+  props: [],
+  mounted() {
+  },
+  components: {
+    detail,
+  },
+  data() {
+    return {
+      source: '',
+      description: '',
+      school: '',
+      subject: '',
+    };
+  },
+  methods: {
+    async submit() {
+      const form = {
+        source: this.source,
+        description: this.description,
+        school: this.school,
+        subject: this.subject,
+      };
+      const uri = this.editMode ? `/homework/${this.payload.id}` : '/homework';
+      const method = this.editMode ? 'put' : 'post';
+      try {
+        const response = await this.apiService.api(method, uri, form);
+        this.events.$emit('homeworkUpdated', response.data.id);
+        this.onSuccess(response.data);
+      } catch (error) {
+        this.onFailure(error);
       }
-    }
-  }
+    },
+    async getOld() {
+      try {
+        const old = await this.apiService.api('get', `/homework/${this.payload.id}`);
+        this.source = old.data.source;
+        this.description = old.data.description;
+        this.school = old.data.school;
+        this.subject = old.data.subject;
+      } catch (error) {
+        this.onFailure(error);
+      }
+    },
+    setSource($event) {
+      this.source = $event.target.value;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">

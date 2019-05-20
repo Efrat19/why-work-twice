@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <section class="register">
     <form>
       <div class="form-group">
@@ -28,50 +28,50 @@
       </div>
       <button type="submit" class="wwt-btn" @click.prevent="submit">Sign In</button>
     </form>
-   
+
   </section>
 </template>
 
-<script lang="js">
-  import popupContent from '../../mixins/popupContent';
-  export default {
-    name: 'register',
-    mixins: [popupContent],
-    props: [],
-    data() {
-      return {
-        name: `efrat${Math.random().toString(36).substr(2, 5)}`,
-        email: `efrat@yad2.co.il${Math.random().toString(36).substr(2, 5)}`,
-        subject: 'sdfhgd',
-        school: 'thszdf',
-        password: '11111111',
-        confirmPassword: '11111111',
+<script >
+import popupContent from '../../mixins/popupContent';
+
+export default {
+  name: 'register',
+  mixins: [popupContent],
+  props: [],
+  data() {
+    return {
+      name: `efrat${Math.random().toString(36).substr(2, 5)}`,
+      email: `efrat@yad2.co.il${Math.random().toString(36).substr(2, 5)}`,
+      subject: 'sdfhgd',
+      school: 'thszdf',
+      password: '11111111',
+      confirmPassword: '11111111',
+    };
+  },
+  methods: {
+    async submit() {
+      const form = {
+        name: this.name,
+        email: this.email,
+        subject: this.subject,
+        school: this.school,
+        password: this.password,
+        password_confirmation: this.confirmPassword,
       };
+      try {
+        await this.apiService.clearAuth();
+        const response = await this.apiService.api('post', '/register', form);
+        await this.apiService.setAuth(response.data);
+        this.onSuccess(response.data);
+      } catch (error) {
+        this.onFailure(error);
+      }
     },
-    methods: {
-      async submit(){
-        const form = {
-          name: this.name,
-          email: this.email,
-          subject: this.subject,
-          school: this.school,
-          password: this.password,
-          password_confirmation: this.confirmPassword,
-        };
-        try {
-          await this.apiService.clearAuth();
-          const response = await this.apiService.api('post', '/register', form);
-          await this.apiService.setAuth(response.data);
-          this.onSuccess(response.data);
-        }
-        catch (error) {
-          this.onFailure(error);
-        }
-      },
-    },
-    computed: {
-    }
-  }
+  },
+  computed: {
+  },
+};
 </script>
 
 <style scoped lang="scss">

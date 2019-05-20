@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <section class="homework">
     <details>
       <summary>{{getSummary}}
@@ -9,28 +9,29 @@
   </section>
 </template>
 
-<script lang="js">
-  import searchResult from '../mixins/searchResult';
-  export default  {
-    name: 'homework-search-result',
-    mixins: [searchResult],
-    props: [],
-    mounted() {
-    },
-    data() {
-      return {
+<script >
+import searchResult from '../mixins/searchResult';
 
-      }
-    },
-    methods: {
+export default {
+  name: 'homework-search-result',
+  mixins: [searchResult],
+  props: [],
+  mounted() {
+  },
+  data() {
+    return {
 
+    };
+  },
+  methods: {
+
+  },
+  computed: {
+    getSummary() {
+      return `homework: ${this.result.id}: ${this.result.user.name}`;
     },
-    computed: {
-      getSummary(){
-        return `homework: ${this.result.id}: ${this.result.user.name}`;
-      }
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

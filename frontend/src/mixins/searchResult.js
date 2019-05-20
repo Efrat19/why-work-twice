@@ -1,20 +1,20 @@
 
 export default {
-    props: {
-        result: {
-            type: Object,
-            default: () => {},
-        },
+  props: {
+    result: {
+      type: Object,
+      default: () => {},
     },
-    data() {
-        return {
+  },
+  data() {
+    return {
 
-        }
-    },
-    mounted() {
+    };
+  },
+  mounted() {
 
-    },
-    methods: {
+  },
+  methods: {
 
-    }
-}
+  },
+};

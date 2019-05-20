@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="navbar">
     <router-link class="home wwt-link" to="/">Home</router-link>
@@ -13,31 +13,32 @@
 
 </template>
 
-<script lang="js">
-  import openPopup from '../mixins/openPopup';
-  import apiService from '../services/apiService'
-  export default  {
-    name: 'navbar',
-    mixins:[openPopup],
-    props: {
-    },
-    mounted() {
+<script >
+import openPopup from '../mixins/openPopup';
+import apiService from '../services/apiService';
 
-    },
-    data() {
-      return {
-        apiService,
-      }
-    },
-    methods: {
+export default {
+  name: 'navbar',
+  mixins: [openPopup],
+  props: {
+  },
+  mounted() {
 
+  },
+  data() {
+    return {
+      apiService,
+    };
+  },
+  methods: {
+
+  },
+  computed: {
+    auth() {
+      return this.apiService.isSigned;
     },
-    computed: {
-      auth(){
-        return this.apiService.isSigned;
-      }
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

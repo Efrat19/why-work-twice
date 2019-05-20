@@ -1,9 +1,9 @@
-<script src="{{ asset('js/app.js') }}" defer></script>
+<script src="{{ asset('js/admin.js') }}" defer></script>
 <div id="app">
     <h1>admin page</h1>
     <details>
         <summary>Users</summary>
-
+        <search></search>
     </details>
     <details>
         <summary>Homeworks</summary>

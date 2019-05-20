@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="admin">
     <h1>admin page</h1>
@@ -24,45 +24,45 @@
 
 </template>
 
-<script lang="js">
-  import apiService from '../services/apiService';
-  import search from './search'
-  export default  {
-    name: 'admin',
-    props: [],
-    components: {
-      search,
-    },
-    mounted() {
-      this.getAdminPage();
-    },
-    data() {
-      return {
-        apiService,
-        page: false,
-        error: 0,
-        searchBaseUrl: '/admin/search',
-      }
-    },
-    methods: {
-      async getAdminPage() {
-        try{
-          const response = await this.apiService.api('get', '/admin/');
-          this.page = response.data;
-          this.error = '';
-        }
-        catch (e) {
-          this.onFailure(e);
-        }
-      },
-      onFailure(error){
-        this.error = error.response.status;
-      }
-    },
-    computed: {
+<script >
+import apiService from '../services/apiService';
+import search from './search';
 
-    }
-}
+export default {
+  name: 'admin',
+  props: [],
+  components: {
+    search,
+  },
+  mounted() {
+    this.getAdminPage();
+  },
+  data() {
+    return {
+      apiService,
+      page: false,
+      error: 0,
+      searchBaseUrl: '/admin/search',
+    };
+  },
+  methods: {
+    async getAdminPage() {
+      try {
+        const response = await this.apiService.api('get', '/admin/');
+        this.page = response.data;
+        this.error = '';
+      } catch (e) {
+        this.onFailure(e);
+      }
+    },
+    onFailure(error) {
+      this.error = error.response.status;
+    },
+  },
+  computed: {
+
+  },
+};
 </script>
 
 <style scoped lang="scss">
@@ -70,4 +70,3 @@
 
   }
 </style>
-

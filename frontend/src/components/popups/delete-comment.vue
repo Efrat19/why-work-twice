@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
     <section class="delete-comment">
         <h3>delete comment {{payload.id}}</h3>
@@ -9,32 +9,32 @@
 
 </template>
 
-<script lang="js">
-    import popupContent from '../../mixins/popupContent';
+<script >
+import popupContent from '../../mixins/popupContent';
 
-    export default {
-      mixins: [popupContent],
-        name: 'delete-comment',
-        props: [],
-        mounted() {
+export default {
+  mixins: [popupContent],
+  name: 'delete-comment',
+  props: [],
+  mounted() {
 
-        },
-        data() {
-            return {};
-        },
-        methods: {
-            async submit() {
-                try {
-                    const response = await this.apiService.api('delete', `/comment/${this.payload.id}`);
-                    this.events.$emit('commentUpdated');
-                    this.onSuccess(response.data);
-                } catch (error) {
-                    this.onFailure(error);
-                }
-            }
-        },
-        computed: {}
-    }
+  },
+  data() {
+    return {};
+  },
+  methods: {
+    async submit() {
+      try {
+        const response = await this.apiService.api('delete', `/comment/${this.payload.id}`);
+        this.events.$emit('commentUpdated');
+        this.onSuccess(response.data);
+      } catch (error) {
+        this.onFailure(error);
+      }
+    },
+  },
+  computed: {},
+};
 </script>
 
 <style scoped lang="scss">

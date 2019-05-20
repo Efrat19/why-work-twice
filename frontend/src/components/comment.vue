@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="comment">
     <div class="header">{{comment.header}} {{comment.id}}</div>
@@ -13,35 +13,36 @@
 
 </template>
 
-<script lang="js">
-    import openPopup from '../mixins/openPopup'
-  import store from '../store';
-  export default {
-    name: 'comment',
-      mixins: [openPopup],
-    props: {
-      comment: {
-        type: Object,
-        required: true,
-      }
-    },
-    mounted() {
+<script >
+import openPopup from '../mixins/openPopup';
+import store from '../store';
 
+export default {
+  name: 'comment',
+  mixins: [openPopup],
+  props: {
+    comment: {
+      type: Object,
+      required: true,
     },
-    data() {
-      return {
-        store,
-      }
+  },
+  mounted() {
+
+  },
+  data() {
+    return {
+      store,
+    };
+  },
+  methods: {
+    getAuthorDetails() {
+      const isUpdated = this.comment.created_at !== this.comment.updated_at;
+      return `commented by ${this.comment.user.name} on ${this.comment.created_at}${isUpdated ? `, last updated at ${this.comment.updated_at}` : ''}`;
     },
-    methods: {
-      getAuthorDetails(){
-        const isUpdated = this.comment.created_at !== this.comment.updated_at;
-        return `commented by ${this.comment.user.name} on ${this.comment.created_at}${isUpdated ? `, last updated at ${this.comment.updated_at}` : ''}`;
-      }
-    },
-    computed: {
-    }
-}
+  },
+  computed: {
+  },
+};
 </script>
 
 <style scoped lang="scss">

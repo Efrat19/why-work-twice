@@ -17,13 +17,13 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    isOpen(state){
+    isOpen(state) {
       return state.popup.isOpen;
     },
-    popupName(state){
+    popupName(state) {
       return state.popup.name;
     },
-    getPayload(state){
+    getPayload(state) {
       return state.popup.payload;
     },
     // getUser(state){
@@ -37,16 +37,16 @@ export default new Vuex.Store({
     // },
   },
   mutations: {
-    setPopupName(state, popup){
+    setPopupName(state, popup) {
       state.popup.name = popup;
     },
-    togglePopup(state, isOpen){
+    togglePopup(state, isOpen) {
       state.popup.isOpen = isOpen;
     },
     // setUser(state, user){
     //   state.auth.user = user;
     // },
-    setPayload(state, payload){
+    setPayload(state, payload) {
       state.popup.payload = payload;
     },
     // setIsSigned(state, isSigned){
@@ -57,17 +57,17 @@ export default new Vuex.Store({
     // },
   },
   actions: {
-    open({commit}, popup) {
+    open({ commit }, popup) {
       commit('setPopupName', popup);
       commit('togglePopup', true);
     },
-    close({commit}){
+    close({ commit }) {
       commit('togglePopup', false);
     },
     // setUser({commit}, user){
     //   commit('setUser', user);
     // },
-    setPayload({commit}, payload){
+    setPayload({ commit }, payload) {
       commit('setPayload', payload);
     },
     // setIsSigned({commit}, isSigned){

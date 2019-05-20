@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="delete-homework">
     <h3>delete comment {{payload.id}}</h3>
@@ -9,36 +9,36 @@
 
 </template>
 
-<script lang="js">
-  import popupContent from '../../mixins/popupContent';
+<script >
+import popupContent from '../../mixins/popupContent';
 
-  export default {
-    mixins: [popupContent],
-    name: 'delete-homework',
-    props: [],
-    mounted() {
+export default {
+  mixins: [popupContent],
+  name: 'delete-homework',
+  props: [],
+  mounted() {
 
-    },
-    data() {
-      return {
+  },
+  data() {
+    return {
 
+    };
+  },
+  methods: {
+    async submit() {
+      try {
+        const response = await this.apiService.api('delete', `/homework/${this.payload.id}`);
+        this.events.$emit('homeworkUpdated', response.data.id);
+        this.onSuccess(response.data);
+      } catch (error) {
+        this.onFailure(error);
       }
     },
-    methods: {
-      async submit() {
-        try {
-          const response = await this.apiService.api('delete', `/homework/${this.payload.id}`);
-          this.events.$emit('homeworkUpdated', response.data.id);
-          this.onSuccess(response.data);
-        } catch (error) {
-          this.onFailure(error);
-        }
-      }
-    },
-    computed: {
+  },
+  computed: {
 
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

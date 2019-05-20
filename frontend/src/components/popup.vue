@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <div class="popup">
     <div class="page">
       <i class="fas fa-times" @click="close()"></i>
@@ -11,55 +11,56 @@
   </div>
 </template>
 
-<script lang="js">
-  import login from './popups/login.vue';
-  import register from './popups/register.vue';
-  import logout from './popups/logout.vue';
-  import addComment from './popups/add-comment.vue';
-  import addHomework from './popups/add-homework.vue';
-  import deleteComment from './popups/delete-comment.vue';
-  import deleteHomework from './popups/delete-homework.vue';
-  import editProfile from './popups/edit-profile.vue';
-  import store from '../store';
-  export default  {
-    name: 'popup',
-    props: {
-       name: {
-         type: String,
-         required: true,
-       }
-    },
-    components: {
-        login,
-        logout,
-        register,
-      addComment,
-      addHomework,
-      deleteComment,
-      deleteHomework,
-      editProfile,
-    },
-    mounted() {
+<script >
+import login from './popups/login.vue';
+import register from './popups/register.vue';
+import logout from './popups/logout.vue';
+import addComment from './popups/add-comment.vue';
+import addHomework from './popups/add-homework.vue';
+import deleteComment from './popups/delete-comment.vue';
+import deleteHomework from './popups/delete-homework.vue';
+import editProfile from './popups/edit-profile.vue';
+import store from '../store';
 
+export default {
+  name: 'popup',
+  props: {
+    name: {
+      type: String,
+      required: true,
     },
-    data() {
-      return {
-        store,
-        errors: [],
-      }
-    },
-    methods: {
-      close(){
-        this.store.dispatch('close', this.name);
-      },
-      setErrors(errors){
-        this.errors = errors;
-      },
-    },
-    computed: {
+  },
+  components: {
+    login,
+    logout,
+    register,
+    addComment,
+    addHomework,
+    deleteComment,
+    deleteHomework,
+    editProfile,
+  },
+  mounted() {
 
-    }
-}
+  },
+  data() {
+    return {
+      store,
+      errors: [],
+    };
+  },
+  methods: {
+    close() {
+      this.store.dispatch('close', this.name);
+    },
+    setErrors(errors) {
+      this.errors = errors;
+    },
+  },
+  computed: {
+
+  },
+};
 </script>
 
 <style scoped lang="scss">

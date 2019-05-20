@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="user">
       <div class="grid" v-if="profile">
@@ -18,72 +18,72 @@
 
 </template>
 
-<script lang="js">
-  import events from '../events';
-  import openPopup from '../mixins/openPopup';
-  import apiService from '../services/apiService';
-  import userCard from './user-card.vue';
-  import hwCard from "./hw-card";
-  import detail from './detail.vue';
-  export default  {
-    name: 'user',
-    props: {
-      id : {
-        type: Number,
-        required: true,
+<script >
+import events from '../events';
+import openPopup from '../mixins/openPopup';
+import apiService from '../services/apiService';
+import userCard from './user-card.vue';
+import hwCard from './hw-card';
+import detail from './detail.vue';
+
+export default {
+  name: 'user',
+  props: {
+    id: {
+      type: Number,
+      required: true,
+    },
+  },
+  mixins: [openPopup],
+  components: {
+    hwCard,
+    userCard,
+    detail,
+  },
+  beforeMount() {
+    this.events.$on('homeworkUpdated', () => this.getHomeworks(this.UNLIMITED));
+  },
+  mounted() {
+    this.getProfile();
+    this.getHomeworks(this.comments_limit);
+  },
+  data() {
+    return {
+      apiService,
+      profile: null,
+      homeworks: [],
+      homeworksLimit: 5,
+      events,
+      UNLIMITED: -1,
+      error: '',
+    };
+  },
+  methods: {
+    async getProfile() {
+      try {
+        const response = await this.apiService.api('get', `/user/${this.id}`);
+        this.profile = response.data;
+        this.error = '';
+      } catch (e) {
+        this.onFailure(e);
       }
     },
-    mixins: [openPopup],
-    components: {
-      hwCard,
-      userCard,
-      detail
+    onFailure(error) {
+      this.error = error.response.status;
     },
-    beforeMount() {
-      this.events.$on('homeworkUpdated', () => this.getHomeworks(this.UNLIMITED));
+    showMore() {
+      this.homeworksLimit += this.homeworksLimit;
+      this.getComments(this.homeworksLimit);
     },
-    mounted() {
-      this.getProfile();
-      this.getHomeworks(this.comments_limit);
+    async getHomeworks(limit) {
+      const response = await this.apiService.api('get', `/user/${this.id}/homeworks/${limit}`);
+      this.comments = response.data;
     },
-    data() {
-      return {
-        apiService,
-        profile: null,
-        homeworks: [],
-        homeworksLimit: 5,
-        events,
-        UNLIMITED: -1,
-        error: '',
-      };
-    },
-    methods: {
-      async getProfile() {
-        try{
-          const response = await this.apiService.api('get', `/user/${this.id}`);
-          this.profile = response.data;
-          this.error = '';
-        }
-        catch (e) {
-          this.onFailure(e);
-        }
-      },
-      onFailure(error){
-        this.error = error.response.status;
-      },
-      showMore() {
-        this.homeworksLimit += this.homeworksLimit;
-        this.getComments(this.homeworksLimit);
-      },
-      async getHomeworks(limit) {
-        const response = await this.apiService.api('get', `/user/${this.id}/homeworks/${limit}`);
-        this.comments = response.data;
-      },
-    },
-    computed: {
+  },
+  computed: {
 
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

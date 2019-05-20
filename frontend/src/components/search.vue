@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <section class="search">
       <input type="text" class="wwt-input bar form-control" v-model="bar"
              @input="fetchResults()" :placeholder="`search ${resultType}s...`">
@@ -9,50 +9,51 @@
 
 </template>
 
-<script lang="js">
-  import apiService from '../services/apiService';
-  import userSearchResult from './user-search-result';
-  import commentSearchResult from './comment-search-result';
-  import homeworkSearchResult from './homework-search-result';
-  export default  {
-    name: 'search',
-    components: {
-      userSearchResult,
-      commentSearchResult,
-      homeworkSearchResult,
-    },
-    props: {
-      url: {
-        type: String,
-        required: true,
-      },
-      resultType: {
-        type: String,
-        required: true,
-      }
-    },
-    mounted() {
+<script >
+import apiService from '../services/apiService';
+import userSearchResult from './user-search-result';
+import commentSearchResult from './comment-search-result';
+import homeworkSearchResult from './homework-search-result';
 
+export default {
+  name: 'search',
+  components: {
+    userSearchResult,
+    commentSearchResult,
+    homeworkSearchResult,
+  },
+  props: {
+    url: {
+      type: String,
+      required: true,
     },
-    data() {
-      return {
-        apiService,
-        bar: '',
-        results: [],
-      }
+    resultType: {
+      type: String,
+      required: true,
     },
-    methods: {
-      async fetchResults(){
-        const response = await this.apiService.api('get', `${this.url}?q=${this.bar}`);
-        this.results = response.data;
-      },
+  },
+  mounted() {
+
+  },
+  data() {
+    return {
+      apiService,
+      bar: '',
+      results: [],
+    };
+  },
+  methods: {
+    async fetchResults() {
+      const response = await this.apiService.api('get', `${this.url}?q=${this.bar}`);
+      this.results = response.data;
     },
-    computed: {
-      getResultType(){
-        return `${this.resultType}SearchResult`;
-      },
-    }
-}
+  },
+  computed: {
+    getResultType() {
+      return `${this.resultType}SearchResult`;
+    },
+  },
+};
 </script>
 
 <style scoped lang="scss">

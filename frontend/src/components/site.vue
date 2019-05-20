@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <div class="site">
       <div class="grid">
           <navbar class="navbar"></navbar>
@@ -10,34 +10,35 @@
   </div>
 </template>
 
-<script lang="js">
-  import navbar from './navbar.vue';
-  import popup from './popup.vue';
-  import apiService from '../services/apiService';
-  import store from '../store'
-  export default  {
-    name: 'site',
-    props: [],
-    components:{
-      navbar,
-        popup,
-    },
-    data() {
-      return {
-          apiService,
-          store,
-      }
-    },
-      mounted() {
-          // this.apiService.login();
-      },
-    methods: {
+<script >
+import navbar from './navbar.vue';
+import popup from './popup.vue';
+import apiService from '../services/apiService';
+import store from '../store';
 
-    },
-    computed: {
+export default {
+  name: 'site',
+  props: [],
+  components: {
+    navbar,
+    popup,
+  },
+  data() {
+    return {
+      apiService,
+      store,
+    };
+  },
+  mounted() {
+    // this.apiService.login();
+  },
+  methods: {
 
-    }
-}
+  },
+  computed: {
+
+  },
+};
 </script>
 
 <style scoped lang="scss">

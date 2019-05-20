@@ -8,17 +8,18 @@
 </template>
 
 <script>
-  import site from './components/site.vue'
-  export default {
-    name: 'app',
-    data () {
-      return {
-      }
-    },
-    components:{
-      site,
-    }
-  }
+import site from './components/site.vue';
+
+export default {
+  name: 'app',
+  data() {
+    return {
+    };
+  },
+  components: {
+    site,
+  },
+};
 </script>
 
 <style lang="scss">

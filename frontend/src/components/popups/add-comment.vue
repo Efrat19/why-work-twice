@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="add-comment">
     <form>
@@ -17,54 +17,52 @@
 
 </template>
 
-<script lang="js">
-  import popupContent from '../../mixins/popupContent';
-  export default  {
-    name: 'add-comment',
-    mixins: [popupContent],
-    props: [],
-    mounted() {
-    },
-    data() {
-      return {
-        header: '',
-        body: '',
-      };
-    },
-    methods: {
-      async submit(){
-        const form = {
-          body: this.body,
-          header: this.header,
-          homeworkId: this.payload.homeworkId,
-        };
-        const uri = this.editMode ? `/comment/${this.payload.id}` : '/comment';
-        const method = this.editMode? 'put' : 'post';
-        try {
-          const response = await this.apiService.api(method, uri, form);
-          this.events.$emit('commentUpdated');
-          this.onSuccess(response.data);
-        }
-        catch (error) {
-          this.onFailure(error);
-        }
-      },
-      async getOld() {
-        try {
-          const old = await this.apiService.api('get', `/comment/${this.payload.id}`);
-          this.header = old.data.header;
-          this.body = old.data.body;
-        }
-        catch (error) {
-          this.onFailure(error);
-        }
+<script >
+import popupContent from '../../mixins/popupContent';
 
+export default {
+  name: 'add-comment',
+  mixins: [popupContent],
+  props: [],
+  mounted() {
+  },
+  data() {
+    return {
+      header: '',
+      body: '',
+    };
+  },
+  methods: {
+    async submit() {
+      const form = {
+        body: this.body,
+        header: this.header,
+        homeworkId: this.payload.homeworkId,
+      };
+      const uri = this.editMode ? `/comment/${this.payload.id}` : '/comment';
+      const method = this.editMode ? 'put' : 'post';
+      try {
+        const response = await this.apiService.api(method, uri, form);
+        this.events.$emit('commentUpdated');
+        this.onSuccess(response.data);
+      } catch (error) {
+        this.onFailure(error);
       }
     },
-    computed: {
+    async getOld() {
+      try {
+        const old = await this.apiService.api('get', `/comment/${this.payload.id}`);
+        this.header = old.data.header;
+        this.body = old.data.body;
+      } catch (error) {
+        this.onFailure(error);
+      }
+    },
+  },
+  computed: {
 
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

@@ -64,10 +64,9 @@ class ApiService {
   }
 
   async getAuthFromLocalStorage() {
-      this.user = await JSON.parse(localStorage.getItem('user'));
-      this.isSigned = !!this.user;
-      this.token = await localStorage.getItem('token');
-    }
-
+    this.user = await JSON.parse(localStorage.getItem('user'));
+    this.isSigned = !!this.user;
+    this.token = await localStorage.getItem('token');
+  }
 }
 export default new ApiService();

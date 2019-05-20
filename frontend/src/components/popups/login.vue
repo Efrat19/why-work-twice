@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 <div class="login">
     <form>
         <div class="form-group">
@@ -15,42 +15,42 @@
 </div>
 </template>
 
-<script lang="js">
-    import popupContent from '../../mixins/popupContent'
-  import axios from 'axios';
-  export default {
-    name: 'login',
-      mixins: [popupContent],
-    props: [],
-    mounted() {
-    },
-    data() {
-      return {
-          email: '',
-          password: '',
+<script >
+import axios from 'axios';
+import popupContent from '../../mixins/popupContent';
+
+export default {
+  name: 'login',
+  mixins: [popupContent],
+  props: [],
+  mounted() {
+  },
+  data() {
+    return {
+      email: '',
+      password: '',
+    };
+  },
+  methods: {
+    async submit() {
+      const form = {
+        email: this.email,
+        password: this.password,
+      };
+      try {
+        await this.apiService.clearAuth();
+        const response = await this.apiService.api('post', '/login', form);
+        await this.apiService.setAuth(response.data);
+        this.onSuccess(response.data);
+      } catch (error) {
+        this.onFailure(error);
       }
     },
-    methods: {
-        async submit(){
-            const form = {
-                email: this.email,
-                password: this.password,
-            };
-            try {
-                await this.apiService.clearAuth();
-                const response = await this.apiService.api('post', '/login', form);
-                await this.apiService.setAuth(response.data);
-                this.onSuccess(response.data);
-            }
-            catch (error) {
-                this.onFailure(error);
-            }
-        },
-    },
-    computed: {
+  },
+  computed: {
 
-    }
-}
+  },
+};
 </script>
 <style scoped lang="scss">
   .login {

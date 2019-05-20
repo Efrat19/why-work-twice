@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
   <section class="comment-search-result">
     <details>
       <summary>{{getSummary}}
@@ -9,28 +9,29 @@
   </section>
 </template>
 
-<script lang="js">
-  import searchResult from '../mixins/searchResult';
-  export default  {
-    name: 'comment-search-result',
-    mixins: [searchResult],
-    props: [],
-    mounted() {
-    },
-    data() {
-      return {
+<script >
+import searchResult from '../mixins/searchResult';
 
-      }
-    },
-    methods: {
+export default {
+  name: 'comment-search-result',
+  mixins: [searchResult],
+  props: [],
+  mounted() {
+  },
+  data() {
+    return {
 
+    };
+  },
+  methods: {
+
+  },
+  computed: {
+    getSummary() {
+      return `comment: ${this.result.id}: on post ${this.homework.id}, written by ${this.result.user.id}`;
     },
-    computed: {
-      getSummary(){
-        return `comment: ${this.result.id}: on post ${this.homework.id}, written by ${this.result.user.id}`;
-      }
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="user-card">
     <div class="grid">
@@ -15,36 +15,37 @@
 
 </template>
 
-<script lang="js">
-  import openPopup from '../mixins/openPopup';
-  import detail from './detail.vue';
-  export default  {
-    name: 'user-card',
-    mixins: [openPopup],
-    components: {
-      detail,
-    },
-    props: {
-      profile: {
-        type: Object,
-        required: true,
-      },
-    },
-    mounted() {
+<script >
+import openPopup from '../mixins/openPopup';
+import detail from './detail.vue';
 
+export default {
+  name: 'user-card',
+  mixins: [openPopup],
+  components: {
+    detail,
+  },
+  props: {
+    profile: {
+      type: Object,
+      required: true,
     },
-    data() {
-      return {
+  },
+  mounted() {
 
-      }
-    },
-    methods: {
+  },
+  data() {
+    return {
 
-    },
-    computed: {
+    };
+  },
+  methods: {
 
-    }
-}
+  },
+  computed: {
+
+  },
+};
 </script>
 
 <style scoped lang="scss">

@@ -1,4 +1,4 @@
-<template lang="html">
+<template>
   <section class="user-search-result">
     <details>
       <summary>{{getSummary}}
@@ -9,28 +9,29 @@
   </section>
 </template>
 
-<script lang="js">
-  import searchResult from '../mixins/searchResult';
-  export default  {
-    name: 'user-search-result',
-    mixins: [searchResult],
-    props: [],
-    mounted() {
-    },
-    data() {
-      return {
+<script >
+import searchResult from '../mixins/searchResult';
 
-      }
-    },
-    methods: {
+export default {
+  name: 'user-search-result',
+  mixins: [searchResult],
+  props: [],
+  mounted() {
+  },
+  data() {
+    return {
 
+    };
+  },
+  methods: {
+
+  },
+  computed: {
+    getSummary() {
+      return `user: ${this.result.id}: ${this.result.name}, ${this.result.email}`;
     },
-    computed: {
-      getSummary(){
-        return `user: ${this.result.id}: ${this.result.name}, ${this.result.email}`;
-      }
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">

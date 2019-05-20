@@ -1,4 +1,4 @@
-<template lang="html">
+<template >
 
   <section class="home">
     <h1>home Component</h1>
@@ -6,25 +6,25 @@
 
 </template>
 
-<script lang="js">
-  export default  {
-    name: 'home',
-    props: [],
-    mounted() {
+<script >
+export default {
+  name: 'home',
+  props: [],
+  mounted() {
 
-    },
-    data() {
-      return {
+  },
+  data() {
+    return {
 
-      }
-    },
-    methods: {
+    };
+  },
+  methods: {
 
-    },
-    computed: {
+  },
+  computed: {
 
-    }
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">
