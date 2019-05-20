@@ -5,7 +5,6 @@
         <div class="desc"><h3>{{profile.description}}</h3></div>
         <user-card class="user-card" :profile="profile"></user-card>
         <div  class="homework-header" >
-          <detail keyName="uploads" :value="profile.uploads"></detail>
           <div class="homeworks">
           </div>
           <hw-card v-for="(homework,index) in homeworks" :profile="homework" :key="index"></hw-card>

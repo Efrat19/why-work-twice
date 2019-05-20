@@ -5,7 +5,7 @@
       <div class="image">
         <img :src="profile.image" alt="profile.image">
       </div>
-      <detail class="uploads" keyName="uploads" :value="profile.uploads"></detail>
+      <detail class="uploads" keyName="document" :value="profile.uploads"></detail>
       <detail class="school" keyName="school" :value="profile.school.name"></detail>
       <detail class="subject" keyName="subject" :value="profile.subject.name"></detail>
       <detail v-if="profile.canEdit" class="edit" keyName="edit" value="edit"

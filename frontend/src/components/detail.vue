@@ -35,6 +35,7 @@
           delete: 'fas fa-trash-alt',
           upload: 'fas fa-upload',
           uploaded: 'fas fa-check',
+          document: 'fas fa-file-upload'
         },
         fallback: 'fas fa-exclamation',
       }
