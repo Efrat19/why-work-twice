@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e21f3447-769a-4b81-8526-6851486f6da2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/comment-search-result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/comment-search-result.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/comment.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/comment.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/homework-search-result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/homework-search-result.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/frontend/src/components/hw-card.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/hw-card.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/popup.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/popup.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend/src/components/site.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/site.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/user-search-result.vue" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/user-search-result.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -64,7 +68,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/site.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
+            <state relative-caret-position="126">
               <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
@@ -79,20 +83,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frontend/src/components/hw-card.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="330">
-              <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+              <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/frontend/src/components/navbar.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+            <state relative-caret-position="157">
+              <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -102,15 +115,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
               <caret line="19" column="15" selection-start-line="19" selection-start-column="15" selection-end-line="19" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/backend/app/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="34" selection-start-line="5" selection-start-column="34" selection-end-line="5" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -180,10 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/frontend/src/components/detail.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/popups/add-homework.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/user-search-result.vue" />
-        <option value="$PROJECT_DIR$/backend/app/Http/Middleware/IsAdmin.php" />
         <option value="$PROJECT_DIR$/backend/resources/js/components/ExampleComponent.vue" />
         <option value="$PROJECT_DIR$/backend/app/Providers/UserRepositoryServiceProvider.php" />
         <option value="$PROJECT_DIR$/backend/app/Http/Controllers/AuthController.php" />
@@ -199,8 +199,6 @@
         <option value="$PROJECT_DIR$/backend/resources/js/frontend/src/components/user.vue" />
         <option value="$PROJECT_DIR$/backend/resources/js/frontend/src/components/user-search-result.vue" />
         <option value="$PROJECT_DIR$/backend/resources/views/admin/index.blade.php" />
-        <option value="$PROJECT_DIR$/frontend/src/components/homework-search-result.vue" />
-        <option value="$PROJECT_DIR$/frontend/src/components/comment-search-result.vue" />
         <option value="$PROJECT_DIR$/backend/app/Providers/CommentRepositoryServiceProvider.php" />
         <option value="$PROJECT_DIR$/backend/app/Providers/HomeworkRepositoryServiceProvider.php" />
         <option value="$PROJECT_DIR$/frontend/src/components/search.vue" />
@@ -231,6 +229,12 @@
         <option value="$PROJECT_DIR$/frontend/src/components/site.vue" />
         <option value="$PROJECT_DIR$/frontend/src/assets/scss_mixins.scss" />
         <option value="$PROJECT_DIR$/frontend/src/components/hw-card.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/user-search-result.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/comment.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/homework-search-result.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/comment-search-result.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/components/navbar.vue" />
+        <option value="$PROJECT_DIR$/frontend/src/App.vue" />
       </list>
     </option>
   </component>
@@ -614,7 +618,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="162839000" />
+    <option name="totallyTimeSpent" value="164274000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -642,7 +646,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997233" visible="true" weight="0.1274298" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997233" visible="true" weight="0.36177105" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5002767" side_tool="true" weight="0.38444924" />
       <window_info anchor="bottom" id="Command Line Tools Console" order="12" weight="0.32937366" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -698,13 +702,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/homework-search-result.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/comment-search-result.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -1027,13 +1024,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="26" column="13" lean-forward="true" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/components/popup.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="291">
@@ -1048,13 +1038,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/src/components/site.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/src/assets/scss_mixins.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1065,7 +1048,28 @@
     <entry file="file://$PROJECT_DIR$/frontend/src/components/hw-card.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="71" column="25" selection-start-line="71" selection-start-column="25" selection-end-line="71" selection-end-column="25" />
+          <caret line="125" column="26" lean-forward="true" selection-start-line="125" selection-start-column="26" selection-end-line="125" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/navbar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="47" column="18" lean-forward="true" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/components/site.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="43" selection-start-line="43" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="27" column="13" lean-forward="true" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
         </state>
       </provider>
     </entry>

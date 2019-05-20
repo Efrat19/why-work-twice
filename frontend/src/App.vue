@@ -24,10 +24,12 @@
 <style lang="scss">
   #app{
     font-family: 'Fira Sans', sans-serif;
+    @import "./assets/scss_mixins";
     .wwt-btn{
+      //@include shadow();
       font-size: 1.6rem;
       padding: 10px;
-      border: 1px solid black;
+      border: none;
       border-radius: 6px;
       background-color: #fff64e;
       color: black;

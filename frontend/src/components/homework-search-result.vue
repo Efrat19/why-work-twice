@@ -34,10 +34,11 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss_mixins";
   .homework {
+    @include shadow();
     background-color: white;
     border-radius: 6px;
-    border: 1px solid black;
     padding: 10px;
     margin: 10px auto;
   }

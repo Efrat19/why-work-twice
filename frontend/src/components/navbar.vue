@@ -41,9 +41,10 @@
 </script>
 
 <style scoped lang="scss">
+    @import "../assets/scss_mixins";
   .navbar {
+      @include shadow();
     background-color: white;
-    /*border: 1px solid black;*/
     display: grid;
     grid-template-columns: 15% 15% auto 25%;
     grid-template-rows: auto;

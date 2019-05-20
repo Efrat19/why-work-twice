@@ -66,14 +66,13 @@
   @import "../assets/scss_mixins";
   .hw-card {
     .grid {
+      @include shadow();
       height: 100%;
       display: grid;
       background-color: white;
       border-radius: 6px;
-      @include shadow();
       grid-template-columns: 25% 25% 25% 25%;
       grid-template-rows: 33% 33% 33%;
-      /*grid-gap: 7%;*/
       grid-template-areas:
               "image rating user love"
               "image views school edit"

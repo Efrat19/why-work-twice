@@ -45,7 +45,9 @@
 </script>
 
 <style scoped lang="scss">
+  @import "../assets/scss_mixins";
   .comment {
+    @include shadow();
     display: grid;
     grid-template-areas:
             "header edit delete"
@@ -55,7 +57,6 @@
     grid-template-rows: 25px auto 15px;
     background-color: white;
     border-radius: 6px;
-    border: 1px solid black;
     padding: 10px;
     margin: 10px auto;
     .header{
