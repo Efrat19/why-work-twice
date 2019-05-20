@@ -14,10 +14,10 @@ use App\DTO\Homework\StoreHomeworkDto;
 interface HomeworkRepositoryInterface //extends ModelRepositoryInterface
 {
     /**
-     * @param Request $request
+     * @param StoreHomeworkDto $dto
      * @return mixed
      */
-    public function create(StoreHomeworkDto $request);
+    public function create(StoreHomeworkDto $dto);
 
     /**
      * @param Request $request
@@ -25,22 +25,6 @@ interface HomeworkRepositoryInterface //extends ModelRepositoryInterface
      * @return mixed
      */
     public function update(Request $request, Homework $homework);
-
-    /**
-     * @return mixed
-     */
-    public function getCreateRules();
-
-    /**
-     * @return mixed
-     */
-    public function getUpdateRules();
-
-    /**
-     * @param $fields
-     * @return mixed
-     */
-    public function getRulesFor($fields);
 
     /**
      * @param $query

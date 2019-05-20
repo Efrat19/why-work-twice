@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DTO\Homework\StoreHomeworkDto;
 use App\Homework;
 use App\Http\Requests\Homework\StoreHomeworkRequest;
+use App\Http\Requests\Homework\UpdateHomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
 use App\User;
 use App\School;
@@ -77,22 +78,18 @@ class HomeworkController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\Homework\UpdateHomeworkRequest  $request
      * @param  \App\Homework  $homework
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Homework $homework)
+    public function update(UpdateHomeworkRequest $request, Homework $homework)
     {
-        if (auth('api')->user()->can('update',$homework)) {
             $validator = Validator::make($request->all(), $this->homeworkRepository->getUpdateRules());
             if ($validator->fails()) {
                 return response()->json(['errors'=>$validator->errors()->all()], 422);
             }
             $updatedHomework = $this->homeworkRepository->update($request, $homework);
             return response()->json($updatedHomework,200);
-        }
-        return response()->json(['errors'=>['unauthorized']],403);
-
     }
 
     /**

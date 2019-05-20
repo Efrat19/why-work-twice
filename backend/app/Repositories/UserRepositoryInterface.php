@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
  * Interface UserRepositoryInterface
  * @package App\Repositories
  */
-interface UserRepositoryInterface extends ModelRepositoryInterface
+interface UserRepositoryInterface// extends ModelRepositoryInterface
 {
     /**
      * @param Request $request

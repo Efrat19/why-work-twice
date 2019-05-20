@@ -40,7 +40,12 @@ export default {
             window.setTimeout(this.close, 3);
         },
         onFailure(error){
-            this.$emit('setErrors', error.response.data.errors || ['something went wrong :(']);
+            let errorsArray = [];
+            Object.keys(error.response.data.errors || []).forEach((field) =>{
+                const fieldError = error.response.data.errors[field];
+                errorsArray = [...errorsArray, ...fieldError];
+            })
+            this.$emit('setErrors', errorsArray.length ? errorsArray : [error.response.data.message]);
             this.faiure = true;
             this.response = error;
         },

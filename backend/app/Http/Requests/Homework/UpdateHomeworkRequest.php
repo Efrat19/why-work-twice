@@ -2,9 +2,10 @@
 
 namespace App\Http\Requests\Homework;
 
+
 use App\Homework;
 
-class StoreHomeworkRequest extends HomeworkRequest
+class UpdateHomeworkRequest extends HomeworkRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,8 +14,7 @@ class StoreHomeworkRequest extends HomeworkRequest
      */
     public function authorize()
     {
-        return auth('api')->user()->can('create',Homework::class,$this->request->get('id'));
+        return auth('api')->user()->can('update',Homework::class,$this->request->get('id'));
     }
 
 }
-

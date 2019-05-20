@@ -8,41 +8,12 @@ use App\School;
 use App\Subject;
 use App\Homework;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 
 class HomeworkRepository implements HomeworkRepositoryInterface {
 
     /**
-     * all validation Rules
-     *
-     * @var array
-     */
-    protected $allRules = [
-        'description' => ['required', 'string', 'max:255'],
-        'source' => ['required', 'string', 'max:255', 'unique:homeworks,id'],
-        'subject' => ['required'],
-        'school' => ['required'],
-    ];
-
-    /**
-     * @return array|mixed
-     */
-    public function getCreateRules()
-    {
-        return $this->allRules;
-    }
-
-    /**
-     * @return array|mixed
-     */
-    public function getUpdateRules()
-    {
-        return $this->allRules;
-    }
-
-    /**
-     * @param Request $request
+     * @param StoreHomeworkDto $dto
      * @return mixed
      */
     public function create(StoreHomeworkDto $dto)
@@ -87,24 +58,6 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         return $results->map(function ($result) {
                 return $this->getProfile($result);
             });
-    }
-
-    /**
-     * @param $fields
-     * @return array|mixed
-     */
-    public function getRulesFor($fields){
-
-        $filteredRules = [];
-
-        foreach (is_array($fields) ? $fields : func_get_args() as $field) {
-
-            $value = $this->allRules[$field];
-
-            Arr::set($filteredRules, $field, $value);
-        }
-
-        return $filteredRules;
     }
 
     public function getProfile(Homework $homework)
