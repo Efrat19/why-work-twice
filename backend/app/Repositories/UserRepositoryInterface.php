@@ -30,4 +30,6 @@ interface UserRepositoryInterface// extends ModelRepositoryInterface
      * @return mixed
      */
     public function search($query);
+
+    public function getProfile(User $user);
 }

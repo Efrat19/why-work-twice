@@ -44,6 +44,7 @@ class CommentController extends Controller
     public function forHomework(Homework $homework, $limit)
     {
         $comments = $this->commentRepository->forHomework($homework,$limit);
+
         return response()->json($comments,200);
     }
 

@@ -22,13 +22,14 @@ class UserRepository implements UserRepositoryInterface {
     {
         $school = School::firstOrCreate(['name' => $request['school']]);
         $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-        return User::create([
+        $user = User::create([
             'name' => $request['name'],
             'school_id' => $school->id,
             'subject_id' => $subject->id,
             'email' => $request['email'],
             'password' => Hash::make($request['password'])
         ]);
+        return $this->getProfile($user);
     }
 
     /**
@@ -45,6 +46,7 @@ class UserRepository implements UserRepositoryInterface {
             'school_id' => $school->id,
             'subject_id' => $subject->id,
         ]);
+        return $this->getProfile($user);
     }
 
     /**
@@ -58,7 +60,19 @@ class UserRepository implements UserRepositoryInterface {
             $results = User::where('name','LIKE', '%'.$query.'%')
                 ->orWhere('email','LIKE', '%'.$query.'%')->get();
         }
-        return $results;
+        return $results->map(function ($result) {
+            return $this->getProfile($result);
+        });
     }
 
+    public function getProfile(User $user)
+    {
+        $profile = $user->toArray();
+        $profile['school'] = $user->school;
+        $profile['subject'] = $user->subject;
+        $profile['rating'] = $user->getAvgRating();
+        $profile['uploads'] = $user->homeworks()->count();
+        $profile['canEdit'] = auth('api')->check() && auth('api')->user()->can('update', $user);
+        return $profile;
+    }
 }

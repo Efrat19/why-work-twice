@@ -7,6 +7,7 @@ use App\DTO\Homework\StoreHomeworkDto;
 use App\School;
 use App\Subject;
 use App\Homework;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
 
@@ -19,6 +20,7 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
     public function create(StoreHomeworkDto $dto)
     {
         $homework = Homework::create($dto->toArray());
+
         return $this->getProfile($homework);
     }
 
@@ -66,7 +68,7 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         $profile['user']= $homework->user;
         $profile['school'] = $homework->school;
         $profile['subject'] = $homework->subject;
-        $profile['rating'] = $homework->rating()->avg('value') ?: 0;
+        $profile['rating'] = $homework->getAvgRating();
         $profile['loved'] = false;
         if(auth('api')->check()){
             $profile['loved'] = $homework->favorites()->where('user_id', auth('api')->user())->count();
@@ -76,6 +78,19 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         $profile['commentsNum'] = $homework->comments()->count();
 
         return $profile;
+    }
+
+
+    public function forUser(User $user, $limit)
+    {
+        // Return a homeworks array of the specific user
+        // array length is limited by limit parameter
+        // to get all homeworks, set limit to -1
+
+        $homeworks = $user->homeworks()->limit($limit)->get();
+        return $homeworks->map(function ($homework, $key) {
+            return $this->getProfile($homework);
+        });
     }
 
 }

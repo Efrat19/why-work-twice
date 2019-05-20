@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 
 use App\Homework;
+use App\User;
 use Illuminate\Http\Request;
 use App\DTO\Homework\StoreHomeworkDto;
 
@@ -33,4 +34,6 @@ interface HomeworkRepositoryInterface //extends ModelRepositoryInterface
     public function search($query);
 
     public function getProfile(Homework $homework);
+
+    public function forUser(User $user, $limit);
 }

@@ -47,4 +47,9 @@ class Homework extends Model
     {
         return $this->hasMany(Rate::class);
     }
+
+    public function getAvgRating()
+    {
+        return $this->rating()->avg('value') ?: 0;
+    }
 }

@@ -7,11 +7,10 @@ use App\Homework;
 use App\Http\Requests\Homework\StoreHomeworkRequest;
 use App\Http\Requests\Homework\UpdateHomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
-use App\User;
 use App\School;
 use App\Subject;
+use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class HomeworkController extends Controller
 {
@@ -129,4 +128,12 @@ class HomeworkController extends Controller
 
         return response()->json($results,200);
     }
+
+    public function forUser(User $user, $limit)
+    {
+        $homeworks = $this->homeworkRepository->forUser($user,$limit);
+
+        return response()->json($homeworks,200);
+    }
+
 }

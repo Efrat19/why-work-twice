@@ -7,12 +7,6 @@ use App\Http\Requests\User\StoreUserRequest;
 use App\Repositories\UserRepositoryInterface;
 use App\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\Hash;
-use App\School;
-use App\Subject;
-use Illuminate\Support\Arr;
 class UserController extends Controller
 {
     protected $userRepository;
@@ -29,7 +23,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        return response()->json(User::all(),200);
+        return response()->json(User::all()->map(function ($user) {
+            return $this->userRepository->getProfile($user);
+        }),200);
     }
 
     /**
@@ -55,8 +51,7 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-
-        return response()->json($user,200);
+        return response()->json($this->userRepository->getProfile($user),200);
     }
 
     /**

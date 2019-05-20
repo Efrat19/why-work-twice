@@ -29,6 +29,12 @@
   import events from '../events';
   export default {
     name: 'homework',
+    props: {
+      id : {
+        type: Number,
+        required: true,
+      }
+    },
     mixins: [openPopup],
     components: {
       comment,
@@ -51,7 +57,6 @@
       this.events.$on('homeworkUpdated', id => id === this.id && this.getProfile());
     },
     mounted() {
-      this.id = parseInt(this.$route.params.id, 10);
       this.getProfile();
       this.getComments(this.comments_limit);
     },

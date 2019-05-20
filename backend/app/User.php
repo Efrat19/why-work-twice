@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -12,14 +13,13 @@ class User extends Authenticatable implements JWTSubject
     use Notifiable;
 
 
-
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','school_id','subject_id','permission_id','image','is_subscribed','remember_token','api_token'
+        'name', 'email', 'password', 'school_id', 'subject_id', 'permission_id', 'image', 'is_subscribed', 'remember_token', 'api_token'
     ];
 
     /**
@@ -49,6 +49,15 @@ class User extends Authenticatable implements JWTSubject
     public function homeworks()
     {
         return $this->hasMany(Homework::class);
+    }
+
+    public function getAvgRating()
+    {
+        return array_reduce($this->homeworks()->get()->map(function ($hw) {
+            return $hw->getAvgRating();
+        })->toArray(), function ($v1, $v2) {
+            return $v1 + $v2;
+        });
     }
 
     public function comments()
@@ -92,9 +101,9 @@ class User extends Authenticatable implements JWTSubject
     public function getJWTCustomClaims()
     {
         return [
-             'user' => [
+            'user' => [
                 'id' => $this->id,
-             ]
+            ]
         ];
     }
 }

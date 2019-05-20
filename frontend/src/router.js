@@ -19,10 +19,12 @@ export default new Router({
     {
       path: '/user/:id',
       component: user,
+      props: getIntId,
     },
     {
       path: '/homework/:id',
       component: homework,
+      props: getIntId,
     },
     {
       path: '/admin',
@@ -30,3 +32,10 @@ export default new Router({
     },
   ],
 });
+
+
+function getIntId(route) {
+  return {
+    id: Number(route.params.id),
+  };
+}
