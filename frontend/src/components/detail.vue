@@ -1,6 +1,6 @@
 <template >
 
-  <section class="detail">
+  <section :class="['detail', size]">
     <b><i class="icon" :class="icons[keyName] || fallback"></i></b><span>{{' '}}</span>{{value}}
   </section>
 
@@ -17,6 +17,10 @@ export default {
     value: {
       type: [String, Number],
       required: true,
+    },
+    size: {
+      type: String,
+      default: 'large',
     },
   },
   mounted() {
@@ -51,9 +55,17 @@ export default {
 
 <style scoped lang="scss">
   .detail {
-    font-size: 2rem;
-    .icon {
-      font-size: 4rem;
+    &.large {
+      font-size: 2rem;
+      .icon {
+        font-size: 4rem;
+      }
+    }
+    &.small {
+      font-size: 0.8rem;
+      .icon {
+        font-size: 1.5rem;
+      }
     }
   }
 </style>

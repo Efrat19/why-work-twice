@@ -37,6 +37,7 @@ export default {
   methods: {
     async submit() {
       const form = {
+        id: this.payload.id,
         name: this.name,
         subject: this.subject,
         school: this.school,
@@ -53,8 +54,8 @@ export default {
     async getOld() {
       const old = await this.apiService.api('get', `/user/${this.payload.id}`);
       this.name = old.data.name;
-      this.subject = old.data.subject;
-      this.school = old.data.school;
+      this.subject = old.data.subject.name;
+      this.school = old.data.school.name;
     },
   },
   computed: {

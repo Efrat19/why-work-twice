@@ -8,6 +8,8 @@
       <detail class="uploads" keyName="document" :value="profile.uploads"></detail>
       <detail class="school" keyName="school" :value="profile.school.name"></detail>
       <detail class="subject" keyName="subject" :value="profile.subject.name"></detail>
+      <div class="blank"></div>
+      <div class="blank2"></div>
       <detail v-if="profile.canEdit" class="edit" keyName="edit" value="edit"
               @click.native="open('edit-profile',{editMode: true, id: profile.id})"></detail>
     </div>
@@ -57,10 +59,11 @@ export default {
       display: grid;
       background-color: white;
       border-radius: 6px;
-      grid-template-columns: 25% 25% 25% 25%;
-      grid-template-rows: auto;
+      grid-template-columns: 35% auto;
+      grid-template-rows: 33% 33% 33% ;
       grid-template-areas:
-              "image uploads school edit"
+              "image blank blank blank"
+              "image uploads school blank2"
               "image rating subject edit";
       .image {
         grid-area: image;
@@ -91,6 +94,14 @@ export default {
       .subject {
         margin: auto auto;
         grid-area: subject;
+      }
+      .blank {
+        margin: auto auto;
+        grid-area: blank;
+      }
+      .blank2 {
+        margin: auto auto;
+        grid-area: blank2;
       }
 
     }

@@ -2,12 +2,12 @@
 
   <section class="user">
       <div class="grid" v-if="profile">
-        <div class="desc"><h3>{{profile.description}}</h3></div>
+        <div class="desc"><h3>{{profile.name}}</h3></div>
         <user-card class="user-card" :profile="profile"></user-card>
         <div  class="homework-header" >
           <div class="homeworks">
+              <hw-box class="box" v-for="(homework,index) in homeworks" :homework="homework" :key="index"></hw-box>
           </div>
-          <hw-card v-for="(homework,index) in homeworks" :profile="homework" :key="index"></hw-card>
         </div>
         <div class="more wwt-btn" v-if="profile.uploads > homeworksLimit" @click="showMore()">Show More</div>
       </div>
@@ -23,8 +23,7 @@ import events from '../events';
 import openPopup from '../mixins/openPopup';
 import apiService from '../services/apiService';
 import userCard from './user-card.vue';
-import hwCard from './hw-card';
-import detail from './detail.vue';
+import hwBox from './hw-box.vue';
 
 export default {
   name: 'user',
@@ -36,16 +35,15 @@ export default {
   },
   mixins: [openPopup],
   components: {
-    hwCard,
     userCard,
-    detail,
+    hwBox,
   },
   beforeMount() {
     this.events.$on('homeworkUpdated', () => this.getHomeworks(this.UNLIMITED));
   },
   mounted() {
     this.getProfile();
-    this.getHomeworks(this.comments_limit);
+    this.getHomeworks(this.homeworksLimit);
   },
   data() {
     return {
@@ -77,7 +75,7 @@ export default {
     },
     async getHomeworks(limit) {
       const response = await this.apiService.api('get', `/user/${this.id}/homeworks/${limit}`);
-      this.comments = response.data;
+      this.homeworks = response.data;
     },
   },
   computed: {
@@ -101,6 +99,10 @@ export default {
               "more";
       .homeworks{
         grid-area: homeworks;
+          .box {
+              margin: 10px;
+              display: inline-block;
+          }
       }
       .user-card{
         grid-area: user-card;
