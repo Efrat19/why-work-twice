@@ -1,7 +1,7 @@
 <template >
 
   <section class="logout">
-    <h1>logout Component</h1>
+    <h2>logging you out...</h2>
   </section>
 
 </template>

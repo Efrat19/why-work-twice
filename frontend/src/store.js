@@ -57,7 +57,8 @@ export default new Vuex.Store({
     // },
   },
   actions: {
-    open({ commit }, popup) {
+    async open({ commit, dispatch }, popup) {
+      await dispatch('close');
       commit('setPopupName', popup);
       commit('togglePopup', true);
     },

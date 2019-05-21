@@ -73,8 +73,8 @@ export default {
         const old = await this.apiService.api('get', `/homework/${this.payload.id}`);
         this.source = old.data.source;
         this.description = old.data.description;
-        this.school = old.data.school;
-        this.subject = old.data.subject;
+        this.school = old.data.school.name;
+        this.subject = old.data.subject.name;
       } catch (error) {
         this.onFailure(error);
       }

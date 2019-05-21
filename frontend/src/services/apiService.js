@@ -15,14 +15,23 @@ class ApiService {
   }
 
   async api(method, uri, data) {
-    if (this.firstRequest) {
-      await this.attemptAuthFromLocalStorage();
-      this.firstRequest = false;
+    try {
+      if (this.firstRequest) {
+        await this.attemptAuthFromLocalStorage();
+        this.firstRequest = false;
+      }
+      const response = await this.axios.create({
+        baseURL: this.baseUrl,
+        headers: { Authorization: `Bearer ${this.token}` },
+      })[method](uri, data);
+      return response;
+    } catch (error) {
+      console.log(error.response);
+      if (error.response.status === 401) {
+        store.dispatch('open', 'login');
+      }
+      throw error;
     }
-    return this.axios.create({
-      baseURL: this.baseUrl,
-      headers: { Authorization: `Bearer ${this.token}` },
-    })[method](uri, data);
   }
 
   async setToken(token, expires) {

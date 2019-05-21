@@ -31,7 +31,7 @@ export default {
       events,
     };
   },
-  beforeMount(){
+  beforeMount() {
     this.events.$on('homeworkUpdated', id => this.$router.push(`/homework/${id}`));
     this.events.$on('userUpdated', id => this.$router.push(`/user/${id}`));
   },
