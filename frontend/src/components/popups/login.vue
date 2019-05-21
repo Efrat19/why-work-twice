@@ -41,6 +41,7 @@ export default {
         await this.apiService.clearAuth();
         const response = await this.apiService.api('post', '/login', form);
         await this.apiService.setAuth(response.data);
+        this.events.$emit('userUpdated', response.data.user.id);
         this.onSuccess(response.data);
       } catch (error) {
         this.onFailure(error);

@@ -46,6 +46,7 @@ export default {
         const response = await this.apiService.api('put', `/user/${this.payload.id}`, form);
         await this.store.dispatch('setUser', response.data);
         await localStorage.setItem('user', JSON.stringify(response.data));
+        this.events.$emit('userUpdated', response.data.id);
         this.onSuccess(response.data);
       } catch (error) {
         this.onFailure(error);

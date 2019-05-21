@@ -4,7 +4,7 @@
     <router-link class="home wwt-link" to="/">Home</router-link>
     <div class="upload"><button  class="wwt-btn" @click="open('add-homework')">Add Your Homework</button></div>
     <div class="auth">
-      <router-link v-if="auth" class="home wwt-link" to="/user">User</router-link>
+      <router-link v-if="auth" class="home wwt-link" :to="`/user/${apiService.user.id}`">Me</router-link>
       <button v-if="auth" class="logout wwt-btn" @click="open('logout')">Logout</button>
       <button v-if="!auth" class="register wwt-btn" @click="open('register')">Register</button>
       <button v-if="!auth" class="login wwt-btn" @click="open('login')">Login</button>

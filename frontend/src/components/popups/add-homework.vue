@@ -37,7 +37,7 @@ export default {
   mixins: [popupContent],
   props: [],
   mounted() {
-    this.attemptInitFromUser()
+    this.attemptInitFromUser();
   },
   components: {
     detail,

@@ -1,7 +1,7 @@
 <template >
 
   <section class="delete-homework">
-    <h3>delete comment {{payload.id}}</h3>
+    <h3>delete homework {{payload.id}}</h3>
     <h2>sure about that?</h2>
     <button  class="wwt-btn no" @click.prevent="close()">No, Cancel</button>
     <button  class="wwt-btn yes" @click.prevent="submit()">Yeah</button>
@@ -28,7 +28,7 @@ export default {
     async submit() {
       try {
         const response = await this.apiService.api('delete', `/homework/${this.payload.id}`);
-        this.events.$emit('homeworkUpdated', response.data.id);
+        this.events.$emit('homeworkDeleted', response.data.id);
         this.onSuccess(response.data);
       } catch (error) {
         this.onFailure(error);

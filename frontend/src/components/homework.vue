@@ -55,7 +55,7 @@ export default {
   },
   beforeMount() {
     this.events.$on('commentUpdated', () => this.getComments(this.UNLIMITED));
-    this.events.$on('homeworkUpdated', id => id === this.id && this.getProfile());
+    this.events.$on('homeworkDeleted', id => id === this.id && this.getProfile());
   },
   mounted() {
     this.getProfile();
@@ -68,6 +68,7 @@ export default {
     },
     async getProfile() {
       try {
+        this.profile = null;
         const response = await this.apiService.api('get', `/homework/${this.id}`);
         this.profile = response.data;
         this.error = '';
@@ -89,6 +90,13 @@ export default {
   },
   computed: {
 
+  },
+
+  beforeRouteUpdate(to, from, next) {
+    this.id = to.params.id;
+    this.getProfile();
+    this.getComments(this.comments_limit);
+    next();
   },
 };
 </script>

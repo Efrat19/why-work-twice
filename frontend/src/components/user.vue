@@ -6,7 +6,10 @@
         <user-card class="user-card" :profile="profile"></user-card>
         <div  class="homework-header" >
           <div class="homeworks">
-              <hw-box class="box" v-for="(homework,index) in homeworks" :homework="homework" :key="index"></hw-box>
+              <router-link  v-for="(homework,index) in homeworks" :to="`/homework/${homework.id}`" :key="index">
+                  <hw-box class="box" :homework="homework"></hw-box>
+              </router-link>
+              <h4 v-if="!homeworks.length">{{profile.name}} did not upload any homeworks yet</h4>
           </div>
         </div>
         <div class="more wwt-btn" v-if="profile.uploads > homeworksLimit" @click="showMore()">Show More</div>
@@ -59,6 +62,7 @@ export default {
   methods: {
     async getProfile() {
       try {
+        this.profile = null;
         const response = await this.apiService.api('get', `/user/${this.id}`);
         this.profile = response.data;
         this.error = '';
@@ -80,6 +84,12 @@ export default {
   },
   computed: {
 
+  },
+  beforeRouteUpdate(to, from, next) {
+    this.id = to.params.id;
+    this.getProfile();
+    this.getHomeworks(this.homeworksLimit);
+    next();
   },
 };
 </script>

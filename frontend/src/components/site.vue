@@ -15,6 +15,7 @@ import navbar from './navbar.vue';
 import popup from './popup.vue';
 import apiService from '../services/apiService';
 import store from '../store';
+import events from '../events';
 
 export default {
   name: 'site',
@@ -27,7 +28,12 @@ export default {
     return {
       apiService,
       store,
+      events,
     };
+  },
+  beforeMount(){
+    this.events.$on('homeworkUpdated', id => this.$router.push(`/homework/${id}`));
+    this.events.$on('userUpdated', id => this.$router.push(`/user/${id}`));
   },
   mounted() {
     // this.apiService.login();
