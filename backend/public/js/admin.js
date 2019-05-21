@@ -18288,14 +18288,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************!*\
   !*** ../frontend/src/components/admin.vue?vue&type=template&id=4c9703c0&scoped=true& ***!
   \***************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./admin.vue?vue&type=template&id=4c9703c0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/admin.vue?vue&type=template&id=4c9703c0&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_admin_vue_vue_type_template_id_4c9703c0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18373,14 +18375,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************************!*\
   !*** ../frontend/src/components/comment-search-result.vue?vue&type=template&id=c9d30976&scoped=true& ***!
   \*******************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./comment-search-result.vue?vue&type=template&id=c9d30976&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/comment-search-result.vue?vue&type=template&id=c9d30976&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_search_result_vue_vue_type_template_id_c9d30976_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18458,14 +18462,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************!*\
   !*** ../frontend/src/components/comment.vue?vue&type=template&id=17e556f0&scoped=true& ***!
   \*****************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./comment.vue?vue&type=template&id=17e556f0&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/comment.vue?vue&type=template&id=17e556f0&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_comment_vue_vue_type_template_id_17e556f0_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18543,14 +18549,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************************************!*\
   !*** ../frontend/src/components/detail.vue?vue&type=template&id=0e99ac60&scoped=true& ***!
   \****************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./detail.vue?vue&type=template&id=0e99ac60&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/detail.vue?vue&type=template&id=0e99ac60&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_detail_vue_vue_type_template_id_0e99ac60_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18628,14 +18636,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************!*\
   !*** ../frontend/src/components/home.vue?vue&type=template&id=2c2085c4&scoped=true& ***!
   \**************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./home.vue?vue&type=template&id=2c2085c4&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/home.vue?vue&type=template&id=2c2085c4&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_home_vue_vue_type_template_id_2c2085c4_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18713,14 +18723,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!********************************************************************************************************!*\
   !*** ../frontend/src/components/homework-search-result.vue?vue&type=template&id=80aeea78&scoped=true& ***!
   \********************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./homework-search-result.vue?vue&type=template&id=80aeea78&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/homework-search-result.vue?vue&type=template&id=80aeea78&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_search_result_vue_vue_type_template_id_80aeea78_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18798,14 +18810,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!******************************************************************************************!*\
   !*** ../frontend/src/components/homework.vue?vue&type=template&id=28b23ea2&scoped=true& ***!
   \******************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./homework.vue?vue&type=template&id=28b23ea2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/homework.vue?vue&type=template&id=28b23ea2&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_homework_vue_vue_type_template_id_28b23ea2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18883,14 +18897,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!*****************************************************************************************!*\
   !*** ../frontend/src/components/hw-card.vue?vue&type=template&id=95cc4bc2&scoped=true& ***!
   \*****************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./hw-card.vue?vue&type=template&id=95cc4bc2&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/hw-card.vue?vue&type=template&id=95cc4bc2&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_hw_card_vue_vue_type_template_id_95cc4bc2_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -18968,14 +18984,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************************************!*\
   !*** ../frontend/src/components/search.vue?vue&type=template&id=0c1ef3a7&scoped=true& ***!
   \****************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./search.vue?vue&type=template&id=0c1ef3a7&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/search.vue?vue&type=template&id=0c1ef3a7&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_search_vue_vue_type_template_id_0c1ef3a7_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -19053,14 +19071,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!*******************************************************************************************!*\
   !*** ../frontend/src/components/user-card.vue?vue&type=template&id=566254a3&scoped=true& ***!
   \*******************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./user-card.vue?vue&type=template&id=566254a3&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/user-card.vue?vue&type=template&id=566254a3&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_card_vue_vue_type_template_id_566254a3_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -19138,14 +19158,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!****************************************************************************************************!*\
   !*** ../frontend/src/components/user-search-result.vue?vue&type=template&id=3dabe642&scoped=true& ***!
   \****************************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./user-search-result.vue?vue&type=template&id=3dabe642&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/user-search-result.vue?vue&type=template&id=3dabe642&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_search_result_vue_vue_type_template_id_3dabe642_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -19223,14 +19245,16 @@ __webpack_require__.r(__webpack_exports__);
 /*!**************************************************************************************!*\
   !*** ../frontend/src/components/user.vue?vue&type=template&id=11ef43ec&scoped=true& ***!
   \**************************************************************************************/
-/*! no static exports found */
+/*! exports provided: render, staticRenderFns */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../backend/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../backend/node_modules/vue-loader/lib??vue-loader-options!./user.vue?vue&type=template&id=11ef43ec&scoped=true& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!../frontend/src/components/user.vue?vue&type=template&id=11ef43ec&scoped=true&");
-/* harmony import */ var _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _backend_node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_backend_node_modules_vue_loader_lib_index_js_vue_loader_options_user_vue_vue_type_template_id_11ef43ec_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
 
 
 /***/ }),
@@ -58892,10 +58916,80 @@ exports.clearImmediate = (typeof self !== "undefined" && self.clearImmediate) ||
 /*!*********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/admin.vue?vue&type=template&id=4c9703c0&scoped=true& ***!
   \*********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "admin" }, [
+    _c("h1", [_vm._v("admin page")]),
+    _vm._v(" "),
+    _c(
+      "details",
+      [
+        _c("summary", [_vm._v("Users")]),
+        _vm._v(" "),
+        _c("search", {
+          attrs: { url: _vm.searchBaseUrl + "/users", "result-type": "user" }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "details",
+      [
+        _c("summary", [_vm._v("Homeworks")]),
+        _vm._v(" "),
+        _c("search", {
+          attrs: {
+            url: _vm.searchBaseUrl + "/homeworks",
+            "result-type": "homework"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _c(
+      "details",
+      [
+        _c("summary", [_vm._v("Comments")]),
+        _vm._v(" "),
+        _c("search", {
+          attrs: {
+            url: _vm.searchBaseUrl + "/comments",
+            "result-type": "comment"
+          }
+        })
+      ],
+      1
+    ),
+    _vm._v(" "),
+    _vm.page
+      ? _c("div", {
+          staticClass: "page",
+          domProps: { innerHTML: _vm._s(_vm.page) }
+        })
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.error
+      ? _c("div", { staticClass: "wwt-status" }, [
+          _vm._v("\n    " + _vm._s(_vm.error) + "\n  ")
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58903,10 +58997,40 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!*************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/comment-search-result.vue?vue&type=template&id=c9d30976&scoped=true& ***!
   \*************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "comment-search-result" }, [
+    _c("details", [
+      _c(
+        "summary",
+        [
+          _vm._v(_vm._s(_vm.getSummary) + "\n      "),
+          _c(
+            "router-link",
+            { attrs: { to: "/comment/" + _vm.result.homework.id } },
+            [_vm._v("view page")]
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("pre", [_vm._v(_vm._s(_vm.result))])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58914,10 +59038,62 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/comment.vue?vue&type=template&id=17e556f0&scoped=true& ***!
   \***********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "comment" }, [
+    _c("div", { staticClass: "header" }, [
+      _vm._v(_vm._s(_vm.comment.header) + " " + _vm._s(_vm.comment.id))
+    ]),
+    _vm._v(" "),
+    _vm.comment.canEdit
+      ? _c("div", { staticClass: "edit" }, [
+          _c("i", {
+            staticClass: "fas fa-edit",
+            on: {
+              click: function($event) {
+                return _vm.open("add-comment", {
+                  editMode: true,
+                  id: _vm.comment.id
+                })
+              }
+            }
+          })
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.comment.canDelete
+      ? _c("div", { staticClass: "delete" }, [
+          _c("i", {
+            staticClass: "fas fa-trash-alt",
+            on: {
+              click: function($event) {
+                return _vm.open("delete-comment", { id: _vm.comment.id })
+              }
+            }
+          })
+        ])
+      : _vm._e(),
+    _vm._v(" "),
+    _c("div", { staticClass: "body" }, [_vm._v(_vm._s(_vm.comment.body))]),
+    _vm._v(" "),
+    _c("div", { staticClass: "author" }, [
+      _vm._v(_vm._s(_vm.getAuthorDetails()))
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58925,10 +59101,32 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/detail.vue?vue&type=template&id=0e99ac60&scoped=true& ***!
   \**********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "detail" }, [
+    _c("b", [
+      _c("i", {
+        staticClass: "icon",
+        class: _vm.icons[_vm.keyName] || _vm.fallback
+      })
+    ]),
+    _c("span", [_vm._v(_vm._s(" "))]),
+    _vm._v(_vm._s(_vm.value) + "\n")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58936,10 +59134,32 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/home.vue?vue&type=template&id=2c2085c4&scoped=true& ***!
   \********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("section", { staticClass: "home" }, [
+      _c("h1", [_vm._v("home Component")])
+    ])
+  }
+]
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58947,10 +59167,38 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!**************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/homework-search-result.vue?vue&type=template&id=80aeea78&scoped=true& ***!
   \**************************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "homework" }, [
+    _c("details", [
+      _c(
+        "summary",
+        [
+          _vm._v(_vm._s(_vm.getSummary) + "\n      "),
+          _c("router-link", { attrs: { to: "/homework/" + _vm.result.id } }, [
+            _vm._v("view page")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("pre", [_vm._v(_vm._s(_vm.result))])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58958,10 +59206,91 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/homework.vue?vue&type=template&id=28b23ea2&scoped=true& ***!
   \************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "homework" }, [
+    _vm.profile
+      ? _c(
+          "div",
+          { staticClass: "grid" },
+          [
+            _c("div", { staticClass: "desc" }, [
+              _c("h3", [_vm._v(_vm._s(_vm.profile.description))])
+            ]),
+            _vm._v(" "),
+            _c("hw-card", {
+              staticClass: "hw-card",
+              attrs: { profile: _vm.profile }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "comment-header" },
+              [
+                _c("detail", {
+                  attrs: { keyName: "comment", value: _vm.profile.commentsNum }
+                }),
+                _vm._v(" "),
+                _c("i", {
+                  staticClass: "add fas fa-plus",
+                  on: {
+                    click: function($event) {
+                      return _vm.open("add-comment", { homeworkId: _vm.id })
+                    }
+                  }
+                }),
+                _vm._v(" "),
+                _c("div", { staticClass: "comments" }),
+                _vm._v(" "),
+                _vm._l(_vm.comments, function(comment, index) {
+                  return _c("comment", {
+                    key: index,
+                    attrs: { comment: comment }
+                  })
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _vm.profile.commentsNum > _vm.comments_limit
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "more wwt-btn",
+                    on: {
+                      click: function($event) {
+                        return _vm.showMore()
+                      }
+                    }
+                  },
+                  [_vm._v("Show More")]
+                )
+              : _vm._e()
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.error
+      ? _c("div", { staticClass: "wwt-status" }, [
+          _vm._v("\n    " + _vm._s(_vm.error) + "\n  ")
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58969,10 +59298,131 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!***********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/hw-card.vue?vue&type=template&id=95cc4bc2&scoped=true& ***!
   \***********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "hw-card" }, [
+    _c(
+      "div",
+      { staticClass: "grid" },
+      [
+        _c(
+          "div",
+          {
+            staticClass: "image",
+            on: {
+              click: function($event) {
+                return _vm.open("source")
+              }
+            }
+          },
+          [_c("img", { attrs: { src: _vm.profile.path, alt: "profile.path" } })]
+        ),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "rating",
+          attrs: { keyName: "rating", value: _vm.profile.rating }
+        }),
+        _vm._v(" "),
+        _c(
+          "router-link",
+          {
+            staticClass: "user wwt-link",
+            attrs: { to: "/user/" + _vm.profile.user_id }
+          },
+          [
+            _c("detail", {
+              attrs: { keyName: "user", value: _vm.profile.user.name }
+            })
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "views",
+          attrs: { keyName: "views", value: _vm.profile.views }
+        }),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "downloads",
+          attrs: { keyName: "downloads", value: _vm.profile.downloads }
+        }),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "school",
+          attrs: { keyName: "school", value: _vm.profile.school.name }
+        }),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "subject",
+          attrs: { keyName: "subject", value: _vm.profile.subject.name }
+        }),
+        _vm._v(" "),
+        _vm.profile.canEdit
+          ? _c("detail", {
+              staticClass: "edit",
+              attrs: { keyName: "edit", value: "edit" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.open("add-homework", {
+                    editMode: true,
+                    id: _vm.profile.id
+                  })
+                }
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _vm.profile.canDelete
+          ? _c("detail", {
+              staticClass: "delete",
+              attrs: { keyName: "delete", value: "delete" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.open("delete-homework", { id: _vm.profile.id })
+                }
+              }
+            })
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "div",
+          {
+            staticClass: "love",
+            on: {
+              click: function($event) {
+                return _vm.toggleLove(!_vm.profile.loved)
+              }
+            }
+          },
+          [
+            _vm._v(
+              "\n      profile.loved " + _vm._s(_vm.profile.loved) + "\n      "
+            ),
+            _c("i", {
+              class: _vm.profile.loved ? "fas fa-heart" : "far fa-heart"
+            })
+          ]
+        ),
+        _vm._v(" "),
+        _c("div", { staticClass: "user-link" })
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58980,10 +59430,58 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!**********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/search.vue?vue&type=template&id=0c1ef3a7&scoped=true& ***!
   \**********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "search" }, [
+    _c("input", {
+      directives: [
+        { name: "model", rawName: "v-model", value: _vm.bar, expression: "bar" }
+      ],
+      staticClass: "wwt-input bar form-control",
+      attrs: { type: "text", placeholder: "search " + _vm.resultType + "s..." },
+      domProps: { value: _vm.bar },
+      on: {
+        input: [
+          function($event) {
+            if ($event.target.composing) {
+              return
+            }
+            _vm.bar = $event.target.value
+          },
+          function($event) {
+            return _vm.fetchResults()
+          }
+        ]
+      }
+    }),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "results" },
+      _vm._l(_vm.results, function(result, index) {
+        return _c(_vm.getResultType, {
+          key: index,
+          tag: "component",
+          attrs: { result: result }
+        })
+      }),
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -58991,10 +59489,64 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/user-card.vue?vue&type=template&id=566254a3&scoped=true& ***!
   \*************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "user-card" }, [
+    _c(
+      "div",
+      { staticClass: "grid" },
+      [
+        _c("div", { staticClass: "image" }, [
+          _c("img", { attrs: { src: _vm.profile.image, alt: "profile.image" } })
+        ]),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "uploads",
+          attrs: { keyName: "document", value: _vm.profile.uploads }
+        }),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "school",
+          attrs: { keyName: "school", value: _vm.profile.school.name }
+        }),
+        _vm._v(" "),
+        _c("detail", {
+          staticClass: "subject",
+          attrs: { keyName: "subject", value: _vm.profile.subject.name }
+        }),
+        _vm._v(" "),
+        _vm.profile.canEdit
+          ? _c("detail", {
+              staticClass: "edit",
+              attrs: { keyName: "edit", value: "edit" },
+              nativeOn: {
+                click: function($event) {
+                  return _vm.open("edit-profile", {
+                    editMode: true,
+                    id: _vm.profile.id
+                  })
+                }
+              }
+            })
+          : _vm._e()
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -59002,10 +59554,38 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!**********************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/user-search-result.vue?vue&type=template&id=3dabe642&scoped=true& ***!
   \**********************************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "user-search-result" }, [
+    _c("details", [
+      _c(
+        "summary",
+        [
+          _vm._v(_vm._s(_vm.getSummary) + "\n      "),
+          _c("router-link", { attrs: { to: "/user/" + _vm.result.id } }, [
+            _vm._v("profile page")
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("pre", [_vm._v(_vm._s(_vm.result))])
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -59013,10 +59593,78 @@ throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders
 /*!********************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!../frontend/src/components/user.vue?vue&type=template&id=11ef43ec&scoped=true& ***!
   \********************************************************************************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/vue-loader/lib/loaders/templateLoader.js):\nError: Cannot find module 'prettier'\n    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:609:15)\n    at Function.Module._load (internal/modules/cjs/loader.js:535:25)\n    at Module.require (internal/modules/cjs/loader.js:663:17)\n    at require (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/v8-compile-cache/v8-compile-cache.js:161:20)\n    at actuallyCompile (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:100:24)\n    at compileTemplate (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/@vue/component-compiler-utils/dist/compileTemplate.js:31:16)\n    at Object.module.exports (/Users/efrat/Documents/projects/whyworktwice/backend/node_modules/vue-loader/lib/loaders/templateLoader.js:46:20)");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("section", { staticClass: "user" }, [
+    _vm.profile
+      ? _c(
+          "div",
+          { staticClass: "grid" },
+          [
+            _c("div", { staticClass: "desc" }, [
+              _c("h3", [_vm._v(_vm._s(_vm.profile.description))])
+            ]),
+            _vm._v(" "),
+            _c("user-card", {
+              staticClass: "user-card",
+              attrs: { profile: _vm.profile }
+            }),
+            _vm._v(" "),
+            _c(
+              "div",
+              { staticClass: "homework-header" },
+              [
+                _c("div", { staticClass: "homeworks" }),
+                _vm._v(" "),
+                _vm._l(_vm.homeworks, function(homework, index) {
+                  return _c("hw-card", {
+                    key: index,
+                    attrs: { profile: homework }
+                  })
+                })
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _vm.profile.uploads > _vm.homeworksLimit
+              ? _c(
+                  "div",
+                  {
+                    staticClass: "more wwt-btn",
+                    on: {
+                      click: function($event) {
+                        return _vm.showMore()
+                      }
+                    }
+                  },
+                  [_vm._v("Show More")]
+                )
+              : _vm._e()
+          ],
+          1
+        )
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.error
+      ? _c("div", { staticClass: "wwt-status" }, [
+          _vm._v("\n      " + _vm._s(_vm.error) + "\n  ")
+        ])
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
 
 /***/ }),
 
@@ -71266,7 +71914,7 @@ if (token) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! /Users/efrat/Documents/projects/whyworktwice/backend/resources/js/admin.js */"./resources/js/admin.js");
+module.exports = __webpack_require__(/*! /home/CompieCourse/Documents/efrat/whyworktwice/backend/resources/js/admin.js */"./resources/js/admin.js");
 
 
 /***/ })
