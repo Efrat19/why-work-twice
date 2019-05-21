@@ -2,8 +2,9 @@
 
 namespace App\Http\Requests\User;
 
-use Illuminate\Auth\Access\Gate;
+use App\User;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class StoreUserRequest extends FormRequest
 {
