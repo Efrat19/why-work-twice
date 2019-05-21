@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Homework\UpdateHomeworkRequest;
 use App\Http\Requests\User\StoreUserRequest;
+use App\Http\Requests\User\UpdateUserRequest;
 use App\Repositories\UserRepositoryInterface;
 use App\User;
 use Illuminate\Http\Request;
@@ -61,7 +61,7 @@ class UserController extends Controller
      * @param  \App\User $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHomeworkRequest $request, User $user)
+    public function update(UpdateUserRequest $request, User $user)
     {
             $updatedUser = $this->userRepository->update($request, $user);
 

@@ -17,7 +17,7 @@ export default {
     try {
       const response = await this.apiService.api('get', '/logout');
       await this.apiService.clearAuth();
-      this.events.$emit('userUpdated', response.data.user.id);
+      this.events.$emit('logout');
       this.onSuccess(response.data);
     } catch (error) {
       this.onFailure(error);

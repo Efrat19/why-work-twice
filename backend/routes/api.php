@@ -109,6 +109,14 @@ Route::group([
 /**
  * dev routes
  */
+Route::get('/mail/{user}',function ($user){
+    Mail::send('emails.reminder', ['user' => $user], function ($m) use ($user) {
+        $m->from('hello@app.com', 'Your Application');
+
+        $m->to($user->email, $user->name)->subject('Your Reminder!');
+    });
+});
+
 Route::get('/insertbasic',function (){
     Artisan::call('migrate', ["--force"=> true ]);
     User::create(

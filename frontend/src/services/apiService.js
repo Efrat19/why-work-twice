@@ -59,9 +59,14 @@ class ApiService {
   }
 
   async clearLocalstorage() {
-    await localStorage.removeItem('user');
-    await localStorage.removeItem('token');
-    return localStorage.removeItem('expires');
+    try {
+      await localStorage.removeItem('user');
+      await localStorage.removeItem('token');
+      return localStorage.removeItem('expires');
+    }
+    catch (e) {
+      return e;
+    }
   }
 
   async attemptAuthFromLocalStorage() {

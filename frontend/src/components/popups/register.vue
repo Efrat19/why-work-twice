@@ -63,7 +63,6 @@ export default {
         await this.apiService.clearAuth();
         const response = await this.apiService.api('post', '/register', form);
         await this.apiService.setAuth(response.data);
-        debugger;
         this.events.$emit('userUpdated', response.data.user.id);
         this.onSuccess(response.data);
       } catch (error) {

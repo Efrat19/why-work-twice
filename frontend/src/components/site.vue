@@ -34,6 +34,7 @@ export default {
   beforeMount() {
     this.events.$on('homeworkUpdated', id => this.$router.push(`/homework/${id}`));
     this.events.$on('userUpdated', id => this.$router.push(`/user/${id}`));
+    this.events.$on('logout', () => this.$router.push('/'));
   },
   mounted() {
     // this.apiService.login();

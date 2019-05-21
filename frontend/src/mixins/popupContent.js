@@ -40,6 +40,7 @@ export default {
       window.setTimeout(this.close, 3);
     },
     onFailure(error) {
+      console.log(error.response);
       let errorsArray = [];
       Object.keys(error.response.data.errors || []).forEach((field) => {
         const fieldError = error.response.data.errors[field];

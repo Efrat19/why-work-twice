@@ -3,6 +3,7 @@
 namespace App\Http\Requests\User;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Gate;
 
 class UpdateUserRequest extends FormRequest
 {
@@ -13,13 +14,13 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-        return auth('api')->user()->can('update',$this->request->get('id'));
+//        return auth('api')->user()->can('update',$this->request->get('id'));
 
-//        $args = [
-//            auth('api')->user(),
-//            $this->request->get('id')
-//        ];
-//        return Gate::allows('update-user',$args);
+        $args = [
+            auth('api')->user(),
+            $this->request->get('id')
+        ];
+        return Gate::allows('update-user',$args);
     }
 
     /**
