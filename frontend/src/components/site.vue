@@ -45,7 +45,9 @@ export default {
 
 
   .site {
-      position: relative;
+      position: fixed;
+      height:100vh;
+      width: 100%;
       background-color: #cecece;
    .grid{
        width: 100%;

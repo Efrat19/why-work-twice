@@ -37,6 +37,7 @@ export default {
   mixins: [popupContent],
   props: [],
   mounted() {
+    this.attemptInitFromUser()
   },
   components: {
     detail,
@@ -80,6 +81,10 @@ export default {
     },
     setSource($event) {
       this.source = $event.target.value;
+    },
+    attemptInitFromUser() {
+      this.school = (this.apiService.user && this.apiService.user.school && this.apiService.user.school.name) || '';
+      this.subject = (this.apiService.user && this.apiService.user.subject && this.apiService.user.subject.name) || '';
     },
   },
 };

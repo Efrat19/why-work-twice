@@ -66,7 +66,7 @@ export default {
               "school school subject subject"
               "author author author author";
       grid-template-columns: auto;
-      grid-template-rows: auto;
+      grid-template-rows: 33% 33% 33%;
       .description{
         grid-area: description;
         font-size: 1em;
