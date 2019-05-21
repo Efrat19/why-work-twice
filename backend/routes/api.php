@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Http\Request;
+use App\User;
 use App\Homework;
 use App\Comment;
 /*
@@ -83,11 +84,11 @@ Route::group([], function () {
  * admin routes
  */
 
+Route::get('/admin','AdminController@index');
 Route::group([
         'prefix' => '/admin',
         'middleware' => ['auth:api','isAdmin']
     ], function () {
-    Route::get('/','AdminController@index');
         Route::group([
             'prefix' => '/search'
         ], function () {
@@ -109,6 +110,17 @@ Route::group([
  * dev routes
  */
 Route::get('/insertbasic',function (){
+    Artisan::call('migrate', ["--force"=> true ]);
+    User::create(
+        array(
+            'school_id' => 1,
+            'name' => 'efl',
+            'subject_id' => 1,
+            'permission_id' => 3,
+            'email' => 'e@y.c2',
+            'password' => Hash::make('11111111'),
+        )
+    );
 
     Homework::create(
         array(
@@ -121,7 +133,6 @@ Route::get('/insertbasic',function (){
             'downloads' => 40,
         )
     );
-
     Comment::create(
         array(
             'user_id' => 1,
