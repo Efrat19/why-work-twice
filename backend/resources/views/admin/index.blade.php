@@ -3,7 +3,7 @@
     <h1>admin page</h1>
     <details>
         <summary>Users</summary>
-        <search></search>
+        @include('admin.search',['url' => $baseUrl.'/users', 'resultType' => 'user'])
     </details>
     <details>
         <summary>Homeworks</summary>

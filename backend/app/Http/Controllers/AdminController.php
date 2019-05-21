@@ -13,7 +13,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('admin.index')->render();
+        return view('admin.index')->with(['baseUrl' => '/admin/search','results' => []]);
     }
 
     /**
