@@ -1,7 +1,6 @@
 <template >
   <section class="search">
-      <input type="text" class="wwt-input bar form-control" v-model="bar"
-             @input="fetchResults()" :placeholder="`search ${resultType}s...`">
+      <search-bar :url="url" @searchInput="fetchResults" :result-type="resultType"></search-bar>
     <div class="results">
       <component :is="getResultType" v-for="(result,index) in results" :key="index" :result="result"></component>
     </div>
@@ -11,6 +10,7 @@
 
 <script >
 import apiService from '../services/apiService';
+import searchBar from './search-bar.vue';
 import userSearchResult from './user-search-result';
 import commentSearchResult from './comment-search-result';
 import homeworkSearchResult from './homework-search-result';
@@ -18,6 +18,7 @@ import homeworkSearchResult from './homework-search-result';
 export default {
   name: 'search',
   components: {
+    searchBar,
     userSearchResult,
     commentSearchResult,
     homeworkSearchResult,
@@ -38,13 +39,12 @@ export default {
   data() {
     return {
       apiService,
-      bar: '',
       results: [],
     };
   },
   methods: {
-    async fetchResults() {
-      const response = await this.apiService.api('get', `${this.url}?q=${this.bar}`);
+    async fetchResults(url) {
+      const response = await this.apiService.api('get', url);
       this.results = response.data;
     },
   },

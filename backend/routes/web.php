@@ -11,7 +11,27 @@
 |
 */
 
+Auth::routes(['register' => false]);
 
-Route::get('/', function () {
-    dd('hi');
-});
+Route::redirect('/','login');
+
+Route::get('/admin','AdminController@index');
+Route::get('/admin/search/users','AdminController@searchUsers');
+Route::get('/admin/search/homeworks','AdminController@searchHomeworks');
+Route::get('/admin/search/comments','AdminController@searchComments');
+//Route::get('/admin','AdminController@index');
+//Route::get('/admin', function () {
+//    if(auth()->user()){
+//        return response()->json(['web',auth()->user()->get()]);
+//    }
+//    if(auth('api')->user()){
+//        return response()->json(['api',auth()->user()->get()]);
+//    }
+//    else {
+//        dd(Route::class);
+////        Route::redierct()
+//    }
+////    if(auth('api')->user()){
+////        return response()->json(['api',auth()->user()->get()]);
+////    }
+//});

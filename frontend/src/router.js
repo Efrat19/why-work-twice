@@ -26,9 +26,16 @@ export default new Router({
       component: homework,
       props: getIntId,
     },
+    // {
+    //   path: '/admin',
+    //   component: admin,
+    // },
     {
       path: '/admin',
-      component: admin,
+      beforeEnter() {
+        // Put the full page url including the protocol http(s) below
+        window.location = 'http://localhost:8000/admin';
+      },
     },
   ],
 });

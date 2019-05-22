@@ -1,21 +1,8 @@
 <template >
 
   <section class="admin">
-    <h1>admin page</h1>
-    <details>
-      <summary>Users</summary>
-      <search :url="`${searchBaseUrl}/users`" result-type="user"></search>
-    </details>
-    <details>
-      <summary>Homeworks</summary>
-      <search :url="`${searchBaseUrl}/homeworks`" result-type="homework"></search>
-    </details>
-    <details>
-      <summary>Comments</summary>
-      <search :url="`${searchBaseUrl}/comments`" result-type="comment"></search>
-
-    </details>
-
+    <h1>admin panel</h1>
+    <search-bar v-if="getSearchAction" @searchInput="getAdminPage" result-type="user" url="getSearchAction"></search-bar>
     <div class="page" v-if="page" v-html="page"></div>
     <div class="wwt-status" v-if="error">
       {{error}}
@@ -26,16 +13,19 @@
 
 <script >
 import apiService from '../services/apiService';
-import search from './search';
+import searchBar from './search-bar';
 
 export default {
   name: 'admin',
   props: [],
   components: {
-    search,
+    searchBar,
+  },
+  beforeMount() {
+    window.getAdminPage = this.getAdminPage;
   },
   mounted() {
-    this.getAdminPage();
+    this.getAdminPage('/');
   },
   data() {
     return {
@@ -43,12 +33,14 @@ export default {
       page: false,
       error: 0,
       searchBaseUrl: '/admin/search',
+      resultType: 'user',
     };
   },
   methods: {
-    async getAdminPage() {
+    async getAdminPage(url) {
+      console.log(url);
       try {
-        const response = await this.apiService.api('get', '/admin/');
+        const response = await this.apiService.api('get', `/admin${url}`);
         this.page = response.data;
         this.error = '';
       } catch (e) {
@@ -56,11 +48,16 @@ export default {
       }
     },
     onFailure(error) {
-      this.error = error.response.status;
+      this.error = (error.response && error.response.status) || 500;
+    },
+    search(query) {
+      this.getAdminPage(`/search/${this.resultType}s?q=${query}`);
     },
   },
   computed: {
-
+    getSearchAction(){
+      return window.searchAction;
+    }
   },
 };
 </script>

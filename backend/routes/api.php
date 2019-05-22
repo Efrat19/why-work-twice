@@ -85,17 +85,19 @@ Route::group([], function () {
  */
 
 Route::get('/admin','AdminController@index');
+Route::get('/admin/search/users','AdminController@searchUsers');
 Route::group([
         'prefix' => '/admin',
         'middleware' => ['auth:api','isAdmin']
     ], function () {
-        Route::group([
-            'prefix' => '/search'
-        ], function () {
-            Route::get('/users','UserController@search');
-            Route::get('/homeworks','HomeworkController@search');
-            Route::get('/comments','CommentController@search');
-        });
+
+//        Route::group([
+//            'prefix' => '/search'
+//        ], function () {
+//            Route::get('/users','UserController@search');
+//            Route::get('/homeworks','HomeworkController@search');
+//            Route::get('/comments','CommentController@search');
+//        });
 });
 
 
