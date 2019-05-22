@@ -32,4 +32,8 @@ interface UserRepositoryInterface// extends ModelRepositoryInterface
     public function search($query);
 
     public function getProfile(User $user);
+
+    public function elevatePrivilege(User $user);
+
+    public function degradePrivilege(User $user);
 }

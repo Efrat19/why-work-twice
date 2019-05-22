@@ -1,4 +1,4 @@
-@extends('layouts.search', ['url' => $url, 'q' => $query])
+@extends('layouts.search', [ 'q' => $query])
 @section('results')
     <ul>
         @foreach($results as $homework)
@@ -8,4 +8,4 @@
             </li>
         @endforeach
     </ul>
-@overwrite
+@endsection

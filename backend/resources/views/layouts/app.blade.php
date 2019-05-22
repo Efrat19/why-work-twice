@@ -24,8 +24,8 @@
 <div id="app">
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand" href="{{ url('/') }}">
-                {{ config('app.name', 'Admin Panel') }}
+            <a class="navbar-brand" href="/admin">
+              Admin Panel
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                 <span class="navbar-toggler-icon"></span>
@@ -74,7 +74,17 @@
     </nav>
 
     <main class="py-4">
+
+        @if(session('msg'))
+            <div class="alert alert-warning" role="alert">
+                {{session('msg')}}
+            </div>
+            @endif
+        <div class="container">
+            <div class="row justify-content-center">
         @yield('content')
+            </div>
+        </div>
     </main>
 </div>
 </body>

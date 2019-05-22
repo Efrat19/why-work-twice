@@ -75,4 +75,20 @@ class UserRepository implements UserRepositoryInterface {
         $profile['canEdit'] = auth('api')->check() && auth('api')->user()->can('update', $user);
         return $profile;
     }
+
+
+    public function elevatePrivilege(User $user)
+    {
+        return $user->update([
+            'permission_id' =>  ++ $user->permission_id
+        ]);
+    }
+
+    public function degradePrivilege(User $user)
+    {
+
+        return $user->update([
+            'permission_id' =>  -- $user->permission_id
+        ]);
+    }
 }

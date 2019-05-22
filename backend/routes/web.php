@@ -19,6 +19,10 @@ Route::get('/admin','AdminController@index');
 Route::get('/admin/search/users','AdminController@searchUsers');
 Route::get('/admin/search/homeworks','AdminController@searchHomeworks');
 Route::get('/admin/search/comments','AdminController@searchComments');
+Route::get('/admin/admin-users','AdminController@adminUsers');
+Route::get('/admin/new-admin','AdminController@newAdmin');
+Route::get('/admin/elevate/{user}','AdminController@elevatePrivilege');
+Route::get('/admin/degrade/{user}','AdminController@degradePrivilege');
 //Route::get('/admin','AdminController@index');
 //Route::get('/admin', function () {
 //    if(auth()->user()){
