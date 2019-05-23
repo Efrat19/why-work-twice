@@ -15,14 +15,24 @@ Auth::routes(['register' => false]);
 
 Route::redirect('/','login');
 
-Route::get('/admin','AdminController@index');
-Route::get('/admin/search/users','AdminController@searchUsers');
-Route::get('/admin/search/homeworks','AdminController@searchHomeworks');
-Route::get('/admin/search/comments','AdminController@searchComments');
-Route::get('/admin/admin-users','AdminController@adminUsers');
-Route::get('/admin/new-admin','AdminController@newAdmin');
-Route::get('/admin/elevate/{user}','AdminController@elevatePrivilege');
-Route::get('/admin/degrade/{user}','AdminController@degradePrivilege');
+Route::group([
+    'middleware' => ['auth','isAdmin'],
+    'prefix' => '/admin'
+    ],function (){
+
+        Route::get('/','AdminController@index');
+        Route::get('/search/users','AdminController@searchUsers');
+        Route::get('/search/homeworks','AdminController@searchHomeworks');
+        Route::get('/search/comments','AdminController@searchComments');
+
+        Route::group(['middleware' => 'isSuperAdmin'],function () {
+            Route::get('/admin-users','AdminController@adminUsers');
+            Route::get('/new-admin','AdminController@newAdmin');
+            Route::get('/elevate/{user}','AdminController@elevatePrivilege');
+            Route::get('/degrade/{user}','AdminController@degradePrivilege');
+        });
+});
+
 //Route::get('/admin','AdminController@index');
 //Route::get('/admin', function () {
 //    if(auth()->user()){

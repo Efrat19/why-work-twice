@@ -10670,3 +10670,12 @@ a.text-dark:focus {
   color: #1C1C1C;
 }
 
+.body .white-label {
+  color: white;
+}
+
+.body .admin-btn {
+  float: right;
+  margin: 10px;
+}
+

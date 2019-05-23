@@ -54,7 +54,7 @@ class HomeworkPolicy
      */
     public function delete(User $user, Homework $homework)
     {
-        return $user->isSuperadmin() || $user->id === $homework->user_id;
+        return $user->isSuperAdmin() || $user->id === $homework->user_id;
     }
 
 

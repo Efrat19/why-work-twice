@@ -75,13 +75,19 @@
 
     <main class="py-4">
 
-        @if(session('msg'))
-            <div class="alert alert-warning" role="alert">
-                {{session('msg')}}
-            </div>
-            @endif
         <div class="container">
             <div class="row justify-content-center">
+
+                @if(session('msg'))
+                    <div class="alert alert-warning" style="position: absolute" role="alert">
+                        {{session('msg')}}
+                    </div>
+                @endif
+                @if(session('warning'))
+                    <div class="alert alert-danger" style="position: absolute" role="alert">
+                        {{session('warning')}}
+                    </div>
+                @endif
         @yield('content')
             </div>
         </div>

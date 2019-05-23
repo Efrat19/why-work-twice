@@ -82,12 +82,12 @@ class User extends Authenticatable implements JWTSubject
 
     public function isAdmin()
     {
-        return $this->permission_id > 1;
+        return $this->permission['id'] > 1;
     }
 
-    public function isSuperadmin()
+    public function isSuperAdmin()
     {
-        return $this->permission_id > 2;
+        return $this->permission['id'] > 2;
     }
 
     public function getJWTIdentifier()

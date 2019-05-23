@@ -68,9 +68,15 @@ class AdminController extends Controller
 
     public function newAdmin(Request $request, UserRepositoryInterface $userRepository)
     {
-        $id = $request->get('id');
+        $id = $request->get('newadmin');
 
-        $userRepository->elevatePrivilege($id);
+        $user = User::find($id);
+
+        if(! $user){
+            return redirect('/admin/admin-users')->with('warning' , 'no such user');
+        }
+
+        $userRepository->elevatePrivilege($user);
 
         return redirect('/admin/admin-users')->with('msg' , 'user '.$id.' is now admin');
 

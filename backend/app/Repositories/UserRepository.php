@@ -79,16 +79,23 @@ class UserRepository implements UserRepositoryInterface {
 
     public function elevatePrivilege(User $user)
     {
+        $newPermission = 2;
+        if($user->isAdmin()){
+            $newPermission = 3;
+        }
         return $user->update([
-            'permission_id' =>  ++ $user->permission_id
+            'permission_id' => $newPermission
         ]);
     }
 
     public function degradePrivilege(User $user)
     {
-
+        $newPermission = 1;
+        if($user->isSuperAdmin()){
+            $newPermission = 2;
+        }
         return $user->update([
-            'permission_id' =>  -- $user->permission_id
+            'permission_id' =>  $newPermission
         ]);
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class IsSuperadmin
+class IsSuperAdmin
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class IsSuperadmin
      */
     public function handle($request, Closure $next)
     {
-        if (auth('api')->user()->isSuperadmin()){
+        if (auth()->user()->isSuperAdmin()){
             return $next($request);
         }
         return abort(402);

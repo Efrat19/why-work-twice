@@ -18,7 +18,7 @@ class UserPolicy
      */
     public function create(?User $user)
     {
-        return ! $user || $user->isSuperadmin();
+        return ! $user || $user->isSuperAdmin();
     }
 
     /**
