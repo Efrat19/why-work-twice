@@ -95,11 +95,9 @@ class CommentController extends Controller
      * @param  DeleteCommentRequest  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteCommentRequest $comment)
+    public function destroy(DeleteCommentRequest $request, Comment $comment)
     {
-        $comment->delete();
-
-        return response()->json($comment, 200);
+        return response()->json($this->commentRepository->delete($comment), 200);
     }
 
     public function search(Request $request)

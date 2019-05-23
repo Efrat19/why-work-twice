@@ -35,6 +35,7 @@ export default {
   methods: {
     async submit() {
       const form = {
+        id: this.payload.id,
         body: this.body,
         header: this.header,
         homeworkId: this.payload.homeworkId,

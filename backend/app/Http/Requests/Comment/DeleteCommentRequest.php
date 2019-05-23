@@ -3,6 +3,8 @@
 namespace App\Http\Requests\Comment;
 
 
+use App\Comment;
+
 class DeleteCommentRequest extends CommentRequest
 {
     /**
@@ -10,9 +12,9 @@ class DeleteCommentRequest extends CommentRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(Comment $comment)
     {
-        return auth('api')->user()->can('delete', $this->request->get('comment_id'));
+        return auth('api')->user()->can('delete', $comment);
     }
 
     /**

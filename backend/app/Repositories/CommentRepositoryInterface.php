@@ -32,6 +32,8 @@ interface CommentRepositoryInterface //extends ModelRepositoryInterface
      */
     public function search($query);
 
+    public function delete(Comment $comment);
+
     public function forHomework(Homework $homework, $limit);
 
     public function getProfile(Comment $comment);

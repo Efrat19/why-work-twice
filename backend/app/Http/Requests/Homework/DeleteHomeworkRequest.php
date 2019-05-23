@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Homework;
 
+use App\Homework;
+
 class DeleteHomeworkRequest extends HomeworkRequest
 {
     /**
@@ -9,9 +11,9 @@ class DeleteHomeworkRequest extends HomeworkRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(Homework $homework)
     {
-        return auth('api')->user()->can('update', $this->request->get('homework_id'));
+        return auth('api')->user()->can('update', $homework);
     }
 
     /**

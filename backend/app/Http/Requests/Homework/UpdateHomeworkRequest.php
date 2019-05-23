@@ -12,9 +12,9 @@ class UpdateHomeworkRequest extends HomeworkRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(Homework $homework)
     {
-        return auth('api')->user()->can('update',Homework::class,$this->request->get('id'));
+        return auth('api')->user()->can('update', $homework);
     }
 
 }

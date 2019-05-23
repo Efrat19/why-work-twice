@@ -45,6 +45,16 @@ class CommentRepository implements CommentRepositoryInterface {
     }
 
     /**
+     * @param Request $request
+     * @param Comment $comment
+     * @return mixed
+     */
+    public function delete(Comment $comment)
+    {
+        return $comment->delete();
+    }
+
+    /**
      * @param $query
      * @return array|mixed
      */

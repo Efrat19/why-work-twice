@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DTO\Homework\StoreHomeworkDto;
 use App\Homework;
+use App\Http\Requests\Homework\DeleteHomeworkRequest;
 use App\Http\Requests\Homework\StoreHomeworkRequest;
 use App\Http\Requests\Homework\UpdateHomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
@@ -91,13 +92,12 @@ class HomeworkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Homework  $homework
+     * @param  DeleteCommentRequest  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Homework $homework)
+    public function destroy(DeleteHomeworkRequest $request, Homework $homework)
     {
-        $homework->delete();
-        return response()->json($homework, 200);
+        return response()->json($this->homeworkRepository->delete($homework), 200);
     }
 
     public function toggleFavorite(Homework $homework, $love)

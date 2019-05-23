@@ -52,8 +52,6 @@ export default {
 
 
   .site {
-      position: fixed;
-      height:100vh;
       width: 100%;
       background-color: #cecece;
    .grid{

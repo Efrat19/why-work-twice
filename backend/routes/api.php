@@ -49,6 +49,7 @@ Route::group([], function () {
  */
 Route::group([], function() {
 
+    Route::get('/search/homeworks', 'HomeworkController@search');
     Route::get('user/{user}/homeworks/{limit}', 'HomeworkController@forUser');
     Route::resource('/homework','HomeworkController',
         ['only' => ['index', 'show']]);

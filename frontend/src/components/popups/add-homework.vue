@@ -57,6 +57,7 @@ export default {
         description: this.description,
         school: this.school,
         subject: this.subject,
+        id: this.payload.id,
       };
       const uri = this.editMode ? `/homework/${this.payload.id}` : '/homework';
       const method = this.editMode ? 'put' : 'post';

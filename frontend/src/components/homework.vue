@@ -56,6 +56,7 @@ export default {
   beforeMount() {
     this.events.$on('commentUpdated', () => this.getComments(this.UNLIMITED));
     this.events.$on('homeworkDeleted', id => id === this.id && this.getProfile());
+    this.events.$on('homeworkUpdated', id => id === this.id && this.getProfile());
   },
   mounted() {
     this.getProfile();

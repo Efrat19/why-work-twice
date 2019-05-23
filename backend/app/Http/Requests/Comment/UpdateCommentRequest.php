@@ -2,6 +2,9 @@
 
 namespace App\Http\Requests\Comment;
 
+use App\Comment;
+use Illuminate\Support\Facades\Gate;
+
 class UpdateCommentRequest extends CommentRequest
 {
     /**
@@ -9,9 +12,9 @@ class UpdateCommentRequest extends CommentRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(Comment $comment)
     {
-        return auth('api')->user()->can('update', $this->request->get('comment_id'));
+        return auth('api')->user()->can('update', $comment);
     }
 
 }

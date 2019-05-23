@@ -41,6 +41,15 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         ]);
         return $this->getProfile($homework);
     }
+    /**
+     * @param Request $request
+     * @param Homework $homework
+     * @return mixed
+     */
+    public function delete(Homework $homework)
+    {
+        return $homework->delete();
+    }
 
     /**
      * @param $query
