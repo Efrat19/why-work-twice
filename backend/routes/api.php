@@ -41,7 +41,7 @@ Route::group([], function () {
 
     Route::post('/comment','CommentController@store')->middleware('can:create,App\Comment');
     Route::put('/comment/{comment}','CommentController@update')->middleware('can:update,comment');
-    Route::delete('/comment/{comment}','CommentController@store')->middleware('can:delete,comment');
+    Route::delete('/comment/{comment}','CommentController@destroy')->middleware('can:delete,comment');
     });
 });
 
@@ -61,7 +61,7 @@ Route::group([], function() {
 
         Route::post('/homework','HomeworkController@store')->middleware('can:create,App\Homework');
         Route::put('/homework/{homework}','HomeworkController@update')->middleware('can:update,homework');
-        Route::delete('/homework/{homework}','HomeworkController@store')->middleware('can:delete,homework');
+        Route::delete('/homework/{homework}', 'HomeworkController@destroy')->middleware('can:delete,homework');
 
     });
 });

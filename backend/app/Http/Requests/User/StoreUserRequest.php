@@ -8,15 +8,6 @@ use Illuminate\Support\Facades\Gate;
 
 class StoreUserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-        return Gate::allows('create', User::class);
-    }
 
     /**
      * Get the validation rules that apply to the request.

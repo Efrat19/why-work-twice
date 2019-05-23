@@ -7,21 +7,7 @@ use Illuminate\Support\Facades\Gate;
 
 class UpdateUserRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     *
-     * @return bool
-     */
-    public function authorize()
-    {
-//        return auth()->user()->can('update',$this->request->get('id'));
 
-        $args = [
-            auth()->user(),
-            $this->request->get('id')
-        ];
-        return Gate::allows('update-user',$args);
-    }
 
     /**
      * Get the validation rules that apply to the request.

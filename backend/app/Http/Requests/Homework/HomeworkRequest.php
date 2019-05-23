@@ -4,7 +4,7 @@ namespace App\Http\Requests\Homework;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-abstract class HomeworkRequest extends FormRequest
+class HomeworkRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.

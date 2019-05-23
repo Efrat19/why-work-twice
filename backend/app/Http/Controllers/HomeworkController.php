@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\DTO\Homework\StoreHomeworkDto;
 use App\Homework;
-use App\Http\Requests\Homework\DeleteHomeworkRequest;
-use App\Http\Requests\Homework\StoreHomeworkRequest;
-use App\Http\Requests\Homework\UpdateHomeworkRequest;
+use App\Http\Requests\Homework\HomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
 use App\School;
 use App\Subject;
@@ -16,9 +14,16 @@ use Illuminate\Http\Request;
 class HomeworkController extends Controller
 {
 
+    /**
+     * @var HomeworkRepositoryInterface
+     */
     protected $homeworkRepository;
 
 
+    /**
+     * HomeworkController constructor.
+     * @param HomeworkRepositoryInterface $homeworkRepository
+     */
     public function __construct(HomeworkRepositoryInterface $homeworkRepository)
     {
         $this->homeworkRepository = $homeworkRepository;
@@ -44,7 +49,7 @@ class HomeworkController extends Controller
      * @param StoreHomeworkRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreHomeworkRequest $request)
+    public function store(HomeworkRequest $request)
     {
         $school = School::firstOrCreate(['name' => $request['school']]);
         $subject = Subject::firstOrCreate(['name' => $request['subject']]);
@@ -82,7 +87,7 @@ class HomeworkController extends Controller
      * @param  \App\Homework  $homework
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateHomeworkRequest $request, Homework $homework)
+    public function update(HomeworkRequest $request, Homework $homework)
     {
         $updatedHomework = $this->homeworkRepository->update($request, $homework);
 
@@ -92,14 +97,18 @@ class HomeworkController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  DeleteCommentRequest  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteHomeworkRequest $request, Homework $homework)
+    public function destroy(Request $request, Homework $homework)
     {
         return response()->json($this->homeworkRepository->delete($homework), 200);
     }
 
+    /**
+     * @param Homework $homework
+     * @param $love
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function toggleFavorite(Homework $homework, $love)
     {
         $isFavorite = (bool)$love;
@@ -108,18 +117,28 @@ class HomeworkController extends Controller
         return response()->json($isFavorite);
     }
 
+    /**
+     * @param Homework $homework
+     */
     private function incrementViews(Homework $homework){
         $homework->update([
             'views' => $homework->views++
         ]);
     }
 
+    /**
+     * @param Homework $homework
+     */
     private function incrementDownloads(Homework $homework){
         $homework->update([
             'downloads' => $homework->downloads++
         ]);
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function search(Request $request)
     {
         $query = $request->get('q');
@@ -129,6 +148,11 @@ class HomeworkController extends Controller
         return response()->json($results,200);
     }
 
+    /**
+     * @param User $user
+     * @param $limit
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function forUser(User $user, $limit)
     {
         $homeworks = $this->homeworkRepository->forUser($user,$limit);
