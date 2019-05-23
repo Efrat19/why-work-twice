@@ -14,7 +14,6 @@ use App\Comment;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('/test','AdminController@index');
 /**
  * auth routes
  */
@@ -39,8 +38,10 @@ Route::group([], function () {
     Route::get('/comment/{comment}','CommentController@show');
 
     Route::group(['middleware' => 'auth:api'], function() {
-        Route::resource('/comment', 'CommentController',
-            ['only' => ['store', 'update', 'destroy']]);
+
+    Route::post('/comment','CommentController@store')->middleware('can:create,App\Comment');
+    Route::put('/comment/{comment}','CommentController@update')->middleware('can:update,comment');
+    Route::delete('/comment/{comment}','CommentController@store')->middleware('can:delete,comment');
     });
 });
 
@@ -79,26 +80,6 @@ Route::group([], function () {
         ]);
     });
 
-});
-
-/**
- * admin routes
- */
-
-Route::get('/admin','AdminController@index');
-Route::get('/admin/search/users','AdminController@searchUsers');
-Route::group([
-        'prefix' => '/admin',
-        'middleware' => ['auth:api','isAdmin']
-    ], function () {
-
-//        Route::group([
-//            'prefix' => '/search'
-//        ], function () {
-//            Route::get('/users','UserController@search');
-//            Route::get('/homeworks','HomeworkController@search');
-//            Route::get('/comments','CommentController@search');
-//        });
 });
 
 

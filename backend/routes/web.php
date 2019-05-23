@@ -31,21 +31,7 @@ Route::group([
             Route::get('/elevate/{user}','AdminController@elevatePrivilege');
             Route::get('/degrade/{user}','AdminController@degradePrivilege');
         });
+    Route::resource('/comment', 'CommentController');
+    Route::resource('/user', 'UserController');
+    Route::resource('/homeworks', 'HomeworkController');
 });
-
-//Route::get('/admin','AdminController@index');
-//Route::get('/admin', function () {
-//    if(auth()->user()){
-//        return response()->json(['web',auth()->user()->get()]);
-//    }
-//    if(auth('api')->user()){
-//        return response()->json(['api',auth()->user()->get()]);
-//    }
-//    else {
-//        dd(Route::class);
-////        Route::redierct()
-//    }
-////    if(auth('api')->user()){
-////        return response()->json(['api',auth()->user()->get()]);
-////    }
-//});
