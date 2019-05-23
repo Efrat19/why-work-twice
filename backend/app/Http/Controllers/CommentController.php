@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use App\Homework;
-use App\Http\Requests\Comment\DeleteCommentRequest;
-use App\Http\Requests\Comment\StoreCommentRequest;
-use App\Http\Requests\Comment\UpdateCommentRequest;
+use App\Http\Requests\Comment\CommentRequest;
 use App\Repositories\CommentRepositoryInterface;
 use \App\User;
 use Illuminate\Http\Request;
@@ -54,7 +52,7 @@ class CommentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreCommentRequest $request)
+    public function store(CommentRequest $request)
     {
         $comment = $this->commentRepository->create($request);
 
@@ -82,7 +80,7 @@ class CommentController extends Controller
      * @param  \App\Comment  $comment
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCommentRequest $request, Comment $comment)
+    public function update(CommentRequest $request, Comment $comment)
     {
         $comment = $this->commentRepository->update($request, $comment);
 
@@ -95,7 +93,7 @@ class CommentController extends Controller
      * @param  DeleteCommentRequest  $comment
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DeleteCommentRequest $request, Comment $comment)
+    public function destroy(Request $request, Comment $comment)
     {
         return response()->json($this->commentRepository->delete($comment), 200);
     }

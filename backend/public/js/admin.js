@@ -27357,7 +27357,7 @@ exports = module.exports = __webpack_require__(/*! ../../../backend/node_modules
 
 
 // module
-exports.push([module.i, ".detail.large[data-v-0e99ac60] {\n  font-size: 2rem;\n}\n.detail.large .icon[data-v-0e99ac60] {\n  font-size: 4rem;\n}\n.detail.small[data-v-0e99ac60] {\n  font-size: 0.8rem;\n}\n.detail.small .icon[data-v-0e99ac60] {\n  font-size: 1.5rem;\n}", ""]);
+exports.push([module.i, ".detail.large[data-v-0e99ac60] {\n  font-size: 2rem;\n}\n.detail.large .icon[data-v-0e99ac60] {\n  font-size: 3rem;\n}\n.detail.small[data-v-0e99ac60] {\n  font-size: 0.8rem;\n}\n.detail.small .icon[data-v-0e99ac60] {\n  font-size: 1.5rem;\n}", ""]);
 
 // exports
 

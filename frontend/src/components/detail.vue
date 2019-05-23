@@ -58,7 +58,7 @@ export default {
     &.large {
       font-size: 2rem;
       .icon {
-        font-size: 4rem;
+        font-size: 3rem;
       }
     }
     &.small {

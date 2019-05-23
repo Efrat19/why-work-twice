@@ -86,8 +86,8 @@ class CommentRepository implements CommentRepositoryInterface {
     {
         $profile = $comment->toArray();
         $profile['user'] = $comment->user;
-        $profile['canEdit'] = auth('api')->check() && auth('api')->user()->can('update', $comment);
-        $profile['canDelete'] = auth('api')->check() && auth('api')->user()->can('delete', $comment);
+        $profile['canEdit'] = auth()->check() && auth()->user()->can('update', $comment);
+        $profile['canDelete'] = auth()->check() && auth()->user()->can('delete', $comment);
         return $profile;
     }
 

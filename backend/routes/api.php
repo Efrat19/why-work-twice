@@ -23,7 +23,7 @@ Route::group( [], function () {
     Route::post('/login', 'AuthController@login');
 
     Route::group([
-        'middleware' => 'auth:api',
+        'middleware' => 'auth',
     ], function () {
         Route::get('/logout', 'AuthController@logout');
     });
@@ -37,7 +37,7 @@ Route::group([], function () {
     Route::get('homework/{homework}/comments/{limit}', 'CommentController@forHomework');
     Route::get('/comment/{comment}','CommentController@show');
 
-    Route::group(['middleware' => 'auth:api'], function() {
+    Route::group(['middleware' => 'auth'], function() {
 
     Route::post('/comment','CommentController@store')->middleware('can:create,App\Comment');
     Route::put('/comment/{comment}','CommentController@update')->middleware('can:update,comment');
@@ -55,12 +55,13 @@ Route::group([], function() {
     Route::resource('/homework','HomeworkController',
         ['only' => ['index', 'show']]);
 
-    Route::group(['middleware' => 'auth:api'], function() {
+    Route::group(['middleware' => 'auth'], function() {
 
         Route::get('homework/{homework}/favorite/{love}','HomeworkController@toggleFavorite');
 
-        Route::resource('/homework','HomeworkController',
-            ['only' => ['store', 'update', 'destroy']]);
+        Route::post('/homework','HomeworkController@store')->middleware('can:create,App\Homework');
+        Route::put('/homework/{homework}','HomeworkController@update')->middleware('can:update,homework');
+        Route::delete('/homework/{homework}','HomeworkController@store')->middleware('can:delete,homework');
 
     });
 });
@@ -78,6 +79,9 @@ Route::group([], function () {
         Route::resource('/user','UserController',[
             'only' => ['store', 'update']
         ]);
+
+        Route::post('/user','UserController@store')->middleware('can:create,App\User');
+        Route::put('/user/{user}','UserController@update')->middleware('can:update,user');
     });
 
 });
