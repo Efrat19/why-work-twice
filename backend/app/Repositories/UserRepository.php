@@ -3,12 +3,14 @@
 namespace App\Repositories;
 
 
+use App\Events\UserRegistered;
 use App\School;
 use App\Subject;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Validator;
 
@@ -29,6 +31,7 @@ class UserRepository implements UserRepositoryInterface {
             'email' => $request['email'],
             'password' => Hash::make($request['password'])
         ]);
+        event(new UserRegistered($user));
         return $this->getProfile($user);
     }
 
