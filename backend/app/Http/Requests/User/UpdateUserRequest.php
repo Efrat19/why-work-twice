@@ -14,10 +14,10 @@ class UpdateUserRequest extends FormRequest
      */
     public function authorize()
     {
-//        return auth('api')->user()->can('update',$this->request->get('id'));
+//        return auth()->user()->can('update',$this->request->get('id'));
 
         $args = [
-            auth('api')->user(),
+            auth()->user(),
             $this->request->get('id')
         ];
         return Gate::allows('update-user',$args);

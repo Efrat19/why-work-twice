@@ -67,7 +67,7 @@ class CommentController extends Controller
      */
     public function show(Comment $comment)
     {
-        if(auth('api')->user()->can('view', $comment)){
+        if(auth()->user()->can('view', $comment)){
             return response()->json($this->commentRepository->getProfile($comment),200);
         }
         return response()->json(['errors'=>['unauthorized']],403);

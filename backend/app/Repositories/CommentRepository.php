@@ -19,7 +19,7 @@ class CommentRepository implements CommentRepositoryInterface {
         $homework = Homework::findOrFail($request->homeworkId);
         $comment =  Comment::create(
             array(
-                'user_id' => auth('api')->id(),
+                'user_id' => auth()->id(),
                 'homework_id' => $homework->id,
                 'header' => $request->header,
                 'body' => $request->body,

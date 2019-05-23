@@ -14,7 +14,7 @@ class UpdateHomeworkRequest extends HomeworkRequest
      */
     public function authorize(Homework $homework)
     {
-        return auth('api')->user()->can('update', $homework);
+        return auth()->user()->can('update', $homework);
     }
 
 }

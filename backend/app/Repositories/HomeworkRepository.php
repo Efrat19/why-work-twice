@@ -79,11 +79,11 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         $profile['subject'] = $homework->subject;
         $profile['rating'] = $homework->getAvgRating();
         $profile['loved'] = false;
-        if(auth('api')->check()){
-            $profile['loved'] = $homework->favorites()->where('user_id', auth('api')->user())->count();
+        if(auth()->check()){
+            $profile['loved'] = $homework->favorites()->where('user_id', auth()->user())->count();
         }
-        $profile['canEdit'] =  auth('api')->check() && auth('api')->user()->can('update',$homework);
-        $profile['canDelete'] =  auth('api')->check() && auth('api')->user()->can('delete',$homework);
+        $profile['canEdit'] =  auth()->check() && auth()->user()->can('update',$homework);
+        $profile['canDelete'] =  auth()->check() && auth()->user()->can('delete',$homework);
         $profile['commentsNum'] = $homework->comments()->count();
 
         return $profile;

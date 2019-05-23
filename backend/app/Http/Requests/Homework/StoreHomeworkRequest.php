@@ -13,7 +13,7 @@ class StoreHomeworkRequest extends HomeworkRequest
      */
     public function authorize()
     {
-        return auth('api')->user()->can('create',Homework::class,$this->request->get('id'));
+        return auth()->user()->can('create',Homework::class,$this->request->get('id'));
     }
 
 }

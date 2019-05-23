@@ -54,7 +54,7 @@ class HomeworkController extends Controller
             $request->input('source'),
             $school,
             $subject,
-            auth('api')->user()
+            auth()->user()
         ));
 
         return response()->json($homework,200);
@@ -103,7 +103,7 @@ class HomeworkController extends Controller
     public function toggleFavorite(Homework $homework, $love)
     {
         $isFavorite = (bool)$love;
-        $id = auth('api')->user();
+        $id = auth()->user();
         $isFavorite ? $homework->favorites()->attach($id) : $homework->favorites()->detach($id);
         return response()->json($isFavorite);
     }
