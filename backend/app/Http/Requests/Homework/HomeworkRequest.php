@@ -15,7 +15,7 @@ class HomeworkRequest extends FormRequest
     {
         return [
             'description' => ['required', 'string', 'max:255'],
-            'source' => ['required','max:10000','mimes:doc,docx,png,jpg,ico'],
+            'source' => ['required','max:10000','mimes:doc,docx,png,jpg,ico,pdf'],
             'subject' => ['required'],
             'school' => ['required']
         ];

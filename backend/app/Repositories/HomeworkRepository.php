@@ -10,30 +10,23 @@ use App\Subject;
 use App\Homework;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Storage;
 
 class HomeworkRepository implements HomeworkRepositoryInterface {
 
-    /**
-     * @param StoreHomeworkDto $dto
-     * @return mixed
-     */
+
+
     public function create(HomeworkRequest $request)
     {
 
         $school = School::firstOrCreate(['name' => $request['school']]);
         $subject = Subject::firstOrCreate(['name' => $request['subject']]);
 
-
-        $fileName = time().$request->file('source')->getClientOriginalName();
-        Storage::put(
-            'public/'.$fileName,
-            file_get_contents($request->file('source')->getRealPath())
-        );
         $homework = Homework::create([
             'description' => $request->get('description'),
-            'source' => asset('storage/'.$fileName),
+            'source' => $this->storeFilesAndGetPath($request->file('source')),
             'school_id' => $school->id,
             'subject_id' => $subject->id,
             'user_id' => auth()->id()
@@ -120,4 +113,17 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         });
     }
 
+    protected function storeFilesAndGetPath(UploadedFile $file)
+    {
+//        dd($source);
+//        foreach ($source as $file){
+            $fileName = time().$file->getClientOriginalName();
+            Storage::put(
+                'public/'.$fileName,
+                file_get_contents($file->getRealPath())
+            );
+//        }
+//
+        return asset('storage/'.$fileName);
+    }
 }

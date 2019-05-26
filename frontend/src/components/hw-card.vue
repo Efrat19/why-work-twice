@@ -3,7 +3,7 @@
   <section class="hw-card">
     <div class="grid">
       <div class="image" @click="open('source')">
-        <img :src="profile.source" alt="profile.source">
+        <img  type="application/pdf" :src="profile.source" alt="profile.source">
       </div>
       <detail class="rating" keyName="rating" :value="profile.rating"></detail>
       <router-link class="user wwt-link" :to="`/user/${profile.user_id}`">
