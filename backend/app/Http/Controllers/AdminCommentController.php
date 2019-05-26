@@ -23,7 +23,7 @@ class AdminCommentController extends Controller
      */
     public function index()
     {
-        //
+        return 'index';
     }
 
     /**
@@ -45,8 +45,7 @@ class AdminCommentController extends Controller
     public function store(CommentRequest $request)
     {
         $comment = $this->commentRepository->create($request);
-
-        return redirect('/admin/search/comment')->with('msg' , 'comment '.$comment->id.' successfully created');
+        return redirect('/admin/search/comments')->with('msg' , 'comment '.$comment['id'].' successfully created');
     }
 
     /**
@@ -57,7 +56,7 @@ class AdminCommentController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.comment.show')->withComment(Comment::findOrFail($id));
     }
 
     /**
@@ -83,7 +82,7 @@ class AdminCommentController extends Controller
     {
         $comment = $this->commentRepository->update($request, $comment);
 
-        return redirect('/admin/search/comment')->with('msg' , 'comment '.$comment->id.' successfully updated');
+        return redirect('/admin/search/comments')->with('msg' , 'comment '.$comment['id'].' successfully updated');
     }
 
     /**
@@ -96,6 +95,6 @@ class AdminCommentController extends Controller
     {
         $comment = $this->commentRepository->delete($comment);
 
-        return redirect('/admin/search/comment')->with('msg' , 'comment '.$comment->id.' successfully deleted');
+        return redirect('/admin/search/comments')->with('msg' , 'comment '.$comment['id'].' successfully deleted');
     }
 }

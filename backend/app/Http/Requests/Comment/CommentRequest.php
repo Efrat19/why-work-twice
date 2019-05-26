@@ -16,6 +16,7 @@ class CommentRequest extends FormRequest
         return [
             'header' => ['required', 'string', 'max:255'],
             'body' => [ 'string', 'max:255'],
+            'homeworkId' => [ 'string', 'max:255'],
         ];
     }
 }

@@ -23,7 +23,7 @@
                     <input type="file" class="inner-upload" id="source" name="source" @change="setSource($event)">
                 </div>
             </div>
-            <button type="submit"  class="wwt-btn"  @click.prevent="submit">Add Homework</button>
+            <button type="submit"  class="wwt-btn"  >Add Homework</button>
         </form>
     </section>
 @endsection

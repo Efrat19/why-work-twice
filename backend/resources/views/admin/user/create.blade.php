@@ -27,7 +27,7 @@
                 <label for="exampleInputPassword2">Again Please....</label>
                 <input type="password" class="form-control" id="exampleInputPassword2" name="confirmPassword">
             </div>
-            <button type="submit" class="wwt-btn" @click.prevent="submit">Sign In</button>
+            <button type="submit" class="wwt-btn" >Sign In</button>
         </form>
 
     </section>

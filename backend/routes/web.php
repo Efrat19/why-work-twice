@@ -31,7 +31,7 @@ Route::group([
             Route::get('/elevate/{user}','AdminController@elevatePrivilege');
             Route::get('/degrade/{user}','AdminController@degradePrivilege');
         });
-    Route::resource('/comment', 'CommentController');
-    Route::resource('/user', 'UserController');
-    Route::resource('/homework', 'HomeworkController');
+    Route::resource('/comment', 'AdminCommentController');
+    Route::resource('/user', 'AdminUserController');
+    Route::resource('/homework', 'AdminHomeworkController');
 });

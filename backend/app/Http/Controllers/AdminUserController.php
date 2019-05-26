@@ -8,7 +8,7 @@ use App\Repositories\UserRepositoryInterface;
 use App\User;
 use Illuminate\Http\Request;
 
-class AdminUSerController extends Controller
+class AdminUserController extends Controller
 {
     protected $userRepository;
 
@@ -47,7 +47,7 @@ class AdminUSerController extends Controller
     {
         $user = $this->userRepository->create($request);
 
-        return redirect('/admin/search/user')->with('msg' , 'user '.$user->id.' successfully created');
+        return redirect('/admin/search/users')->with('msg' , 'user '.$user['id'].' successfully created');
     }
 
     /**
@@ -58,7 +58,7 @@ class AdminUSerController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('admin.user.show')->withUser(User::findOrFail($id));
     }
 
     /**
@@ -69,7 +69,7 @@ class AdminUSerController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.user.edit')->with(['user' => User::findOrFail($id)]);
+        return view('admin.user.edit')->withUser(User::findOrFail($id));
 
     }
 
@@ -84,7 +84,7 @@ class AdminUSerController extends Controller
     {
         $user = $this->userRepository->update($request, $user);
 
-        return redirect('/admin/search/user')->with('msg' , 'user '.$user->id.' successfully updated');
+        return redirect('/admin/search/users')->with('msg' , 'user '.$user['id'].' successfully updated');
     }
 
     /**
@@ -97,6 +97,6 @@ class AdminUSerController extends Controller
     {
         $user = $this->userRepository->delete($user);
 
-        return redirect('/admin/search/user')->with('msg' , 'user '.$user->id.' successfully deleted');
+        return redirect('/admin/search/users')->with('msg' , 'user '.$user['id'].' successfully deleted');
     }
 }

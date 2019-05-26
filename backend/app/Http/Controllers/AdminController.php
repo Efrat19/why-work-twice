@@ -36,7 +36,7 @@ class AdminController extends Controller
         $query = $request->get('q') ?? '';
         return view('admin.search.users')->with([
             'query' => $query,
-            'results' => $userRepository->search($query)
+            'results' => User::all()
         ]);
     }
 

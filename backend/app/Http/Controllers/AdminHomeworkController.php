@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\DTO\Homework\StoreHomeworkDto;
 use App\Homework;
 use App\Http\Requests\Homework\HomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
+use App\School;
+use App\Subject;
 use Illuminate\Http\Request;
 
 class AdminHomeworkController extends Controller
@@ -44,9 +47,18 @@ class AdminHomeworkController extends Controller
      */
     public function store(HomeworkRequest $request)
     {
-        $homework = $this->homeworkRepository->create($request);
+        $school = School::firstOrCreate(['name' => $request['school']]);
+        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
 
-        return redirect('/admin/search/homework')->with('msg' , 'homework '.$homework->id.' successfully created');
+        $homework = $this->homeworkRepository->create(new StoreHomeworkDto(
+            $request->input('description'),
+            $request->input('source'),
+            $school,
+            $subject,
+            auth()->user()
+        ));
+
+        return redirect('/admin/search/homeworks')->with('msg' , 'homework '.$homework['id'].' successfully created');
     }
 
     /**
@@ -57,7 +69,7 @@ class AdminHomeworkController extends Controller
      */
     public function show($id)
     {
-        return 'show';
+        return view('admin.homework.show')->withHomework(Homework::findOrFail($id));
     }
 
     /**
@@ -83,7 +95,7 @@ class AdminHomeworkController extends Controller
     {
         $homework = $this->homeworkRepository->update($request, $homework);
 
-        return redirect('/admin/search/homework')->with('msg' , 'homework '.$homework->id.' successfully updated');
+        return redirect('/admin/search/homeworks')->with('msg' , 'homework '.$homework['id'].' successfully updated');
     }
 
     /**
@@ -96,6 +108,6 @@ class AdminHomeworkController extends Controller
     {
         $homework = $this->homeworkRepository->delete($homework);
 
-        return redirect('/admin/search/homework')->with('msg' , 'homework '.$homework->id.' successfully deleted');
+        return redirect('/admin/search/homeworks')->with('msg' , 'homework '.$homework['id'].' successfully deleted');
     }
 }

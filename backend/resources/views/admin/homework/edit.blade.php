@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
     <section class="add-homework">
-        <form action="/admin/homework/{{$homework->id}}">
+        <form action="/admin/homework/{{$homework->id}}"  method="POST">
             @csrf
             @method('PUT')
             <h4>Edit Homework</h4>
@@ -11,11 +11,11 @@
             </div>
             <div class="form-group">
                 <label for="school">School</label>
-                <input type="text" class="form-control" id="school" name="school" value="{{$homework->school}}">
+                <input type="text" class="form-control" id="school" name="school" value="{{$homework->school->name}}">
             </div>
             <div class="form-group">
                 <label for="subject">Subject</label>
-                <input type="text" class="form-control" id="subject" name="subject" value="{{$homework->subject}}">
+                <input type="text" class="form-control" id="subject" name="subject" value="{{$homework->subject->name}}">
             </div>
             <div class="form-group">
                 <label for="source">Source</label>
@@ -24,7 +24,7 @@
                     <input type="file" class="inner-upload" id="source" name="source" @change="setSource($event)" value="{{$homework->source}}">
                 </div>
             </div>
-            <button type="submit"  class="wwt-btn"  @click.prevent="submit">Change Homework</button>
+            <button type="submit"  class="wwt-btn"  >Change Homework</button>
         </form>
     </section>
 @endsection

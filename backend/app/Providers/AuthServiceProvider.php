@@ -28,7 +28,16 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        Gate::define('create-user', 'App\Policies\UserPolicy@create');
         Gate::define('update-user', 'App\Policies\UserPolicy@update');
+
+        Gate::define('create-homework', 'App\Policies\HomeworkPolicy@create');
+        Gate::define('update-homework', 'App\Policies\HomeworkPolicy@update');
+        Gate::define('delete-homework', 'App\Policies\HomeworkPolicy@delete');
+
+        Gate::define('create-comment', 'App\Policies\CommentPolicy@create');
+        Gate::define('update-comment', 'App\Policies\CommentPolicy@update');
+        Gate::define('delete-comment', 'App\Policies\CommentPolicy@delete');
         //
     }
 }
