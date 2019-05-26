@@ -56,7 +56,7 @@ class HomeworkController extends Controller
 
         $homework = $this->homeworkRepository->create(new StoreHomeworkDto(
             $request->input('description'),
-            $request->input('source'),
+            $request->file('source'),
             $school,
             $subject,
             auth()->user()

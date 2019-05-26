@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\UserRegistered;
 use App\Http\Requests\User\StoreUserRequest;
 use App\Repositories\UserRepositoryInterface;
 use Illuminate\Http\Request;
@@ -28,8 +29,9 @@ class AuthController extends Controller
      */
     public function register(StoreUserRequest $request)
     {
-        $this->userRepository->create($request);
+        $user = $this->userRepository->create($request);
 
+//        event(new UserRegistered($user));
         return $this->login($request);
     }
 

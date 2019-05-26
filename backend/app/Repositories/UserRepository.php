@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 
-use App\Events\UserRegistered;
 use App\School;
 use App\Subject;
 use App\User;
@@ -31,7 +30,6 @@ class UserRepository implements UserRepositoryInterface {
             'email' => $request['email'],
             'password' => Hash::make($request['password'])
         ]);
-        event(new UserRegistered($user));
         return $this->getProfile($user);
     }
 

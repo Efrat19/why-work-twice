@@ -52,17 +52,16 @@ export default {
   },
   methods: {
     async submit() {
-      const form = {
-        source: this.source,
-        description: this.description,
-        school: this.school,
-        subject: this.subject,
-        id: this.payload.id,
-      };
+      const data = new FormData();
+      data.append('source', document.getElementById('source').files[0]);
+      data.append('description', this.description);
+      data.append('school', this.school);
+      data.append('subject', this.subject);
+      data.append('id', this.id);
       const uri = this.editMode ? `/homework/${this.payload.id}` : '/homework';
       const method = this.editMode ? 'put' : 'post';
       try {
-        const response = await this.apiService.api(method, uri, form);
+        const response = await this.apiService.api(method, uri, data);
         this.events.$emit('homeworkUpdated', response.data.id);
         this.onSuccess(response.data);
       } catch (error) {

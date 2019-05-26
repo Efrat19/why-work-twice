@@ -10,6 +10,7 @@ use App\Homework;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Storage;
 
 class HomeworkRepository implements HomeworkRepositoryInterface {
 
@@ -19,7 +20,12 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
      */
     public function create(StoreHomeworkDto $dto)
     {
-        $homework = Homework::create($dto->toArray());
+        $filename = time().$dto->getSource()->getClientOriginalName();
+        Storage::disk('local')->put('fike1.txt', 'Contents');
+//        Storage::disk('local')->put($filename,'dzxhfg');
+        $hw = $dto->toArray();
+        $hw['source'] = (asset($filename));
+        $homework = Homework::create($hw);
 
         return $this->getProfile($homework);
     }
