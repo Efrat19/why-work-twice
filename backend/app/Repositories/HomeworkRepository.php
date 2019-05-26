@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 
 use App\DTO\Homework\StoreHomeworkDto;
+use App\Http\Requests\Homework\HomeworkRequest;
 use App\School;
 use App\Subject;
 use App\Homework;
@@ -18,14 +19,25 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
      * @param StoreHomeworkDto $dto
      * @return mixed
      */
-    public function create(StoreHomeworkDto $dto)
+    public function create(HomeworkRequest $request)
     {
-        $filename = time().$dto->getSource()->getClientOriginalName();
-        Storage::disk('local')->put('fike1.txt', 'Contents');
-//        Storage::disk('local')->put($filename,'dzxhfg');
-        $hw = $dto->toArray();
-        $hw['source'] = (asset($filename));
-        $homework = Homework::create($hw);
+
+        $school = School::firstOrCreate(['name' => $request['school']]);
+        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+
+
+        $fileName = time().$request->file('source')->getClientOriginalName();
+        Storage::put(
+            'public/'.$fileName,
+            file_get_contents($request->file('source')->getRealPath())
+        );
+        $homework = Homework::create([
+            'description' => $request->get('description'),
+            'source' => asset('storage/'.$fileName),
+            'school_id' => $school->id,
+            'subject_id' => $subject->id,
+            'user_id' => auth()->id()
+        ]);
 
         return $this->getProfile($homework);
     }

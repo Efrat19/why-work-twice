@@ -51,16 +51,7 @@ class HomeworkController extends Controller
      */
     public function store(HomeworkRequest $request)
     {
-        $school = School::firstOrCreate(['name' => $request['school']]);
-        $subject = Subject::firstOrCreate(['name' => $request['subject']]);
-
-        $homework = $this->homeworkRepository->create(new StoreHomeworkDto(
-            $request->input('description'),
-            $request->file('source'),
-            $school,
-            $subject,
-            auth()->user()
-        ));
+        $homework = $this->homeworkRepository->create($request);
 
         return response()->json($homework,200);
     }
