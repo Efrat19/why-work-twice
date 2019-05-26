@@ -46,7 +46,7 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         $subject = Subject::firstOrCreate(['name' => $request['subject']]);
         $homework->update([
             'description' => $request['description'],
-            'source' => $request['source'],
+            'source' => $this->storeFilesAndGetPath($request->file('source')),
             'school_id' => $school->id,
             'subject_id' => $subject->id,
         ]);
