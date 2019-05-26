@@ -7,6 +7,7 @@
                 <input class="form-control mr-lg-4" type="text" name="q" placeholder="Search" aria-label="Search" value="{{$query}}">
                 <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Go</button>
             </form>
+            <a href="/admin/{{$resultType}}/create">create new {{$resultType}}</a>
         </div>
         <div class="row justify-content-center">
             @yield('results')

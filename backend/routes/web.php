@@ -33,5 +33,5 @@ Route::group([
         });
     Route::resource('/comment', 'CommentController');
     Route::resource('/user', 'UserController');
-    Route::resource('/homeworks', 'HomeworkController');
+    Route::resource('/homework', 'HomeworkController');
 });
