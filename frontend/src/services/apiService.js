@@ -63,8 +63,7 @@ class ApiService {
       await localStorage.removeItem('user');
       await localStorage.removeItem('token');
       return localStorage.removeItem('expires');
-    }
-    catch (e) {
+    } catch (e) {
       return e;
     }
   }

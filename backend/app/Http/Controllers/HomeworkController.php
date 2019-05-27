@@ -7,7 +7,10 @@ use App\Homework;
 use App\Http\Requests\Homework\HomeworkRequest;
 use App\Repositories\HomeworkRepositoryInterface;
 use App\School;
+use App\Services\ISmartSearch;
+use App\Services\SmartSearch;
 use App\Subject;
+use App\Teacher;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -133,7 +136,6 @@ class HomeworkController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('q');
-
         $results = $this->homeworkRepository->search($query);
 
         return response()->json($results,200);
@@ -149,6 +151,24 @@ class HomeworkController extends Controller
         $homeworks = $this->homeworkRepository->forUser($user,$limit);
 
         return response()->json($homeworks,200);
+    }
+
+    public function getSmartSearchFilters(ISmartSearch $smartSearch)
+    {
+        $related = [School::class, Subject::class, Teacher::class, User::class];
+
+        $filters = $smartSearch->getFilters($related);
+
+        return response()->json($filters, 200);
+    }
+
+    public function getSmartSearchResults(Request $request, ISmartSearch $smartSearch)
+    {
+        $filters = $request->get('filters');
+
+        $results = $smartSearch->getResults(Homework::class, $filters);
+
+        return response()->json($results, 200);
     }
 
 }

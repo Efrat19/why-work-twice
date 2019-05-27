@@ -178,7 +178,8 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Providers\UserRepositoryServiceProvider::class,
         App\Providers\HomeworkRepositoryServiceProvider::class,
-        App\Providers\CommentRepositoryServiceProvider::class
+        App\Providers\CommentRepositoryServiceProvider::class,
+        App\Providers\SearchServiceProvider::class
 
     ],
 

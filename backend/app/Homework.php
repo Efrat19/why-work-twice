@@ -33,14 +33,19 @@ class Homework extends Model
         return $this->belongsTo(School::class);
     }
 
-    public function subject()
+    public function subjects()
     {
-        return $this->belongsTo(Subject::class);
+        return $this->belongsToMany(Subject::class);
     }
 
     public function favorites()
     {
         return $this->belongsToMany(User::class);
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class);
     }
 
     public function rating()
@@ -52,4 +57,5 @@ class Homework extends Model
     {
         return $this->rating()->avg('value') ?: 0;
     }
+
 }

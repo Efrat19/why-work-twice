@@ -55,6 +55,11 @@ Route::group([], function() {
     Route::resource('/homework','HomeworkController',
         ['only' => ['index', 'show']]);
 
+    Route::group(['prefix' => 'smart-search'],function (){
+        Route::get('/filters','HomeworkController@getSmartSearchFilters');
+        Route::post('/results','HomeworkController@getSmartSearchResults');
+    });
+
     Route::group(['middleware' => 'auth'], function() {
 
         Route::get('homework/{homework}/favorite/{love}','HomeworkController@toggleFavorite');

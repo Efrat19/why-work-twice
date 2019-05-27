@@ -19,7 +19,6 @@ class CreateHomeworksTable extends Migration
             $table->timestamps();
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('school_id');
-            $table->unsignedInteger('teacher_id');
             $table->string('source');
             $table->string('description');
             $table->unsignedInteger('views')->default(0);

@@ -55,9 +55,9 @@ export default {
     },
   },
   computed: {
-    getSearchAction(){
+    getSearchAction() {
       return window.searchAction;
-    }
+    },
   },
 };
 </script>

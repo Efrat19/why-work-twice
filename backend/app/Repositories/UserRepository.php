@@ -71,6 +71,7 @@ class UserRepository implements UserRepositoryInterface {
         $profile = $user->toArray();
         $profile['school'] = $user->school;
         $profile['subject'] = $user->subject;
+        $profile['teacher'] = $user->teacher;
         $profile['rating'] = $user->getAvgRating();
         $profile['uploads'] = $user->homeworks()->count();
         $profile['canEdit'] = auth()->check() && auth()->user()->can('update', $user);

@@ -75,9 +75,9 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsToMany(Subject::class);
     }
 
-    public function teachers()
+    public function teacher()
     {
-        return $this->belongsToMany(Teacher::class);
+        return $this->belongsTo(Teacher::class);
     }
 
     public function favorites()

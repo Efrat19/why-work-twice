@@ -28,7 +28,7 @@ export default {
   },
   computed: {
     getSummary() {
-        return `user: ${this.result.id}: ${this.result.name}, ${this.result.email}`;
+      return `user: ${this.result.id}: ${this.result.name}, ${this.result.email}`;
     },
   },
 };

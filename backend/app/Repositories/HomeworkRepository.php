@@ -88,6 +88,7 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         $profile['user']= $homework->user;
         $profile['school'] = $homework->school;
         $profile['subject'] = $homework->subject;
+        $profile['teacher'] = $homework->teacher;
         $profile['rating'] = $homework->getAvgRating();
         $profile['loved'] = false;
         if(auth()->check()){
