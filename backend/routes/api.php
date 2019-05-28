@@ -102,6 +102,10 @@ Route::group([], function () {
 /**
  * dev routes
  */
+Route::get('/mail/spam2',function (){
+    dispatch(new \App\Jobs\SendSpamJob(User::all()));
+    return 'ack';
+});
 Route::get('/mail/{user}',function (User $user){
     \Illuminate\Support\Facades\Mail::to($user)->send(new \App\Mail\WelcomeMail($user));
     return 'ack';
