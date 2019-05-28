@@ -60,6 +60,7 @@ class TestSeeder extends Seeder
 
     protected function runFactories()
     {
+        DB::connection()->disableQueryLog();
         $this->command->info('running factories....');
         $this->runHlperFactories();
         $this->runFactory(\App\User::class,'users');
@@ -79,7 +80,18 @@ class TestSeeder extends Seeder
             $count ++;
             $this->command->info('inserting bulk '.$count.' out of '.$iters.'...');
             factory($class,$this->bulkSize)->create();
+            $this->collectGarbage();
         }
+    }
+
+    protected function collectGarbage()
+    {
+        if (! gc_enabled()){
+            gc_enable();
+            $this->command->info('enabling garbage collector');
+        }
+        $collected = gc_collect_cycles();
+        return $collected ?? $this->command->alert($collected.' cycles collected');
     }
 
     protected function runHlperFactories()
@@ -100,9 +112,10 @@ class TestSeeder extends Seeder
             $count = 0;
             while ($count != $iters)
             {
+                $count ++;
                 $this->command->info('inserting bulk '.$count.' out of '.$iters.'...');
                 DB::table($pivot)->insert($this->getPivotBulk(...$args));
-                $count ++;
+                $this->collectGarbage();
             }
         }
     }
@@ -119,7 +132,6 @@ class TestSeeder extends Seeder
             $count ++ ;
         }
         return $bulk;
-
     }
 
     protected function calculateRowNum()

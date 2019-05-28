@@ -19,5 +19,5 @@ interface ISmartSearch {
      * @param array $filters
      * @return mixed
      */
-    public function getResults($resultModel, array $filters);
+    public function getResults($resultModel, array $filters, int $page =1);
 }

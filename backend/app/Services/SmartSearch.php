@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Homework;
+use App\School;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class SmartSearch
@@ -23,7 +25,7 @@ class SmartSearch implements ISmartSearch {
             $model = end($namespace);
             $filter = [
                 'label' => $model,
-                'options' => $related::all()->map(function ($record){
+                'options' => $related::all()->random(100)->map(function ($record){
                     return [
                         'value' => $record->id,
                         'text' => $record->name ?? $record->id,
@@ -36,16 +38,25 @@ class SmartSearch implements ISmartSearch {
         return $filters;
     }
 
-    public function getResults($resultModel, array $filters)
+    public function getResults($resultModel, array $filters,int $page = 1)
     {
-        return Homework::where([
-            ['school_id','LIKE',$filters['School'] ?? '%'],
-            ['teacher_id','LIKE',$filters['Teacher'] ?? '%'],
-            ['user_id','LIKE',$filters['User'] ?? '%'],
-            ['user_id','LIKE',$filters['User'] ?? '%']
-        ])->whereHas('subjects',function ($query) use ($filters){
-            $query->where('id','LIKE',$filters['Subject'] ?? '%');
-        })->get();
+        $query = DB::table('homeworks');
+        if(isset($filters['School'])){
+            $query->where('school_id','=',$filters['School']);
+        }
+        if(isset($filters['Teacher'])){
+            $query->where('teacher_id','=',$filters['Teacher']);
+        }
+        if(isset($filters['user'])){
+            $query->where('user_id','=',$filters['User']);
+        }
+        if(isset($filters['Subject'])){
+            $query->
+//            $query->whereHas('subjects',function ($query) use ($filters){
+//                $query->where('id', '=',  $filters['Subject']);
+//            });
+        }
+        return $query->paginate(50,['*'],'',$page);
 
     }
 }
