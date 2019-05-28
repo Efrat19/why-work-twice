@@ -17,13 +17,13 @@ class TestSeeder extends Seeder
     public function __construct()
     {
         $this->size = [
-            'users' => 10,
-            'homeworks' => 10,
-            'comments' => 10,
-            'rates' => 10,
-            'homework_subject' => 10,
-            'school_teacher' => 10,
-            'subject_teacher' => 10,
+            'users' => 10000,
+            'homeworks' => 100000,
+            'comments' => 300000,
+            'rates' => 3000000,
+            'homework_subject' => 30000,
+            'school_teacher' => 1000,
+            'subject_teacher' => 1000,
         ];
 
 
@@ -62,16 +62,25 @@ class TestSeeder extends Seeder
     {
         $this->command->info('running factories....');
         $this->runHlperFactories();
-        $this->command->info('seeding users table...');
-        factory(App\User::class, $this->size['users'])->create();
-        $this->command->info('seeding homeworks table...');
-        factory(App\Homework::class, $this->size['homeworks'])->create();
-        $this->command->info('seeding comments table...');
-        factory(App\Comment::class, $this->size['comments'])->create();
-        $this->command->info('seeding rates table...');
-        factory(App\Rate::class, $this->size['rates'])->create();
+        $this->runFactory(\App\User::class,'users');
+        $this->runFactory(\App\Homework::class,'homeworks');
+        $this->runFactory(\App\Comment::class,'comments');
+        $this->runFactory(\App\Rate::class,'rates');
     }
 
+
+    protected function runFactory($class,$table)
+    {
+        $this->command->info('seeding '.$table.' table...');
+        $iters = $this->size[$table] / $this->bulkSize;
+        $count = 0;
+        while ($count != $iters)
+        {
+            $count ++;
+            $this->command->info('inserting bulk '.$count.' out of '.$iters.'...');
+            factory($class,$this->bulkSize)->create();
+        }
+    }
 
     protected function runHlperFactories()
     {

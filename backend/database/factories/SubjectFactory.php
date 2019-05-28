@@ -7,6 +7,6 @@ use Faker\Generator as Faker;
 
 $factory->define(Subject::class, function (Faker $faker) {
     return [
-        'name' => $faker->sentence($faker->numberBetween(3,6)),
+        'name' => $faker->sentence($faker->numberBetween(3,6)).$faker->numberBetween(),
     ];
 });
