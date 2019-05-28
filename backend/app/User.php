@@ -19,7 +19,7 @@ class User extends Authenticatable implements JWTSubject
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'school_id', 'subject_id', 'permission_id', 'image', 'is_subscribed', 'remember_token', 'api_token'
+        'name', 'email', 'password', 'school_id', 'subject_id', 'teacher_id', 'permission_id', 'image', 'is_subscribed', 'remember_token', 'api_token'
     ];
 
     /**
@@ -70,9 +70,9 @@ class User extends Authenticatable implements JWTSubject
         return $this->belongsTo(School::class);
     }
 
-    public function subjects()
+    public function subject()
     {
-        return $this->belongsToMany(Subject::class);
+        return $this->belongsTo(Subject::class);
     }
 
     public function teacher()

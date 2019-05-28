@@ -103,10 +103,8 @@ Route::group([], function () {
  * dev routes
  */
 Route::get('/mail/{user}',function (User $user){
-    Mail::send('emails.welcome',['user',$user],function($message) use ($user){
-        $message->to($user->email)->subject("Email Testing with Laravel");
-        $message->from('clhg52@gmail.com','Creative Losser Hopeless Genius');
-    });
+    \Illuminate\Support\Facades\Mail::to($user)->send(new \App\Mail\WelcomeMail($user));
+    return 'ack';
 });
 
 Route::get('/insertbasic',function (){

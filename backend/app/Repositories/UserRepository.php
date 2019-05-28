@@ -3,8 +3,10 @@
 namespace App\Repositories;
 
 
+use App\Events\UserRegistered;
 use App\School;
 use App\Subject;
+use App\Teacher;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
@@ -23,13 +25,16 @@ class UserRepository implements UserRepositoryInterface {
     {
         $school = School::firstOrCreate(['name' => $request['school']]);
         $subject = Subject::firstOrCreate(['name' => $request['subject']]);
+        $teacher = Teacher::firstOrCreate(['name' => 'Dr. bkzaflvu']);
         $user = User::create([
             'name' => $request['name'],
             'school_id' => $school->id,
             'subject_id' => $subject->id,
+            'teacher_id' => $teacher->id,
             'email' => $request['email'],
             'password' => Hash::make($request['password'])
         ]);
+        event(new UserRegistered($user));
         return $this->getProfile($user);
     }
 
