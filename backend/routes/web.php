@@ -88,7 +88,7 @@ dump('gc:'.
 
     die;
 
-
+//    `User::all('id')->random()->id` or even `User::pluck('id')->random()`
 
     \DB::enableQueryLog();
     $a = \App\User::pluck('id');

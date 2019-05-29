@@ -111,6 +111,12 @@ Route::get('/mail/{user}',function (User $user){
     return 'ack';
 });
 
+Route::get('/slack',function (){
+    dump(env('SLACK_HOOK'));
+    \Notification::route('slack', env('SLACK_HOOK'))->notify(new \App\Notifications\AppearedOnSearch());
+    return 'ack';
+});
+
 Route::get('/insertbasic',function (){
     Artisan::call('migrate', ["--force"=> true ]);
     User::create(
