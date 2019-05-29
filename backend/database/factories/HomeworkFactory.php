@@ -7,7 +7,8 @@ use Faker\Generator as Faker;
 
 
 
-$factory->define(Homework::class, function (Faker $faker, \App\Services\SeederStore $seederStore){
+$factory->define(Homework::class, function (Faker $faker){
+    $seederStore = app()->get('App\Services\SeederStore');
     return [
         'school_id' => $seederStore->getRandomSchoolsId(),
         'teacher_id' =>  $seederStore->getRandomTeachersId(),

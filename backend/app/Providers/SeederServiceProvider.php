@@ -17,6 +17,7 @@ class SeederServiceProvider extends ServiceProvider
         $this->app->singleton('App\Services\SeederStore',function () {
             return new SeederStore();
         });
+
     }
 
     /**

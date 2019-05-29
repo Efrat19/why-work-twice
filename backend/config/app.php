@@ -179,7 +179,8 @@ return [
         App\Providers\UserRepositoryServiceProvider::class,
         App\Providers\HomeworkRepositoryServiceProvider::class,
         App\Providers\CommentRepositoryServiceProvider::class,
-        App\Providers\SearchServiceProvider::class
+        App\Providers\SearchServiceProvider::class,
+        App\Providers\SeederServiceProvider::class,
 
     ],
 

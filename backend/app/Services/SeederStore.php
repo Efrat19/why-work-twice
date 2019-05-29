@@ -30,7 +30,7 @@ class SeederStore {
      */
     public function getRandomUsersId()
     {
-        return $this->users;
+        return $this->users->random();
     }
 
     /**
@@ -38,7 +38,7 @@ class SeederStore {
      */
     public function updateUsers(): void
     {
-        $this->users = User::all('id')->pluck('id');
+        $this->users = User::pluck('id');
     }
 
     /**
@@ -54,7 +54,7 @@ class SeederStore {
      */
     public function updateSchools(): void
     {
-        $this->schools = School::all('id')->pluck('id');
+        $this->schools = School::pluck('id');
     }
 
     /**
@@ -70,7 +70,7 @@ class SeederStore {
      */
     public function updateSubjects(): void
     {
-        $this->subjects = Subject::all('id')->pluck('id');
+        $this->subjects = Subject::pluck('id');
     }
 
     /**
@@ -86,7 +86,7 @@ class SeederStore {
      */
     public function updateTeachers(): void
     {
-        $this->teachers = Teacher::all('id')->pluck('id');
+        $this->teachers = Teacher::pluck('id');
     }
 
     /**
@@ -102,7 +102,7 @@ class SeederStore {
      */
     public function updateHomeworks(): void
     {
-        $this->homeworks = Homework::all('id')->pluck('id');
+        $this->homeworks = Homework::pluck('id');
     }
 
 }

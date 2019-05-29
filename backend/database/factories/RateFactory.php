@@ -6,9 +6,10 @@ use App\Rate;
 use Faker\Generator as Faker;
 
 $factory->define(Rate::class, function (Faker $faker) {
+    $seederStore = app()->get('App\Services\SeederStore');
     return [
-        'user_id' => \App\User::all('id')->random()->id,
-        'homework_id' => \App\Homework::all('id')->random()->id,
+        'user_id' => $seederStore->getRandomUsersId(),
+        'homework_id' => $seederStore->getRandomHomeworksId(),
         'value' => $faker->numberBetween(1,5)
     ];
 });
