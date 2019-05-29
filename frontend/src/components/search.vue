@@ -49,9 +49,6 @@ export default {
     },
   },
   computed: {
-    getResultType() {
-      return `${this.resultType}SearchResult`;
-    },
   },
 };
 </script>

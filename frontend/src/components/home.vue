@@ -3,10 +3,10 @@
   <section class="home">
     <h1>home Component</h1>
     <!--<search url="/search/homeworks" result-type="homework"></search>-->
-    <search-bar result-type="homework" url="/search/homework" @searchInput="freeSearch"></search-bar>
+    <search-bar result-type="homework" url="/search/homeworks" @searchInput="freeSearch"></search-bar>
     <button class="wwt-btn" @click="toggleSmartSearch">smart search</button>
     <smart-search v-if="useSmartSearch" @smartSearchGo="smartSearch" :filters="filters"></smart-search>
-
+    <homework-search-result v-for="(result,index) in results" :key="index" :result="result"></homework-search-result>
     <div class="wwt-status" v-if="error">
       {{error}}
     </div>
@@ -14,18 +14,20 @@
 </template>
 
 <script>
-import search from './search.vue';
+  import _ from 'lodash';
 import searchBar from './search-bar.vue';
 import smartSearch from './smart-search.vue';
 import apiService from '../services/apiService';
+import homeworkSearchResult from './homework-search-result.vue';
 
 export default {
   name: 'home',
   props: [],
   components: {
-    search,
+    // search,
     smartSearch,
     searchBar,
+    homeworkSearchResult,
   },
   mounted() {
 
@@ -35,6 +37,7 @@ export default {
       error: 0,
       apiService,
       filters: [],
+      results: [],
       useSmartSearch: false,
     };
   },

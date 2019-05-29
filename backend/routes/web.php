@@ -11,6 +11,15 @@
 |
 */
 
+
+Route::get('/mem',function (){
+    \DB::enableQueryLog();
+    $a = \App\User::all('id')->pluck('id');
+
+    dd( \DB::getQueryLog(),$a);
+
+});
+
 Auth::routes(['register' => false]);
 
 Route::redirect('/','login');

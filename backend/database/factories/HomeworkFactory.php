@@ -5,18 +5,13 @@
 use App\Homework;
 use Faker\Generator as Faker;
 
-$factory->define(Homework::class, function (Faker $faker) {
-    return [
 
-        'school_id' => function () {
-            return \App\School::all()->random()->id;
-        },
-        'teacher_id' => function () {
-            return \App\Teacher::all()->random()->id;
-        },
-        'user_id' => function () {
-            return \App\User::all()->random()->id;
-        },
+
+$factory->define(Homework::class, function (Faker $faker, \App\Services\SeederStore $seederStore){
+    return [
+        'school_id' => $seederStore->getRandomSchoolsId(),
+        'teacher_id' =>  $seederStore->getRandomTeachersId(),
+        'user_id' =>  $seederStore->getRandomUsersId(),
         'source' => \Illuminate\Support\Str::random(10),
         'description' => $faker->sentence(4),
         'views' => $faker->numberBetween(0, 1000000),

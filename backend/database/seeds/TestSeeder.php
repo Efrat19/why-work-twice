@@ -13,9 +13,11 @@ class TestSeeder extends Seeder
     protected $size;
     protected $pivotTables;
     protected $bulkSize;
+    protected $seederStore;
 
-    public function __construct()
+    public function __construct(\App\Services\SeederStore $seederStore)
     {
+        $this->seederStore = $seederStore;
         $this->size = [
             'users' => 10000,
             'homeworks' => 100000,
@@ -33,7 +35,7 @@ class TestSeeder extends Seeder
             'subject_teacher' => [\App\Subject::class,\App\Teacher::class,'subject_id','teacher_id'],
         ];
 
-        $this->bulkSize = 1000;
+        $this->bulkSize = 500;
     }
 
     public function run()
@@ -63,8 +65,16 @@ class TestSeeder extends Seeder
         DB::connection()->disableQueryLog();
         $this->command->info('running factories....');
         $this->runHlperFactories();
+        $this->seederStore->updateSchools();
+        $this->seederStore->updateSubjects();
+        $this->seederStore->updateTeachers();
         $this->runFactory(\App\User::class,'users');
+        $this->seederStore->updateUsers();
+        $this->seederStore->updateSchools();
+        $this->seederStore->updateSubjects();
+        $this->seederStore->updateTeachers();
         $this->runFactory(\App\Homework::class,'homeworks');
+        $this->seederStore->updateHomeworks();
         $this->runFactory(\App\Comment::class,'comments');
         $this->runFactory(\App\Rate::class,'rates');
     }
@@ -86,6 +96,8 @@ class TestSeeder extends Seeder
 
     protected function collectGarbage()
     {
+        $memory = (int)((memory_get_usage()/memory_get_usage(true))*100);
+        $this->command->alert('memory usage: '.$memory.'%');
         if (! gc_enabled()){
             gc_enable();
             $this->command->info('enabling garbage collector');

@@ -73,7 +73,7 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
             $results = Homework::where('description','LIKE', '%'.$query.'%')
                 ->orWhereHas('school', function ($records) use ($query){
                     $records->where('name', 'like',  '%'.$query.'%');
-                })->orWhereHas('subject', function ($records) use ($query) {
+                })->orWhereHas('subjects', function ($records) use ($query) {
                     $records->where('name', 'like',  '%'.$query.'%');
                 })->get();
         }
@@ -87,7 +87,7 @@ class HomeworkRepository implements HomeworkRepositoryInterface {
         $profile = $homework->toArray();
         $profile['user']= $homework->user;
         $profile['school'] = $homework->school;
-        $profile['subject'] = $homework->subject;
+        $profile['subjects'] = $homework->subjects()->get();
         $profile['teacher'] = $homework->teacher;
         $profile['rating'] = $homework->getAvgRating();
         $profile['loved'] = false;

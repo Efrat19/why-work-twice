@@ -51,7 +51,7 @@ class SmartSearch implements ISmartSearch {
             $query->where('user_id','=',$filters['User']);
         }
         if(isset($filters['Subject'])){
-            $query->
+//            $query->
 //            $query->whereHas('subjects',function ($query) use ($filters){
 //                $query->where('id', '=',  $filters['Subject']);
 //            });

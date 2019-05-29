@@ -6,6 +6,7 @@
 </template>
 
 <script >
+import _ from 'lodash';
 
 export default {
   name: 'search',
@@ -28,7 +29,10 @@ export default {
     };
   },
   methods: {
-    async searchInput() {
+    searchInput() {
+      _.debounce(this.emitSearchInput, 1000)();
+    },
+    emitSearchInput() {
       this.$emit('searchInput', `${this.url}?q=${this.bar}`);
     },
   },
