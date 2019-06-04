@@ -16,19 +16,19 @@ services:
       context: backend
       dockerfile: Dockerfile
     ports:
-    - 8000:8000
+    - 80:8000
     volumes:
       - "./backend:/app"
-    depends_on:
-      - database
-  database:
-    image: mysql:5.7
-    environment:
-      - MYSQL_ROOT_PASSWORD=secret
-      - MYSQL_DATABASE=wwt
-      - MYSQL_USER=homestead
-      - MYSQL_PASSWORD=secret
-    volumes:
-    - db:/var/lib/mysql
-volumes:
-  db:
+#    depends_on:
+#     - database
+#  database:
+#    image: mysql:5.7
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=secret
+#      - MYSQL_DATABASE=wwt
+#      - MYSQL_USER=homestead
+#      - MYSQL_PASSWORD=secret
+#    volumes:
+#    - db:/var/lib/mysql
+#volumes:
+#  db:
