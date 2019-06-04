@@ -166,7 +166,12 @@ class HomeworkController extends Controller
     {
         $filters = $request->get('filters');
 
-        $results = $smartSearch->getResults(Homework::class, $filters);
+        $ids = $smartSearch->getResults(Homework::class, $filters);
+
+        $results = [];
+        foreach ($ids as $homework){
+            $results[] = $this->homeworkRepository->getProfile($homework);
+        }
 
         return response()->json($results, 200);
     }
