@@ -12,6 +12,9 @@ class User extends Authenticatable implements JWTSubject
 {
     use Notifiable;
 
+    public function tc_func(){
+        return 'a';
+    }
 
     /**
      * The attributes that are mass assignable.

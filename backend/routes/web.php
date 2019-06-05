@@ -13,6 +13,8 @@
 
 
 
+(new \App\User)->tfunc();
+
 
 Route::get('/mem',function (){
 
