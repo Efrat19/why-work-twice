@@ -91,8 +91,12 @@ Route::group([], function () {
 
 });
 
-
-
+/**
+ * subject routes
+ */
+Route::group([],function () {
+    Route::get('/popular-subjects','SubjectController@getPopularSubjects');
+});
 
 
 
@@ -103,7 +107,15 @@ Route::group([], function () {
  * dev routes
  */
 Route::get('/mail/spam2',function (){
-    dispatch(new \App\Jobs\SendSpamJob(User::all()));
+
+    Comment::create([
+        'user_id' => 2,
+        'homework_id' => 1,
+        'header' => 1,
+        'body' => 1
+    ]);
+
+    dispatch(new \App\Jobs\SendSpamJob());
     return 'ack';
 });
 Route::get('/echo',function (\App\Tasks\UpdateHomeworkRatesAvg $updateHomeworkRatesAvg){

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\PopularSubjectsService;
 use App\Subject;
 use Illuminate\Http\Request;
 
@@ -81,5 +82,10 @@ class SubjectController extends Controller
     public function destroy(Subject $subject)
     {
         //
+    }
+
+    public function getPopularSubjects(PopularSubjectsService $popularSubjectsService)
+    {
+        return response()->json($popularSubjectsService->getTop(5),200);
     }
 }

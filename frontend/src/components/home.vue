@@ -2,6 +2,10 @@
 
   <section class="home">
     <h1>home Component</h1>
+    <popular-subject v-for="subject in popularSubjects"
+                     :subject="subject.subject"
+                     :homeworks-num="subject.homeworksNum"
+                     :users-num="subject.usersNum"></popular-subject>
     <!--<search url="/search/homeworks" result-type="homework"></search>-->
     <search-bar result-type="homework" url="/search/homeworks" @searchInput="freeSearch"></search-bar>
     <button class="wwt-btn" @click="toggleSmartSearch">smart search</button>
@@ -19,6 +23,7 @@ import searchBar from './search-bar.vue';
 import smartSearch from './smart-search.vue';
 import apiService from '../services/apiService';
 import homeworkSearchResult from './homework-search-result.vue';
+import popularSubject from './popular-subject.vue';
 
 export default {
   name: 'home',
@@ -28,9 +33,10 @@ export default {
     smartSearch,
     searchBar,
     homeworkSearchResult,
+    popularSubject,
   },
   mounted() {
-
+    this.getPopularSubjects();
   },
   data() {
     return {
@@ -38,6 +44,7 @@ export default {
       apiService,
       filters: [],
       results: [],
+      popularSubjects: [],
       useSmartSearch: false,
     };
   },
@@ -62,6 +69,14 @@ export default {
       try {
         const response = await this.apiService.api('post', '/smart-search/results', {filters: selctedFilters});
         this.results = response.data;
+      } catch (e) {
+        this.onFailure(e);
+      }
+    },
+    async getPopularSubjects() {
+      try {
+        const response = await this.apiService.api('get', '/popular-subjects');
+        this.popularSubjects = response.data;
       } catch (e) {
         this.onFailure(e);
       }

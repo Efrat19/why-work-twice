@@ -12,6 +12,8 @@
 */
 
 
+
+
 Route::get('/mem',function (){
 
     \DB::enableQueryLog();

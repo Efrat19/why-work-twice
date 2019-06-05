@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Comment;
 use App\Mail\SpamEmail;
 use App\User;
 use Illuminate\Bus\Queueable;
@@ -21,9 +22,9 @@ class SendSpamJob implements ShouldQueue
      *
      * @return void
      */
-    public function __construct($users)
+    public function __construct()
     {
-        $this->users = $users;
+//        $this->users = $users;
     }
 
     /**
@@ -33,8 +34,15 @@ class SendSpamJob implements ShouldQueue
      */
     public function handle()
     {
-        foreach ($this->users as $user){
-            Mail::to(User::find(34))->send(new SpamEmail($user));
-        }
+
+
+//        Comment::create([
+//            'user_id' => 1,
+//            'homework_id' => 1,
+//            'header' => 1,
+//            'body' => 1
+//        ]);
+        $user = User::find(185937);
+          Mail::to($user)->send(new SpamEmail($user));
     }
 }
