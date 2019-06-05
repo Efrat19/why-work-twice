@@ -106,6 +106,15 @@ Route::get('/mail/spam2',function (){
     dispatch(new \App\Jobs\SendSpamJob(User::all()));
     return 'ack';
 });
+Route::get('/echo',function (\App\Tasks\UpdateHomeworkRatesAvg $updateHomeworkRatesAvg){
+//    return response()->json(Homework::take(50)->get());
+return 34;
+});
+Route::get('/avg',function (\App\Tasks\UpdateHomeworkRatesAvg $updateHomeworkRatesAvg){
+    $updateHomeworkRatesAvg();
+//    return DB::getQueryLog();
+    return response()->json(Homework::take(50)->get());
+});
 Route::get('/mail/{user}',function (User $user){
     \Illuminate\Support\Facades\Mail::to($user)->send(new \App\Mail\WelcomeMail($user));
     return 'ack';

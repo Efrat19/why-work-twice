@@ -63,12 +63,13 @@ class SmartSearch implements ISmartSearch
             $query->where('user_id', '=', $filters['User']);
         }
         if (isset($filters['Rating'])) {
-            $query
-                ->join((DB::raw(
-                    '(select homework_id,avg(value) as avg_value from rates group by homework_id) as rates_avg')),
-                    'homeworks.id','=','rates_avg.homework_id')
-                ->join('rates', 'homeworks.id','=', 'rates.homework_id')
-                ->where('rates_avg.avg_value','>=',$filters['Rating']);
+//            $query
+//                ->join((DB::raw(
+//                    '(select homework_id,avg(value) as avg_value from rates group by homework_id) as rates_avg')),
+//                    'homeworks.id','=','rates_avg.homework_id')
+//                ->join('rates', 'homeworks.id','=', 'rates.homework_id')
+//                ->where('rates_avg.avg_value','>=',$filters['Rating']);
+            $query->where('rates_avg','>=', $filters['Rating']);
         }
 
         /*
